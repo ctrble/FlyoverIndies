@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <title>Flyover Indies</title>
+  </head>
+  <body>
+    <script>
+
+      window.fbAsyncInit = function () {
+        FB.init({
+          appId: '1757685217787242',
+          autoLogAppEvents: true,
+          xfbml: true,
+          version: 'v2.11'
+        });
+
+        // Broadcast an event when FB object is ready
+        var fbInitEvent = new Event('FBObjectReady');
+        document.dispatchEvent(fbInitEvent);
+      };
+
+      (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+
+      // Load the required SDK asynchronously for facebook, google and linkedin
+      // window.fbAsyncInit = function() {
+      //
+      //   window.FB.init({
+      //     appId            : '1757685217787242',
+      //     autoLogAppEvents : true,
+      //     xfbml            : true,
+      //     version          : 'v2.11'
+      //   });
+      //
+      //   window.FB.api(
+      //     '/1288441214569997/events',
+      //     'GET',
+      //     {"event_state_filter<{published}>,time_filter":"upcoming"},
+      //     function(response) {
+      //       if (response && !response.error) {
+      //         /* handle the result */
+      //       }
+      //     }
+      //   );
+      // };
+      //
+      // (function(d, s, id){
+      //    var js, fjs = d.getElementsByTagName(s)[0];
+      //    if (d.getElementById(id)) {return;}
+      //    js = d.createElement(s); js.id = id;
+      //    js.src = "https://connect.facebook.net/en_US/sdk.js";
+      //    fjs.parentNode.insertBefore(js, fjs);
+      //  }(document, 'script', 'facebook-jssdk'));
+
+      // window.fbAsyncInit = function() {
+      //
+      //   FB.init({
+      //     appId            : '1757685217787242',
+      //     autoLogAppEvents : true,
+      //     xfbml            : true,
+      //     version          : 'v2.11'
+      //   });
+      // };
+      //
+      // (function(d, s, id){
+      //    var js, fjs = d.getElementsByTagName(s)[0];
+      //    if (d.getElementById(id)) {return;}
+      //    js = d.createElement(s); js.id = id;
+      //    js.src = "https://connect.facebook.net/en_US/sdk.js";
+      //    fjs.parentNode.insertBefore(js, fjs);
+      //  }(document, 'script', 'facebook-jssdk'));
+
+    </script>
+    <div id="root"></div>
+  </body>
+</html>
