@@ -6,22 +6,51 @@
 @import "bulma/bulma-custom-1";
 
 // 2. Set your own initial variables
-// Update blue
-$blue: #72d0eb;
-// Add pink and its invert
-$pink: #ffb3b3;
-$pink-invert: #fff;
-// Add a serif family
-$family-serif: "Merriweather", "Georgia", serif;
+$grey-darker:  hsl(0, 0%, 20%) !default
+$white-ter:    hsl(0, 0%, 94%) !default
+
+$orange:       hsl(12,  65%, 99%) !default;
+$yellow:       hsl(42,  48%, 99%) !default;
+// $green:        hsl(141, 71%,  48%) !default;
+// $turquoise:    hsl(171, 100%, 41%) !default;
+// $cyan:         hsl(204, 86%,  53%) !default;
+$blue:         hsl(211, 100%,  99%) !default;
+// $purple:       hsl(271, 100%, 71%) !default;
+// $red:          hsl(348, 100%, 61%) !default;
 
 // 3. Set the derived variables
-// Use the new pink as the primary color
-$primary: $pink;
-$primary-invert: $pink-invert;
-// Use the existing orange as the danger color
-$danger: $orange;
-// Use the new serif family
-$family-primary: $family-serif;
+$primary: $blue !default;
+
+// $info: $cyan !default;
+// $success: $green !default;
+// $warning: $yellow !default;
+// $danger: $red !default;
+
+// $light: $white-ter !default;
+// $dark: $grey-darker !default;
+
+// $background: $white-ter !default;
+
+// $border: $grey-lighter !default;
+// $border-hover: $grey-light !default;
+
+// $text: $grey-dark !default;
+// $text-invert: findColorInvert($text) !default;
+// $text-light: $grey !default;
+// $text-strong: $grey-darker !default;
+
+// $link: $blue !default;
+// $link-invert: $blue-invert !default;
+// $link-visited: $purple !default;
+
+// $link-hover: $grey-darker !default;
+// $link-hover-border: $grey-light !default;
+
+// $link-focus: $grey-darker !default;
+// $link-focus-border: $blue !default;
+
+// $link-active: $grey-darker !default;
+// $link-active-border: $grey-dark !default;
 
 // 4. Setup your Custom Colors
 $linkedin: #0077b5;

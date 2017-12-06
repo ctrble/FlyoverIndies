@@ -5,7 +5,7 @@ import {
   HashRouter
 } from 'react-router-dom';
 import Home from './Home';
-import Stuff from './Stuff';
+import About from './About';
 import Contact from './Contact';
 
 class Main extends Component {
@@ -15,14 +15,14 @@ class Main extends Component {
       <HashRouter>
         <div>
           <h1>Flyover Indies</h1>
-          <ul className='header'>
-            <li><NavLink exact to='/'>Home</NavLink></li>
-            <li><NavLink to='/stuff'>Stuff</NavLink></li>
-            <li><NavLink to='/contact'>Contact</NavLink></li>
-          </ul>
+          <nav className='navbar is-fixed-top'>
+            <NavLink className='navbar-item' exact to='/'>Home</NavLink>
+            <NavLink className='navbar-item' to='/about'>About</NavLink>
+            <NavLink className='navbar-item' to='/contact'>Contact</NavLink>
+          </nav>
           <div className='content'>
             <Route exact path='/' component={Home}/>
-            <Route path='/stuff' component={Stuff}/>
+            <Route path='/about' component={About}/>
             <Route path ='/contact' component={Contact}/>
           </div>
         </div>
