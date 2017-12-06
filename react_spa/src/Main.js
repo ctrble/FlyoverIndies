@@ -16,9 +16,7 @@ class Main extends Component {
     return (
       <HashRouter>
         <div>
-          <h1>Flyover Indies</h1>
-          <nav className='navbar is-fixed-top'>
-
+          <nav className='navbar is-fixed-top is-light'>
             <div className='navbar-brand'>
               <NavLink className='navbar-item' exact to='/'><img src={logo} alt="Logo" /></NavLink>
               <div className="navbar-burger burger" data-target="mainNavbar">
@@ -27,7 +25,6 @@ class Main extends Component {
                 <span></span>
               </div>
             </div>
-
             <div id="mainNavbar" className="navbar-menu">
               <div className="navbar-end">
                 <NavLink className='navbar-item' exact to='/'>Home</NavLink>
@@ -35,13 +32,12 @@ class Main extends Component {
                 <NavLink className='navbar-item' to='/contact'>Contact</NavLink>
               </div>
             </div>
-
           </nav>
-          <div className='content'>
+          <section className='section'>
             <Route exact path='/' component={Home}/>
             <Route path='/about' component={About}/>
             <Route path ='/contact' component={Contact}/>
-          </div>
+          </section>
         </div>
       </HashRouter>
     );
