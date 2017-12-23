@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Events from './Events';
 
 class Home extends React.Component {
 
@@ -7,6 +8,9 @@ class Home extends React.Component {
       <div className="container">
         <h1 className='title'>Hello</h1>
         <p>Here&#8217;s some filler text and stuff.</p>
+
+        <Events />
+
       </div>
     );
   }
