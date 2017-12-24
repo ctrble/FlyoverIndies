@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+// import Events from './Events';
 import Button from './Button';
 
-class Home extends React.Component {
+class Login extends React.Component {
 
   constructor(props) {
     super(props);
     this.checkLoginState = this.checkLoginState.bind(this);
     this.statusChangeCallback = this.statusChangeCallback.bind(this);
-    this.getEvents = this.getEvents.bind(this);
+    // this.getEvents = this.getEvents.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -24,7 +25,8 @@ class Home extends React.Component {
       //JS SDK initialized, now you can use it
       window.FB.XFBML.parse();
 
-      this.getEvents();
+      //returned at the very beginning
+      // this.getEvents();
 
       window.FB.Event.subscribe('auth.authResponseChange', function(response) {
         this.checkLoginState();
@@ -76,19 +78,19 @@ class Home extends React.Component {
     }
   }
 
-  getEvents() {
-    window.FB.api(
-      '/1288441214569997/events',
-      'GET',
-      {},
-      function (response) {
-        if (response) {
-          console.log('events ' + response);
-          document.getElementById('events-list').innerHTML = response;
-        }
-      }
-    );
-  }
+  // getEvents() {
+  //   window.FB.api(
+  //     '/1288441214569997/events',
+  //     'GET',
+  //     {},
+  //     function (response) {
+  //       if (response) {
+  //         console.log('events ' + response);
+  //         document.getElementById('events-list').innerHTML = response;
+  //       }
+  //     }
+  //   );
+  // }
 
   handleClick() {
     window.FB.getLoginStatus(function(response) {
@@ -112,9 +114,9 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <h1 className='title'>Hello</h1>
-        <p>Here&#8217;s some filler text and stuff.</p>
+      <div className="">
+
+        <h1 className='title'>Login with Facebook</h1>
 
         <div id='status'></div>
 
@@ -124,7 +126,34 @@ class Home extends React.Component {
           </span>
         </Button>
 
-        <div id='events-list'></div>
+      </div>
+    );
+  }
+
+}
+
+class Home extends React.Component {
+
+  render() {
+    return (
+      <div className="container">
+
+        <div className="tile is-ancestor">
+          <div className="tile is-4 is-vertical is-parent">
+            <div className="tile is-child box">
+              <h1 className='title'>Hello</h1>
+              <p>Here&#8217;s some filler text and stuff.</p>
+            </div>
+            <div className="tile is-child box">
+              <Login />
+            </div>
+          </div>
+          <div className="tile is-parent">
+            <div className="tile is-child box">
+              <h1 className="title">Events</h1>
+            </div>
+          </div>
+        </div>
 
       </div>
     );
