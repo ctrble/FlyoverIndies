@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 // import Events from './Events';
+import MediaObject from './MediaObject';
+import Card from './Card';
 import Button from './Button';
 
 class Login extends React.Component {
@@ -116,9 +118,9 @@ class Login extends React.Component {
     return (
       <div className="">
 
-        <h1 className='title'>Login with Facebook</h1>
+        <p className='title'>Login with Facebook</p>
 
-        <div id='status'></div>
+        <p id='status' className="subtitle"></p>
 
         <Button onClick={this.handleClick}>
           <span className="">
@@ -139,20 +141,69 @@ class Home extends React.Component {
       <div className="container">
 
         <div className="tile is-ancestor">
-          <div className="tile is-4 is-vertical is-parent">
-            <div className="tile is-child box">
-              <h1 className='title'>Hello</h1>
-              <p>Here&#8217;s some filler text and stuff.</p>
+          <div className="tile is-vertical is-8">
+            <div className="tile">
+              <div className="tile is-parent is-vertical">
+
+                <article className="tile is-child box">
+                  <p className="title">Hi</p>
+                  <p className="subtitle">Intro</p>
+                </article>
+
+                <article className="tile is-child box">
+                  <Login />
+                </article>
+
+              </div>
+              <div className="tile is-parent">
+
+                <article className="tile is-child box">
+                  <p className="title">Next Event</p>
+                  <p className="subtitle">Event Info</p>
+                  <Card />
+                </article>
+
+              </div>
             </div>
-            <div className="tile is-child box">
-              <Login />
+            <div className="tile is-parent">
+
+              <article className="tile is-child box">
+                <p className="title">Upcoming Events</p>
+                <p className="subtitle">Lots of Event Info</p>
+                <div className="content">
+                  <MediaObject />
+                  <MediaObject />
+                  <MediaObject />
+                </div>
+              </article>
+
             </div>
           </div>
+
           <div className="tile is-parent">
-            <div className="tile is-child box">
-              <h1 className="title">Events</h1>
-            </div>
+            <article className="tile is-child box">
+              <div className="content">
+                <p className="title">About</p>
+                <p className="subtitle">Info</p>
+                <div className="content">
+                </div>
+              </div>
+            </article>
           </div>
+        </div>
+
+        <div className="tile is-ancestor">
+          <div className="tile is-parent">
+            <article className="tile is-child box">
+              <div className="content">
+                <p className="title">Resources</p>
+                <p className="subtitle">List</p>
+                <div className="content">
+                </div>
+              </div>
+            </article>
+          </div>
+
         </div>
 
       </div>
