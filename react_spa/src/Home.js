@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
+import Button from './Button';
 
 class Home extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      loggedIn: false
-    }
     this.checkLoginState = this.checkLoginState.bind(this);
     this.statusChangeCallback = this.statusChangeCallback.bind(this);
     this.getEvents = this.getEvents.bind(this);
@@ -60,10 +58,6 @@ class Home extends React.Component {
     console.log('statusChangeCallback ' + response);
     if (response.status === 'connected') {
 
-      this.setState({
-        loggedIn: true
-      });
-
       window.FB.api('/me', function(response) {
         if (response && !response.error) {
           document.getElementById('status').innerHTML =
@@ -73,17 +67,9 @@ class Home extends React.Component {
 
     } else if (response.status === 'not_authorized') {
 
-      this.setState({
-        loggedIn: false
-      });
-
       document.getElementById('status').innerHTML = 'Please log ' +
         'into this app.';
     } else {
-
-      this.setState({
-        loggedIn: false
-      });
 
       document.getElementById('status').innerHTML = 'Please log ' +
       'into Facebook.';
@@ -132,9 +118,11 @@ class Home extends React.Component {
 
         <div id='status'></div>
 
-        <button onClick={this.handleClick}>
-          Button
-        </button>
+        <Button onClick={this.handleClick}>
+          <span className="">
+            Click Me
+          </span>
+        </Button>
 
         <div id='events-list'></div>
 
