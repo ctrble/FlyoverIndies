@@ -10,7 +10,7 @@ class Login extends React.Component {
     super(props);
     this.checkLoginState = this.checkLoginState.bind(this);
     this.statusChangeCallback = this.statusChangeCallback.bind(this);
-    // this.getEvents = this.getEvents.bind(this);
+    this.getEvents = this.getEvents.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -62,8 +62,11 @@ class Login extends React.Component {
     console.log('statusChangeCallback ' + response);
     if (response.status === 'connected') {
 
+      this.getEvents();
+
       window.FB.api('/me', function(response) {
         if (response && !response.error) {
+
           document.getElementById('status').innerHTML =
             'Thanks for logging in, ' + response.name + '!';
         }
@@ -80,19 +83,27 @@ class Login extends React.Component {
     }
   }
 
-  // getEvents() {
-  //   window.FB.api(
-  //     '/1288441214569997/events',
-  //     'GET',
-  //     {},
-  //     function (response) {
-  //       if (response) {
-  //         console.log('events ' + response);
-  //         document.getElementById('events-list').innerHTML = response;
-  //       }
-  //     }
-  //   );
-  // }
+  getEvents() {
+    window.FB.api(
+      '/1288441214569997/events',
+      'GET',
+      {},
+      function (response) {
+        if (response) {
+          if (response.hasOwnProperty("error")) {
+            alert("Error: " + response.error.message);
+          } else {
+            //Success!
+            var eventData = response;
+            console.log(eventData.data[0].description);
+            document.getElementById('events-list').innerHTML = eventData.data[0].description;
+          }
+
+
+        }
+      }
+    );
+  }
 
   handleClick() {
     window.FB.getLoginStatus(function(response) {
@@ -160,6 +171,7 @@ class Home extends React.Component {
                 <article className="tile is-child box">
                   <p className="title">Next Event</p>
                   <p className="subtitle">Event Info</p>
+                  <p id='events-list'></p>
                   <Card />
                 </article>
 
