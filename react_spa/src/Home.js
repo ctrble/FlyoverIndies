@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import About from './About';
 import Events from './Events';
-import MediaObject from './MediaObject';
+import Resources from './Resources';
 import Button from './Button';
 
 (function(d, s, id) {
@@ -17,7 +17,6 @@ class Home extends React.Component {
   render() {
     return (
       <div className="container">
-
         <div className="tile is-ancestor">
           <div className="tile is-8 is-vertical is-parent">
             <div className="tile is-child box">
@@ -31,8 +30,7 @@ class Home extends React.Component {
 
               <article className="tile is-child">
                 <div className="content">
-                  <p className="title">Game Making Resources</p>
-                  <p className="subtitle">List</p>
+                  <Resources />
                 </div>
               </article>
 
