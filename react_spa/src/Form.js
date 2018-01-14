@@ -48,7 +48,7 @@ class Form extends React.Component {
 
           <div className="field is-grouped">
             <div className="control">
-              <button className="button is-link">Submit</button>
+              <button className="button is-link is-primary">Submit</button>
             </div>
           </div>
         </form>
