@@ -125,14 +125,12 @@ class Main extends Component {
             <div id="mainNavbar" className="navbar-menu">
               <div className="navbar-end">
                 <NavLink className='navbar-item' exact to='/'>Home</NavLink>
-                <NavLink className='navbar-item' to='/about'>About</NavLink>
                 <NavLink className='navbar-item' to='/contact'>Contact</NavLink>
               </div>
             </div>
           </nav>
           <section className='section'>
             <Route exact path='/' component={Home}/>
-            <Route path='/about' component={About}/>
             <Route path ='/contact' component={Contact}/>
           </section>
         </div>
