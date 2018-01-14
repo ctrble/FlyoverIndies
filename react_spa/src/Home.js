@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import About from './About';
 import Events from './Events';
+import GetInTouch from './GetInTouch';
 import Resources from './Resources';
 import Button from './Button';
 
@@ -31,6 +32,15 @@ class Home extends React.Component {
               <article className="tile is-child">
                 <div className="content">
                   <Resources />
+                </div>
+              </article>
+
+            </div>
+            <div className="tile is-child box">
+
+              <article className="tile is-child">
+                <div className="content">
+                  <GetInTouch />
                 </div>
               </article>
 
