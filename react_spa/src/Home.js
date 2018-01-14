@@ -11,7 +11,6 @@ class Login extends React.Component {
     this.checkLoginState = this.checkLoginState.bind(this);
     this.statusChangeCallback = this.statusChangeCallback.bind(this);
     this.getEvents = this.getEvents.bind(this);
-    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -28,7 +27,7 @@ class Login extends React.Component {
       window.FB.XFBML.parse();
 
       //returned at the very beginning
-      // this.getEvents();
+      this.getEvents();
 
       window.FB.Event.subscribe('auth.authResponseChange', function(response) {
         this.checkLoginState();
@@ -62,7 +61,7 @@ class Login extends React.Component {
     console.log('statusChangeCallback ' + response);
     if (response.status === 'connected') {
 
-      this.getEvents();
+      // this.getEvents();
 
       window.FB.api('/me', function(response) {
         if (response && !response.error) {
@@ -84,10 +83,14 @@ class Login extends React.Component {
   }
 
   getEvents() {
+    var FBAppToken = '';
+
     window.FB.api(
       '/1288441214569997/events',
       'GET',
-      {},
+      {
+        access_token: FBAppToken,
+      },
       function (response) {
         if (response) {
           if (response.hasOwnProperty("error")) {
