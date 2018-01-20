@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free-brands": "^5.0.4",
+    "@fortawesome/react-fontawesome": "0.0.17",
     "bulma": "^0.6.1",
     "bulma-scss": "^0.6.0",
     "node-sass-chokidar": "0.0.3",

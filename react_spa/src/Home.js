@@ -17,44 +17,40 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="tile is-ancestor">
-          <div className="tile is-8 is-vertical is-parent">
-            <div className="tile is-child box">
-
-              <article className="tile is-child">
-                <About />
-              </article>
-
-            </div>
-            <div className="tile is-child box">
-
-              <article className="tile is-child">
-                <div className="content">
-                  <Resources />
-                </div>
-              </article>
-
-            </div>
-            <div className="tile is-child box">
-
-              <article className="tile is-child">
-                <div className="content">
-                  <GetInTouch />
-                </div>
-              </article>
-
-            </div>
-          </div>
-          <div className="tile is-parent">
-            <div className="tile is-child box">
-
-              <article className="tile is-child">
-                <Events />
-              </article>
-
-            </div>
-          </div>
+      <div className="container fi-container">
+        <div className="tabs is-right is-large">
+          <ul>
+            <li>
+              <a href='https://discord.gg/EZPJe3P'>
+                <span class="icon is-small"><i class="fas fa-discord"></i></span>
+                <span>Discord</span>
+              </a>
+            </li>
+            <li>
+              <a href='https://twitter.com/FlyoverIndies'>
+                <span class="icon is-small"><i class="fas fa-twitter"></i></span>
+                <span>Twitter</span>
+              </a>
+            </li>
+            <li>
+              <a href='https://www.facebook.com/flyoverindies/'>
+                <span class="icon is-small"><i class="fas fa-facebook"></i></span>
+                <span>Facebook</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className="box fi-box">
+          <Events />
+        </div>
+        <div className="box">
+          <About />
+        </div>
+        <div className="box">
+          <GetInTouch />
+        </div>
+        <div className="box">
+          <Resources />
         </div>
       </div>
     );

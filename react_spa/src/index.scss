@@ -6,8 +6,8 @@
 @import "bulma/bulma-custom-1";
 
 // 2. Set your own initial variables
-$grey-darker:  hsl(0, 0%, 20%) !default
-$white-ter:    hsl(0, 0%, 94%) !default
+$grey-darker:  hsl(0, 0%, 20%) !default;
+$white-ter:    hsl(0, 0%, 94%) !default;
 
 $orange:       hsl(12,  65%, 99%) !default;
 $yellow:       hsl(42,  48%, 99%) !default;
@@ -29,7 +29,7 @@ $primary: $blue !default;
 // $light: $white-ter !default;
 // $dark: $grey-darker !default;
 
-// $background: $white-ter !default;
+$background: $orange;
 
 // $border: $grey-lighter !default;
 // $border-hover: $grey-light !default;
@@ -72,3 +72,12 @@ $colors: map-merge($colors, $addColors);
 
 // 6. Import the rest of Bulma
 @import 'bulma/bulma';
+
+// 7. Party.
+.fi-container {
+  max-width: 540px;
+}
+
+.fi-box {
+  // background: $background;
+}
