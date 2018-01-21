@@ -5,7 +5,7 @@ class Resources extends React.Component {
   render() {
     return (
       <div className="content">
-        <p className='title'>Game Making Resources</p>
+        <p className='title fi-title'>Game Making Resources</p>
         <p className='subtitle'>Game Engines</p>
           <ul>
             <li><a href='https://unity3d.com/'>Unity</a> – Popular 2D and 3D game engine.</li>
