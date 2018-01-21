@@ -8,13 +8,6 @@ import discordIcon from './img/icons/discord.svg';
 import facebookIcon from './img/icons/facebook.svg';
 import twitterIcon from './img/icons/twitter.svg';
 
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=1757685217787242';
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
 
 class Home extends React.Component {
 
