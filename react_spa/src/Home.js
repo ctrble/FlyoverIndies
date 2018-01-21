@@ -4,6 +4,9 @@ import Events from './Events';
 import GetInTouch from './GetInTouch';
 import Resources from './Resources';
 import Button from './Button';
+import discordIcon from './img/icons/discord.svg';
+import facebookIcon from './img/icons/facebook.svg';
+import twitterIcon from './img/icons/twitter.svg';
 
 (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -22,20 +25,23 @@ class Home extends React.Component {
           <ul>
             <li>
               <a href='https://discord.gg/EZPJe3P'>
-                <span class="icon is-small"><i class="fas fa-discord"></i></span>
-                <span>Discord</span>
+                <span class="icon">
+                  <img src={discordIcon} alt="Discord" />
+                </span>
               </a>
             </li>
             <li>
               <a href='https://twitter.com/FlyoverIndies'>
-                <span class="icon is-small"><i class="fas fa-twitter"></i></span>
-                <span>Twitter</span>
+                <span class="icon">
+                  <img src={facebookIcon} alt="Facebook" />
+                </span>
               </a>
             </li>
             <li>
               <a href='https://www.facebook.com/flyoverindies/'>
-                <span class="icon is-small"><i class="fas fa-facebook"></i></span>
-                <span>Facebook</span>
+              <span class="icon">
+                <img src={twitterIcon} alt="Twitter" />
+              </span>
               </a>
             </li>
           </ul>
