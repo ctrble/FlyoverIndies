@@ -16,30 +16,30 @@ class Form extends React.Component {
       <div className="content">
         <form action="https://formspree.io/contact@flyoverindies.party" method="POST">
           <div className="field">
-            <label className="label" name="name">Name</label>
+            <label className="label">Name</label>
             <div className="control">
-              <input className="input" type="text" placeholder="Text input" />
+              <input className="input" type="text" placeholder="Text input"  name="name" />
             </div>
           </div>
 
           <div className="field">
-            <label className="label" name="_replyto">Email</label>
+            <label className="label">Email</label>
             <div className="control">
-              <input className="input" type="email" placeholder="Email input" />
+              <input className="input" type="email" placeholder="Email input" name="_replyto" />
             </div>
           </div>
 
           <div className="field">
-            <label className="label" name="_subject">Subject</label>
+            <label className="label">Subject</label>
             <div className="control">
-              <input className="input" type="text" placeholder="Subject" />
+              <input className="input" type="text" placeholder="Subject" name="_subject" />
             </div>
           </div>
 
           <div className="field">
-            <label className="label" name="_message">Message</label>
+            <label className="label">Message</label>
             <div className="control">
-              <textarea className="textarea" placeholder="Textarea"></textarea>
+              <textarea className="textarea" placeholder="Textarea" name="_message"></textarea>
             </div>
           </div>
 
