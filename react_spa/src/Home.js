@@ -4,6 +4,7 @@ import Events from './Events';
 import GetInTouch from './GetInTouch';
 import Resources from './Resources';
 import Button from './Button';
+import logo from './img/logos/text-logo.png';
 import discordIcon from './img/icons/discord.svg';
 import facebookIcon from './img/icons/facebook.svg';
 import twitterIcon from './img/icons/twitter.svg';
@@ -14,6 +15,9 @@ class Home extends React.Component {
   render() {
     return (
       <div className="container fi-container">
+        <figure class="image is-4x3 fi-logo">
+          <img src={logo} alt="Flyover Indies" />
+        </figure>
         <div className="tabs is-right is-large">
           <ul>
             <li>
@@ -39,7 +43,7 @@ class Home extends React.Component {
             </li>
           </ul>
         </div>
-        <div className="box fi-box">
+        <div className="box">
           <Events />
         </div>
         <div className="box">

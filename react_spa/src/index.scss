@@ -12,17 +12,17 @@ $sourcecode: 'Source Code Pro', monospace;
 @import "bulma/sass/utilities/functions";
 
 // 2. Set your own initial variables
-$grey-darker:  hsl(0, 0%, 20%) !default;
-$white-ter:    hsl(0, 0%, 94%) !default;
+$grey-darker:  rgb(51, 51, 51);
+$white-ter:    rgb(239, 239, 239);
 
-$orange:       hsl(12,  65%, 99%) !default;
-$yellow:       hsl(42,  48%, 99%) !default;
-// $green:        hsl(141, 71%,  48%) !default;
-// $turquoise:    hsl(171, 100%, 41%) !default;
-// $cyan:         hsl(204, 86%,  53%) !default;
-$blue:         hsl(211, 100%,  99%) !default;
-// $purple:       hsl(271, 100%, 71%) !default;
-// $red:          hsl(348, 100%, 61%) !default;
+$orange:       rgb(252, 120, 88);
+$yellow:       rgb(252, 216, 132);
+// $green:        hsl(141, 71%,  48%);
+// $turquoise:    hsl(171, 100%, 41%);
+// $cyan:         hsl(204, 86%,  53%);
+$blue:         rgb(0, 120, 252);
+// $purple:       hsl(271, 100%, 71%);
+// $red:          hsl(348, 100%, 61%);
 
 $family-sans-serif: $sourcecode;
 $family-monospace: $sourcecode;
@@ -38,22 +38,22 @@ $primary: $blue;
 // $light: $white-ter !default;
 // $dark: $grey-darker !default;
 
-// $background: $orange;
+$background: $orange;
 
-// $border: $grey-lighter !default;
+$border: $blue;
 // $border-hover: $grey-light !default;
 
-// $text: $blue;
+$text: $grey-darker;
 // $text-invert: findColorInvert($text) !default;
 // $text-light: $grey !default;
 // $text-strong: $grey-darker !default;
 
-// $link: $blue !default;
+$link: $blue;
 // $link-invert: $blue-invert !default;
 // $link-visited: $purple !default;
 
-// $link-hover: $grey-darker !default;
-// $link-hover-border: $grey-light !default;
+$link-hover: $orange;
+// $link-hover-border: $yellow;
 
 // $link-focus: $grey-darker !default;
 // $link-focus-border: $blue !default;
@@ -63,6 +63,31 @@ $primary: $blue;
 
 $family-primary: $sourcecode;
 $family-secondary: $knewave;
+
+$title-color: $blue;
+$subtitle-color: $grey-darker;
+$body-background-color: $background;
+$box-background-color: $yellow;
+$card-background-color: $grey-darker;
+// $card-color: $grey-darker;
+$hr-height: 0.25rem;
+
+// $tabs-link-color: $blue;
+// $tabs-link-hover-color: $blue;
+$tabs-link-hover-border-bottom-color: $orange;
+$tabs-border-bottom-width: $hr-height;
+
+// $label-color: $white-ter;
+$input-background-color: $white-ter;
+
+$button-color: $white-ter;
+$button-background-color: $blue;
+$button-border-color: $blue;
+
+$button-hover-color: $white-ter;
+$button-text-hover-color: $white-ter;
+$button-hover-border-color: $orange;
+
 
 // 4. Setup your Custom Colors
 $linkedin: #0077b5;
@@ -86,15 +111,32 @@ $colors: map-merge($colors, $addColors);
 // 6. Import the rest of Bulma
 @import 'bulma/bulma';
 
+
+
 // 7. Party.
 .fi-container {
-  max-width: 540px;
-}
-
-.fi-box {
-  // background: $background;
+  max-width: 55rem;
+  background-color: $white-ter;
+  padding-top: 5rem;
+  padding-bottom: 10rem;
+  padding-left: 10rem;
+  padding-right: 10rem;
 }
 
 .fi-title {
   font-family: $family-secondary;
+}
+
+.fi-logo {
+  width: 50%;
+}
+
+.media {
+  & + .media {
+    border-top: $hr-height/2 solid $grey-darker;
+  }
+}
+
+.fi-button:hover {
+  background-color: $orange;
 }

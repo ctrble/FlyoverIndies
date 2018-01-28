@@ -7,7 +7,7 @@ class GetInTouch extends React.Component {
     return (
       <div className="content">
         <p className='title fi-title'>Get In Touch</p>
-        <p>Send us an email:</p>
+        <p className='subtitle'>Send us an email!</p>
         <Form />
       </div>
      );

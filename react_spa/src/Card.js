@@ -16,9 +16,9 @@ class Card extends React.Component {
         <div className="card-content">
           <div className="media">
             <div className="media-content">
-              <p className="title is-4">{this.props.title}</p>
+              <p className="title is-4"><a className='link' href={this.props.link}>{this.props.title}</a></p>
               <p className="subtitle is-6">{this.props.subtitle}</p>
-              {this.props.text}
+              {this.props.body}
             </div>
           </div>
         </div>
