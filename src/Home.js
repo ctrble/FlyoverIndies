@@ -28,14 +28,14 @@ class Home extends React.Component {
               </a>
             </li>
             <li>
-              <a href='https://twitter.com/FlyoverIndies'>
+              <a href='https://www.facebook.com/flyoverindies/'>
                 <span class="icon">
                   <img src={facebookIcon} alt="Facebook" />
                 </span>
               </a>
             </li>
             <li>
-              <a href='https://www.facebook.com/flyoverindies/'>
+              <a href='https://twitter.com/FlyoverIndies'>
               <span class="icon">
                 <img src={twitterIcon} alt="Twitter" />
               </span>
