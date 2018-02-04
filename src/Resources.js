@@ -15,7 +15,7 @@ class Resources extends React.Component {
             <li><a className='link has-text-weight-bold' href='https://www.scirra.com/'>Construct</a> – Similar to Game Maker, it’s a good way to start game development.</li>
             <li><a className='link has-text-weight-bold' href='http://superpowers-html5.com/index.en.html'>Superpowers</a> – 2D and 3D open source game engine.</li>
             <li><a className='link has-text-weight-bold' href='https://twinery.org/'>Twine</a> – For making interactive, nonlinear stories!</li>
-            <li><a className='link has-text-weight-bold' href='https://github.com/lean/phaser-es6-webpack'>Phaser ES6</a> - A bootstrap project for create games with <a className='link has-text-weight-bold' href='https://phaser.io/'>Phaser.io</a> + ES6 + Webpack.</li>
+            <li><a className='link has-text-weight-bold' href='https://github.com/lean/phaser-es6-webpack'>Phaser ES6</a> - A bootstrap project for creating games with <a className='link has-text-weight-bold' href='https://phaser.io/'>Phaser.io</a> + ES6 + Webpack.</li>
           </ul>
         <p className='subtitle'>Art Tools</p>
           <ul>
