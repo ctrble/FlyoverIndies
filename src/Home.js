@@ -5,6 +5,7 @@ import GetInTouch from './GetInTouch';
 import Resources from './Resources';
 import Button from './Button';
 import logo from './img/logos/text-logo.png';
+import cartIcon from './img/icons/cart.svg';
 import discordIcon from './img/icons/discord.svg';
 import facebookIcon from './img/icons/facebook.svg';
 import twitterIcon from './img/icons/twitter.svg';
@@ -23,21 +24,28 @@ class Home extends React.Component {
             <li>
               <a href='https://discord.gg/EZPJe3P'>
                 <span class="icon">
-                  <img src={discordIcon} alt="Discord" />
+                  <img src={discordIcon} alt="Join our Discord" />
                 </span>
               </a>
             </li>
             <li>
               <a href='https://www.facebook.com/flyoverindies/'>
                 <span class="icon">
-                  <img src={facebookIcon} alt="Facebook" />
+                  <img src={facebookIcon} alt="Find us on Facebook" />
                 </span>
               </a>
             </li>
             <li>
               <a href='https://twitter.com/FlyoverIndies'>
               <span class="icon">
-                <img src={twitterIcon} alt="Twitter" />
+                <img src={twitterIcon} alt="Find us on Twitter" />
+              </span>
+              </a>
+            </li>
+            <li>
+              <a href='https://flyoverindies.threadless.com/'>
+              <span class="icon">
+                <img src={cartIcon} alt="Flyover Indies Shop" />
               </span>
               </a>
             </li>
