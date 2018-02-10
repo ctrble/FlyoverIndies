@@ -19,7 +19,7 @@ class Home extends React.Component {
         <figure class="image is-4x3 fi-logo">
           <img src={logo} alt="Flyover Indies" />
         </figure>
-        <div className="tabs is-right is-large">
+        <div className="tabs is-right is-medium">
           <ul>
             <li>
               <a href='https://discord.gg/EZPJe3P'>
