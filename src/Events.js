@@ -45,7 +45,7 @@ class Events extends React.Component {
                 <span class="tag is-dark">{studyHall.location}</span>
               </div>
               <p>{studyHall.body}</p>
-              <a className='button is-link' href={studyHall.link} target='_blank'>Add to Calendar</a>
+              <a className='button fi-button' href={studyHall.link} target='_blank'>Add to Calendar</a>
             </div>
           </div>
         </article>
@@ -64,7 +64,7 @@ class Events extends React.Component {
                 <span class="tag is-dark">{devsAndDrinks.location}</span>
               </div>
               <p>{devsAndDrinks.body}</p>
-              <a className='button is-link' href={devsAndDrinks.link} target='_blank'>Add to Calendar</a>
+              <a className='button fi-button' href={devsAndDrinks.link} target='_blank'>Add to Calendar</a>
             </div>
           </div>
         </article>

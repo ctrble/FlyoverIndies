@@ -29,17 +29,17 @@ class Home extends React.Component {
               </a>
             </li>
             <li>
-              <a href='https://calendar.google.com/calendar/embed?src=1o3frgsjo8jsfgreuq8d8nq9j0%40group.calendar.google.com&ctz=America%2FChicago' target='_blank'>
-                <span class="icon">
-                  <img src={calendarIcon} alt="Calendar of Events" />
-                </span>
-              </a>
-            </li>
-            <li>
               <a href='https://twitter.com/FlyoverIndies'>
               <span class="icon">
                 <img src={twitterIcon} alt="Find us on Twitter" />
               </span>
+              </a>
+            </li>
+            <li>
+              <a href='https://calendar.google.com/calendar/embed?src=1o3frgsjo8jsfgreuq8d8nq9j0%40group.calendar.google.com&ctz=America%2FChicago' target='_blank'>
+                <span class="icon">
+                  <img src={calendarIcon} alt="Calendar of Events" />
+                </span>
               </a>
             </li>
             <li>
