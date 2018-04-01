@@ -7,7 +7,7 @@ import Button from './Button';
 import logo from './img/logos/text-logo.png';
 import cartIcon from './img/icons/cart.svg';
 import discordIcon from './img/icons/discord.svg';
-import facebookIcon from './img/icons/facebook.svg';
+import calendarIcon from './img/icons/calendar.svg';
 import twitterIcon from './img/icons/twitter.svg';
 
 
@@ -29,9 +29,9 @@ class Home extends React.Component {
               </a>
             </li>
             <li>
-              <a href='https://www.facebook.com/flyoverindies/'>
+              <a href='https://calendar.google.com/calendar/embed?src=1o3frgsjo8jsfgreuq8d8nq9j0%40group.calendar.google.com&ctz=America%2FChicago' target='_blank'>
                 <span class="icon">
-                  <img src={facebookIcon} alt="Find us on Facebook" />
+                  <img src={calendarIcon} alt="Calendar of Events" />
                 </span>
               </a>
             </li>

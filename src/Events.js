@@ -2,20 +2,25 @@ import React, { Component } from 'react';
 import Card from './Card';
 import devsAndDrinksImage from './img/events/devs-and-drinks.png';
 import studyHallImage from './img/events/study-hall.png';
+import coffeeIcon from './img/icons/coffee.svg';
+import beerIcon from './img/icons/beer.svg';
+import calendarIcon from './img/icons/calendar.svg';
 
 let devsAndDrinks = {
   image: devsAndDrinksImage,
-  link: 'https://www.facebook.com/events/1129070950563636/',
+  link: 'https://calendar.google.com/event?action=TEMPLATE&tmeid=MzZoYW81bHUzNjJxa29jb3N2NHNsbWtib21fMjAxODA0MTFUMDAwMDAwWiAxbzNmcmdzam84anNmZ3JldXE4ZDhucTlqMEBn&tmsrc=1o3frgsjo8jsfgreuq8d8nq9j0%40group.calendar.google.com&scp=ALL',
   title: 'Devs & Drinks',
-  subtitle: '> Every Second Tuesday @ the Pawn & Pint',
+  time: '7-9:30pm > Every Second Tuesday',
+  location: '@ the Pawn & Pint',
   body: "Come socialize with KC area indie game developers for a night of good beer, food, and board games! Making games can be hard work, so take some time to chill and have fun with other game makers!",
 };
 
 let studyHall = {
   image: studyHallImage,
-  link: 'https://www.facebook.com/events/124310738297910/',
+  link: 'https://calendar.google.com/event?action=TEMPLATE&tmeid=bGVlcnFydXBtNDZoMDdkNjhncDJzNDZvdWtfMjAxODA0MDFUMTcwMDAwWiAxbzNmcmdzam84anNmZ3JldXE4ZDhucTlqMEBn&tmsrc=1o3frgsjo8jsfgreuq8d8nq9j0%40group.calendar.google.com&scp=ALL',
   title: 'Study Hall',
-  subtitle: '> Every Sunday @ the Broadway Roasting Co.',
+  time: 'Noon to 5pm > Every Sunday',
+  location: '@ the Broadway Roasting Co.',
   body: "Come make games with us at the Broadway Roasting Co! We meet every Sunday in the back to co-work on whatever game projects we currently have. It's a great time to make some progress on your game in a friendly environment with other devs.",
 };
 
@@ -27,31 +32,39 @@ class Events extends React.Component {
         <p className='title fi-title'>Upcoming Events</p>
 
         <article className='media fi-media'>
-          {/* <figure className="media-left">
+          <figure className="media-left">
             <p className="image is-64x64">
-              <img src="https://bulma.io/images/placeholders/128x128.png"/>
+              <img src={coffeeIcon} alt="Study Hall" />
             </p>
-          </figure> */}
+          </figure>
           <div className="media-content">
             <div className="content">
-              <p className='subtitle'><a className='link has-text-weight-bold' href={studyHall.link}>{studyHall.title}</a></p>
-              <p><a className='link' href={studyHall.link}>{studyHall.subtitle}</a></p>
+              <p className='subtitle'>{studyHall.title}</p>
+              <div class="tags has-addons">
+                <span class="tag is-light">{studyHall.time}</span>
+                <span class="tag is-dark">{studyHall.location}</span>
+              </div>
               <p>{studyHall.body}</p>
+              <a className='button is-link' href={studyHall.link} target='_blank'>Add to Calendar</a>
             </div>
           </div>
         </article>
 
         <article className='media fi-media'>
-          {/* <figure className="media-left">
+          <figure className="media-left">
             <p className="image is-64x64">
-              <img src="https://bulma.io/images/placeholders/128x128.png"/>
+              <img src={beerIcon} alt={devsAndDrinks.title} />
             </p>
-          </figure> */}
+          </figure>
           <div className="media-content">
             <div className="content">
-              <p className='subtitle'><a className='link has-text-weight-bold' href={devsAndDrinks.link}>{devsAndDrinks.title}</a></p>
-              <p><a className='link' href={devsAndDrinks.link}>{devsAndDrinks.subtitle}</a></p>
+              <p className='subtitle'>{devsAndDrinks.title}</p>
+              <div class="tags has-addons">
+                <span class="tag is-light">{devsAndDrinks.time}</span>
+                <span class="tag is-dark">{devsAndDrinks.location}</span>
+              </div>
               <p>{devsAndDrinks.body}</p>
+              <a className='button is-link' href={devsAndDrinks.link} target='_blank'>Add to Calendar</a>
             </div>
           </div>
         </article>
