@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import About from './About';
 import Events from './Events';
-import GetInTouch from './GetInTouch';
+import Contact from './Contact';
 import Resources from './Resources';
-import Button from './Button';
+import CodeOfConduct from './CodeOfConduct';
+import Button from './components/Button';
 import logo from './img/logos/text-logo.png';
 import cartIcon from './img/icons/cart.svg';
 import discordIcon from './img/icons/discord.svg';
@@ -58,10 +59,13 @@ class Home extends React.Component {
           <About />
         </div>
         <div className="box">
-          <GetInTouch />
+          <Contact />
         </div>
         <div className="box">
           <Resources />
+        </div>
+        <div className='box'>
+          <CodeOfConduct />
         </div>
       </div>
     );

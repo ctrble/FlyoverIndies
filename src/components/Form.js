@@ -1,14 +1,5 @@
 import React, { Component } from 'react';
 
-// <form action="https://formspree.io/contact@flyoverindies.party" method="POST">
-//     <input type="text" name="name" placeholder='Your name' />
-//     <input type="text" name="_replyto" placeholder="Your email" />
-//     <textarea type="text" name="_message" placeholder="Your message" />
-//     <input type="hidden" name="_next" value="/" />
-//     <input type="text" name="_gotcha" style={{display: 'none'}} />
-//     <input type="submit" value="Send" />
-// </form>
-
 class Form extends React.Component {
 
   render() {

@@ -129,6 +129,7 @@ $colors: map-merge($colors, $addColors);
 
 .fi-title {
   font-family: $family-secondary;
+  margin-bottom: 1rem;
 }
 
 .fi-logo {
