@@ -8,7 +8,7 @@ class CodeOfConduct extends React.Component {
         <p className='title fi-title'>Code of Conduct</p>
         <p className='subtitle'>Community Standards</p>
         <p>
-          In the interest of fostering an open and welcoming environment, Flyover Indies pledges to make participation in our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation. We expect participants in our community to abide by these standards.
+          In the interest of fostering an open and welcoming environment, Flyover Indies pledges to make participation in our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation. In addition, Flyover Indies respects and abides by the policies of any venue which hosts our events. We expect participants in our community to conduct themselves according to these standards.
         </p>
         <p className='subtitle'>Reporting</p>
         <p>
