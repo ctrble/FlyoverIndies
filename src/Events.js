@@ -49,30 +49,6 @@ class Events extends React.Component {
 
         <article className="media fi-media">
           <figure className="media-left">
-            <p className="is-size-4">🕹️</p>
-            <p className="is-size-4">🍻</p>
-          </figure>
-          <div className="media-content">
-            <div className="content">
-              <p className="subtitle">{sparkcade.title}</p>
-              <div class="tags has-addons">
-                <span class="tag is-light">{sparkcade.time}</span>
-                <span class="tag is-dark">{sparkcade.location}</span>
-              </div>
-              <p>{sparkcade.body}</p>
-              <a
-                className="button fi-button"
-                href={sparkcade.link}
-                target="_blank"
-              >
-                Add to Calendar
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article className="media fi-media">
-          <figure className="media-left">
             <p className="is-size-4">💻</p>
             <p className="is-size-4">☕</p>
           </figure>
