@@ -71,7 +71,7 @@ class Events extends React.Component {
           </div>
         </article>
 
-        <article className="media fi-media">
+        {/* <article className="media fi-media">
           <figure className="media-left">
             <p className="is-size-4">🎲</p>
             <p className="is-size-4">🍻</p>
@@ -93,7 +93,7 @@ class Events extends React.Component {
               </a>
             </div>
           </div>
-        </article>
+        </article> */}
 
         {/* <Card image={devsAndDrinks.image} link={devsAndDrinks.link} title={devsAndDrinks.title} subtitle={devsAndDrinks.subtitle} /> */}
 
