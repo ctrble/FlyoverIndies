@@ -10,12 +10,12 @@ import calendarIcon from "./img/icons/calendar.svg";
 const devsAndDrinks = {
   image: devsAndDrinksImage,
   link:
-    "https://calendar.google.com/event?action=TEMPLATE&tmeid=MzZoYW81bHUzNjJxa29jb3N2NHNsbWtib21fMjAxODA0MTFUMDAwMDAwWiAxbzNmcmdzam84anNmZ3JldXE4ZDhucTlqMEBn&tmsrc=1o3frgsjo8jsfgreuq8d8nq9j0%40group.calendar.google.com&scp=ALL",
+    "https://calendar.google.com/event?action=TEMPLATE&tmeid=bGVlcnFydXBtNDZoMDdkNjhncDJzNDZvdWtfMjAxODEyMzBUMTgwMDAwWiAxbzNmcmdzam84anNmZ3JldXE4ZDhucTlqMEBn&tmsrc=1o3frgsjo8jsfgreuq8d8nq9j0%40group.calendar.google.com&scp=ALL",
   title: "Devs & Drinks",
-  time: "7-9:30pm > Every Second Tuesday",
-  location: "@ the Pawn & Pint",
+  time: "7-10pm > Every Second Saturday",
+  location: "@ Strange Days Brewing",
   body:
-    "Come socialize with KC area indie game developers for a night of good beer, food, and board games! Making games can be hard work, so take some time to chill and have fun with other game makers!"
+    "Come socialize with KC area indie game developers for our monthly meetup full of great beer and conversation! Making games can be hard work, so take some time to chill and have fun with other game makers!"
 };
 
 const studyHall = {
@@ -71,7 +71,7 @@ class Events extends React.Component {
           </div>
         </article>
 
-        {/* <article className="media fi-media">
+        <article className="media fi-media">
           <figure className="media-left">
             <p className="is-size-4">🎲</p>
             <p className="is-size-4">🍻</p>
@@ -93,7 +93,7 @@ class Events extends React.Component {
               </a>
             </div>
           </div>
-        </article> */}
+        </article>
 
         {/* <Card image={devsAndDrinks.image} link={devsAndDrinks.link} title={devsAndDrinks.title} subtitle={devsAndDrinks.subtitle} /> */}
 
