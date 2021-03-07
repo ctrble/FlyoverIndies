@@ -3,17 +3,21 @@ import Head from 'next/head';
 
 import Icon from 'src/components/global/Icon';
 
-const Home = () => (
+const Friends = () => (
   <>
     <Head>
-      <title>Flyover Indies</title>
+      <title>Friends - Flyover Indies</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <main>
-      this is the homepage
+      <p>these are our friends</p>
+      <ul>
+        <li>AWG</li>
+        <li>KC Game Designers</li>
+      </ul>
       <Icon src="flyover-indies-logo-text.svg" alt="Flyover Indies logo" />
     </main>
   </>
 );
 
-export default Home;
+export default Friends;
