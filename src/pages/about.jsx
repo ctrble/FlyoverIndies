@@ -1,99 +1,50 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NextSeo } from 'next-seo';
-import ReactMarkdown from 'react-markdown/with-html';
+import { v4 as uuidv4 } from 'uuid';
 import { AwesomeButton } from 'react-awesome-button';
 
-// import 'react-awesome-button/dist/styles.css';
-// import AwesomeButtonStyles from 'react-awesome-button/src/styles/styles.scss';
+import Markdown from 'src/components/global/Markdown';
 
 import { fileContent } from 'src/lib/getContent';
 
-const About = ({ about, codeOfConduct, membership, organizers, mentors }) => (
+const About = ({ about, codeOfConduct, joinUs }) => (
   <>
     <NextSeo
       title={about.frontmatter.title}
       description={about.frontmatter.description}
     />
     <main>
-      <ReactMarkdown
-        escapeHtml={false}
-        source={about.content}
-        linkTarget="_blank"
-      />
+      <Markdown content={about.content} />
       <hr />
-      <ReactMarkdown
-        escapeHtml={false}
-        source={codeOfConduct.content}
-        linkTarget="_blank"
-      />
+      {joinUs &&
+        joinUs.length > 0 &&
+        joinUs.map(({ content, frontmatter }) => (
+          <section key={uuidv4()}>
+            <Markdown content={content} />
+            <AwesomeButton
+              type="primary"
+              href={frontmatter.link}
+              target="_blank"
+            >
+              {frontmatter.cta}
+            </AwesomeButton>
+          </section>
+        ))}
       <hr />
-      <ReactMarkdown
-        escapeHtml={false}
-        source={membership.content}
-        linkTarget="_blank"
-      />
-      <AwesomeButton
-        type="primary"
-        href={membership.frontmatter.link}
-        target="_blank"
-      >
-        {membership.frontmatter.cta}
-      </AwesomeButton>
-      <hr />
-      <ReactMarkdown
-        escapeHtml={false}
-        source={organizers.content}
-        linkTarget="_blank"
-      />
-      <hr />
-      <ReactMarkdown
-        escapeHtml={false}
-        source={mentors.content}
-        linkTarget="_blank"
-      />
+      <Markdown content={codeOfConduct.content} />
     </main>
   </>
 );
 
 About.propTypes = {
-  about: PropTypes.shape({
-    frontmatter: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-    }).isRequired,
-    content: PropTypes.string.isRequired,
-  }).isRequired,
-  codeOfConduct: PropTypes.shape({
-    frontmatter: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-    }).isRequired,
-    content: PropTypes.string.isRequired,
-  }).isRequired,
-  membership: PropTypes.shape({
-    frontmatter: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      cta: PropTypes.string.isRequired,
-      link: PropTypes.string.isRequired,
-    }).isRequired,
-    content: PropTypes.string.isRequired,
-  }).isRequired,
-  organizers: PropTypes.shape({
-    frontmatter: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-    }).isRequired,
-    content: PropTypes.string.isRequired,
-  }).isRequired,
-  mentors: PropTypes.shape({
-    frontmatter: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-    }).isRequired,
-    content: PropTypes.string.isRequired,
-  }).isRequired,
+  about: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.object, PropTypes.string])
+  ).isRequired,
+  codeOfConduct: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.object, PropTypes.string])
+  ).isRequired,
+  joinUs: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export async function getStaticProps() {
@@ -103,13 +54,13 @@ export async function getStaticProps() {
   const organizers = fileContent('about', 'organizers.md');
   const mentors = fileContent('about', 'mentors.md');
 
+  const joinUs = [membership, organizers, mentors];
+
   return {
     props: {
       about,
       codeOfConduct,
-      membership,
-      organizers,
-      mentors,
+      joinUs,
     },
   };
 }

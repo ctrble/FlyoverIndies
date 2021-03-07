@@ -1,3 +1,5 @@
+@use 'src/scss/utilities';
+
 @import 'react-awesome-button/src/styles/styles.scss';
 // https://github.com/rcaferati/react-awesome-button/tree/master/src/styles
 
@@ -24,4 +26,8 @@
   --button-anchor-color-light: #3f8228;
   --button-anchor-color-hover: #89cf35;
   --button-anchor-border: 2px solid #5bbd3a;
+
+  // set typography
+  font-family: utilities.$headingFont;
+  font-size: 2rem;
 }

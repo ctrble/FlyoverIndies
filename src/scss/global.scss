@@ -1,2 +1,24 @@
+@use './utilities.scss';
 @import './reset';
 @import './awesomeButton';
+
+body {
+  font-family: utilities.$bodyFont;
+  font-size: 1.6rem;
+  line-height: 2;
+  background-color: utilities.$uncloisteredVeryPaleGreen;
+  color: utilities.$ordainedCobalt;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: utilities.$headingFont;
+}
+
+p {
+  margin-bottom: 2rem;
+}
