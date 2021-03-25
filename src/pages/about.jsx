@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { AwesomeButton } from 'react-awesome-button';
 
 import Markdown from 'src/components/global/Markdown';
+import ContactForm from 'src/components/forms/ContactForm';
 
 import { fileContent } from 'src/lib/getContent';
 
@@ -33,6 +34,10 @@ const About = ({ about, codeOfConduct, joinUs }) => (
         ))}
       <hr />
       <Markdown content={codeOfConduct.content} />
+      <div>
+        <h1>Get in touch</h1>
+        <ContactForm />
+      </div>
     </main>
   </>
 );
