@@ -36,6 +36,12 @@ const About = ({ about, codeOfConduct, joinUs }) => (
       <Markdown content={codeOfConduct.content} />
       <div>
         <h1>Get in touch</h1>
+        <p>
+          If you don&apos;t see a response, please be patient and check your
+          junk folder (just in case). If you need to talk with us quickly,
+          please reach out to us on our{' '}
+          <a href="https://discord.gg/8JdcrkR">Discord</a>
+        </p>
         <ContactForm />
       </div>
     </main>
