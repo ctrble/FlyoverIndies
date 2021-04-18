@@ -1,6 +1,7 @@
 @use './utilities.scss';
 @import './reset';
 @import './awesomeButton';
+@import './fullCalendar';
 
 body {
   font-family: utilities.$bodyFont;
