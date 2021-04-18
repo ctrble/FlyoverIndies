@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { NextSeo } from 'next-seo';
 import { v4 as uuidv4 } from 'uuid';
 import { AwesomeButton } from 'react-awesome-button';
+// import AwesomeButtonStyles from 'react-awesome-button/src/styles/styles.scss';
 
 import Markdown from 'src/components/global/Markdown';
 import ContactForm from 'src/components/forms/ContactForm';
@@ -24,6 +25,7 @@ const About = ({ about, codeOfConduct, joinUs }) => (
           <section key={uuidv4()}>
             <Markdown content={content} />
             <AwesomeButton
+              // cssModule={AwesomeButtonStyles}
               type="primary"
               href={frontmatter.link}
               target="_blank"

@@ -1,0 +1,80 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import FullCalendar from '@fullcalendar/react';
+import listPlugin from '@fullcalendar/list';
+import googleCalendarPlugin from '@fullcalendar/google-calendar';
+
+import EventContent from './EventContent';
+
+import '@fullcalendar/common/main.css';
+import '@fullcalendar/list/main.css';
+
+const EventCalendar = ({ duration }) => {
+  const renderEventContent = (eventInfo) => {
+    const {
+      event: {
+        url,
+        title,
+        extendedProps: { description, location },
+      },
+      timeText,
+    } = eventInfo;
+
+    return (
+      <EventContent
+        url={url}
+        timeText={timeText}
+        title={title}
+        description={description}
+        location={location}
+      />
+    );
+  };
+
+  const handleEventClick = (info) => {
+    info.jsEvent.preventDefault();
+    if (info.event.url) {
+      window.open(info.event.url, '_blank', 'noopener noreferrer');
+    }
+  };
+
+  return (
+    <div>
+      <FullCalendar
+        plugins={[googleCalendarPlugin, listPlugin]}
+        googleCalendarApiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY}
+        eventContent={renderEventContent}
+        events={{
+          googleCalendarId:
+            '1o3frgsjo8jsfgreuq8d8nq9j0@group.calendar.google.com',
+          // className: 'gcal-event',
+        }}
+        eventClick={handleEventClick}
+        initialView="list"
+        duration={duration}
+        titleFormat={{
+          month: 'long',
+          year: 'numeric',
+          day: 'numeric',
+        }}
+        listDayFormat={{
+          weekday: 'long',
+        }}
+        listDaySideFormat={{
+          month: 'short',
+          day: 'numeric',
+        }}
+      />
+    </div>
+  );
+};
+
+EventCalendar.propTypes = {
+  duration: PropTypes.objectOf(PropTypes.number),
+};
+
+EventCalendar.defaultProps = {
+  duration: { weeks: 2 },
+};
+
+export default EventCalendar;
