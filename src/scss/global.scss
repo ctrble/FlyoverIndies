@@ -3,12 +3,16 @@
 @import './awesomeButton';
 @import './fullCalendar';
 
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
 body {
   font-family: utilities.$bodyFont;
   font-size: 1.6rem;
   line-height: 2;
-  background-color: utilities.$white;
-  color: utilities.$flyoverBlue;
 }
 
 h1,

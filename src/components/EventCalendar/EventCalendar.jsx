@@ -6,6 +6,8 @@ import googleCalendarPlugin from '@fullcalendar/google-calendar';
 
 import EventContent from './EventContent';
 
+import styles from './EventCalendar.module.scss';
+
 import '@fullcalendar/common/main.css';
 import '@fullcalendar/list/main.css';
 
@@ -39,15 +41,15 @@ const EventCalendar = ({ duration }) => {
   };
 
   return (
-    <div>
+    <div className={styles.calendar}>
       <FullCalendar
         plugins={[googleCalendarPlugin, listPlugin]}
         googleCalendarApiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY}
         eventContent={renderEventContent}
+        height="100%"
         events={{
           googleCalendarId:
             '1o3frgsjo8jsfgreuq8d8nq9j0@group.calendar.google.com',
-          // className: 'gcal-event',
         }}
         eventClick={handleEventClick}
         initialView="list"
@@ -57,10 +59,9 @@ const EventCalendar = ({ duration }) => {
           year: 'numeric',
           day: 'numeric',
         }}
+        listDaySideFormat={false}
         listDayFormat={{
           weekday: 'long',
-        }}
-        listDaySideFormat={{
           month: 'short',
           day: 'numeric',
         }}
