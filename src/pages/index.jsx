@@ -1,22 +1,12 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
 
-import Icon from 'src/components/global/Icon';
 import Page from 'src/components/global/grid/Page';
-
-const EventCalendar = dynamic(() => import('src/components/EventCalendar'), {
-  ssr: false,
-});
+import Icon from 'src/components/global/Icon';
 
 const Home = () => (
   <Page>
     <Page.Left>
-      <Icon
-        src="images/flyover-indies-logo-text.svg"
-        alt="Flyover Indies logo"
-      />
-      this is the homepage
-      <h1>Header 1</h1>
+      <h1>this is the homepage</h1>
       <h2>Header 2</h2>
       <h3>Header 3</h3>
       <h4>Header 4</h4>
@@ -32,7 +22,10 @@ const Home = () => (
       </p>
     </Page.Left>
     <Page.Right>
-      <EventCalendar duration={{ weeks: 2 }} />
+      <Icon
+        src="images/flyover-indies-logo-text.svg"
+        alt="Flyover Indies logo"
+      />
     </Page.Right>
   </Page>
 );

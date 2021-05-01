@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './Page.module.scss';
 
 const Left = ({ children }) => (
-  <div className={styles.page__left}>{children}</div>
+  <section className={styles.page__left}>{children}</section>
 );
 
 Left.propTypes = {

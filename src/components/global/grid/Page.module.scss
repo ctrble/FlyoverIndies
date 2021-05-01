@@ -16,6 +16,9 @@
   height: 100vh;
   min-height: 100vh;
   padding: 1rem;
+  @media (orientation: landscape) {
+    overflow-y: auto;
+  }
 
   // theme
   background-color: utilities.$flyoverBlue;
@@ -27,6 +30,9 @@
   height: 100vh;
   min-height: 100vh;
   padding: 1rem;
+  @media (orientation: landscape) {
+    overflow-y: auto;
+  }
 
   // theme
   background-color: utilities.$white;

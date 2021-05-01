@@ -5,7 +5,7 @@ import Right from './Right';
 
 import styles from './Page.module.scss';
 
-const Page = ({ children }) => <div className={styles.page}>{children}</div>;
+const Page = ({ children }) => <main className={styles.page}>{children}</main>;
 
 Page.propTypes = {
   children: PropTypes.node.isRequired,

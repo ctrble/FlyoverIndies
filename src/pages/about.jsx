@@ -5,18 +5,19 @@ import { v4 as uuidv4 } from 'uuid';
 import { AwesomeButton } from 'react-awesome-button';
 // import AwesomeButtonStyles from 'react-awesome-button/src/styles/styles.scss';
 
+import Page from 'src/components/global/grid/Page';
 import Markdown from 'src/components/global/Markdown';
 import ContactForm from 'src/components/forms/ContactForm';
 
 import { fileContent } from 'src/lib/getContent';
 
 const About = ({ about, codeOfConduct, joinUs }) => (
-  <>
+  <Page>
     <NextSeo
       title={about.frontmatter.title}
       description={about.frontmatter.description}
     />
-    <main>
+    <Page.Left>
       <Markdown content={about.content} />
       <hr />
       {joinUs &&
@@ -36,6 +37,8 @@ const About = ({ about, codeOfConduct, joinUs }) => (
         ))}
       <hr />
       <Markdown content={codeOfConduct.content} />
+    </Page.Left>
+    <Page.Right>
       <div>
         <h1>Get in touch</h1>
         <p>
@@ -46,8 +49,8 @@ const About = ({ about, codeOfConduct, joinUs }) => (
         </p>
         <ContactForm />
       </div>
-    </main>
-  </>
+    </Page.Right>
+  </Page>
 );
 
 About.propTypes = {
