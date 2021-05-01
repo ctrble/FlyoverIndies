@@ -1,7 +1,12 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 
 import Page from 'src/components/global/grid/Page';
 import Icon from 'src/components/global/Icon';
+
+const CovidTracker = dynamic(() => import('src/components/CovidTracker'), {
+  ssr: false,
+});
 
 const Home = () => (
   <Page>
@@ -26,6 +31,7 @@ const Home = () => (
         src="images/flyover-indies-logo-text.svg"
         alt="Flyover Indies logo"
       />
+      <CovidTracker />
     </Page.Right>
   </Page>
 );
