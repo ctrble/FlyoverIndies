@@ -1,7 +1,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 
-import Page from 'src/components/global/grid/Page';
+import Arcade from 'src/components/global/grid/Arcade';
 import Icon from 'src/components/global/Icon';
 
 const CovidTracker = dynamic(() => import('src/components/CovidTracker'), {
@@ -9,8 +9,8 @@ const CovidTracker = dynamic(() => import('src/components/CovidTracker'), {
 });
 
 const Home = () => (
-  <Page>
-    <Page.Left>
+  <Arcade>
+    <Arcade.Screen>
       <h1>this is the homepage</h1>
       <h2>Header 2</h2>
       <h3>Header 3</h3>
@@ -25,15 +25,19 @@ const Home = () => (
         This is a paragraph. This is a paragraph. This is a paragraph. This is a
         paragraph. This is a paragraph.
       </p>
-    </Page.Left>
-    <Page.Right>
       <Icon
         src="images/flyover-indies-logo-text.svg"
         alt="Flyover Indies logo"
       />
+    </Arcade.Screen>
+    <Arcade.Panel>
       <CovidTracker />
-    </Page.Right>
-  </Page>
+    </Arcade.Panel>
+    <Arcade.Controls>
+      <p>this is a nav</p>
+      <p>this is a nav</p>
+    </Arcade.Controls>
+  </Arcade>
 );
 
 export default Home;

@@ -1,0 +1,36 @@
+.arcade {
+  display: grid;
+  // height: 100vh;
+  // min-height: 100vh;
+  max-height: 100vh;
+  // overflow: hidden;
+
+  @media (orientation: portrait) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 3fr 1fr;
+    grid-template-areas: 'screen screen' 'control panel';
+  }
+  @media (orientation: landscape) {
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 'screen panel' 'screen control';
+  }
+}
+
+.arcade__screen {
+  grid-area: screen;
+  @media (orientation: landscape) {
+    // height: 100vh;
+    // min-height: 100vh;
+    // max-height: 100vh;
+  }
+}
+
+.arcade__controls {
+  grid-area: control;
+}
+
+.arcade__panel {
+  grid-area: panel;
+  border: 1px solid red;
+}
