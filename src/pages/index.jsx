@@ -31,7 +31,8 @@ const Home = () => (
       />
     </Arcade.Screen>
     <Arcade.Panel>
-      <CovidTracker />
+      <p>this is some other stuff</p>
+      {/* <CovidTracker /> */}
     </Arcade.Panel>
     <Arcade.Controls>
       <p>this is a nav</p>

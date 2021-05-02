@@ -4,10 +4,10 @@
   display: grid;
   height: 100vh;
   // min-height: 100vh;
-  // max-height: 100vh;
+  max-height: 100vh;
   // overflow: hidden;
-  justify-items: stretch;
-  align-items: stretch;
+  // justify-items: stretch;
+  // align-items: stretch;
   background-color: utilities.$black;
 
   @media (orientation: portrait) {
@@ -16,8 +16,8 @@
     grid-template-areas: 'screen screen' 'control panel';
   }
   @media (orientation: landscape) {
-    grid-template-columns: 3fr minmax(max-content, 1fr);
-    grid-template-rows: 2fr 1fr;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 1fr;
     grid-template-areas: 'screen panel' 'screen control';
   }
 }
@@ -26,13 +26,16 @@
   grid-area: screen;
   background-color: utilities.$white;
   color: utilities.$flyoverBlue;
-  border-radius: 4rem;
-  padding: 2rem;
-  margin: 2rem;
+  // border-radius: 4rem;
+  // padding: 2rem;
+  // margin: 2rem;
   .arcade__screenContent {
+    overflow-y: auto;
     height: 100%;
+    @media (orientation: portrait) {
+      // max-height: 100%;
+    }
     @media (orientation: landscape) {
-      overflow-y: auto;
       // height: 100vh;
       // min-height: 100vh;
       // max-height: 100vh;
@@ -42,10 +45,12 @@
 
 .arcade__controls {
   grid-area: control;
-  border: 1px solid blue;
+  background-color: utilities.$flyoverBlue;
+  color: utilities.$white;
 }
 
 .arcade__panel {
   grid-area: panel;
-  border: 1px solid red;
+  background-color: utilities.$black;
+  color: utilities.$white;
 }
