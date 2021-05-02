@@ -9,20 +9,18 @@
   box-sizing: border-box;
 }
 
+html {
+  height: -webkit-fill-available;
+  background-color: utilities.$black;
+}
+
 body {
   font-family: utilities.$bodyFont;
   font-size: 1.6rem;
   line-height: 2;
-}
-
-body {
-  min-height: 100vh;
   /* mobile viewport bug fix */
+  min-height: 100vh;
   min-height: -webkit-fill-available;
-}
-
-html {
-  height: -webkit-fill-available;
 }
 
 h1,

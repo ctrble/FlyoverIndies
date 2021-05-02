@@ -25,6 +25,22 @@ const Home = () => (
         This is a paragraph. This is a paragraph. This is a paragraph. This is a
         paragraph. This is a paragraph.
       </p>
+      <p>
+        This is a paragraph. This is a paragraph. This is a paragraph. This is a
+        paragraph. This is a paragraph.
+      </p>
+      <p>
+        This is a paragraph. This is a paragraph. This is a paragraph. This is a
+        paragraph. This is a paragraph.
+      </p>
+      <p>
+        This is a paragraph. This is a paragraph. This is a paragraph. This is a
+        paragraph. This is a paragraph.
+      </p>
+      <p>
+        This is a paragraph. This is a paragraph. This is a paragraph. This is a
+        paragraph. This is a paragraph.
+      </p>
       <Icon
         src="images/flyover-indies-logo-text.svg"
         alt="Flyover Indies logo"

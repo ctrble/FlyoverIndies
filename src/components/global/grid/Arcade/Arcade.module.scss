@@ -3,13 +3,7 @@
 .arcade {
   display: grid;
   height: 100vh;
-  // min-height: 100vh;
   max-height: 100vh;
-  // overflow: hidden;
-  // justify-items: stretch;
-  // align-items: stretch;
-  background-color: utilities.$black;
-
   @media (orientation: portrait) {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: minmax(65vh, 3fr) minmax(35vh, 1fr);
@@ -23,23 +17,39 @@
 }
 
 .arcade__screen {
+  $gutterWidth: 2rem;
+
   grid-area: screen;
-  background-color: utilities.$white;
+  background-color: utilities.$black;
   color: utilities.$flyoverBlue;
-  // border-radius: 4rem;
-  // padding: 2rem;
-  // margin: 2rem;
+  padding: $gutterWidth * 2 $gutterWidth;
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    top: $gutterWidth;
+    left: $gutterWidth;
+    right: $gutterWidth;
+    height: $gutterWidth;
+    background-color: utilities.$white;
+    border-radius: $gutterWidth $gutterWidth 0 0;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: $gutterWidth;
+    left: $gutterWidth;
+    right: $gutterWidth;
+    height: $gutterWidth;
+    background-color: utilities.$white;
+    border-radius: 0 0 $gutterWidth $gutterWidth;
+  }
   .arcade__screenContent {
+    background-color: utilities.$white;
+    padding: 0rem $gutterWidth;
     overflow-y: auto;
     height: 100%;
-    @media (orientation: portrait) {
-      // max-height: 100%;
-    }
-    @media (orientation: landscape) {
-      // height: 100vh;
-      // min-height: 100vh;
-      // max-height: 100vh;
-    }
+    position: relative;
   }
 }
 
