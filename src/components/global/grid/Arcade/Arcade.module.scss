@@ -1,3 +1,5 @@
+@use 'src/scss/utilities.scss';
+
 .arcade {
   display: grid;
   height: 100vh;
@@ -6,7 +8,7 @@
   // overflow: hidden;
   justify-items: stretch;
   align-items: stretch;
-  background-color: lightcyan;
+  background-color: utilities.$black;
 
   @media (orientation: portrait) {
     grid-template-columns: 1fr 1fr;
@@ -22,13 +24,19 @@
 
 .arcade__screen {
   grid-area: screen;
-  border: 1px solid green;
-  background-color: lightcoral;
-  @media (orientation: landscape) {
-    overflow-y: auto;
-    // height: 100vh;
-    // min-height: 100vh;
-    // max-height: 100vh;
+  background-color: utilities.$white;
+  color: utilities.$flyoverBlue;
+  border-radius: 4rem;
+  padding: 2rem;
+  margin: 2rem;
+  .arcade__screenContent {
+    height: 100%;
+    @media (orientation: landscape) {
+      overflow-y: auto;
+      // height: 100vh;
+      // min-height: 100vh;
+      // max-height: 100vh;
+    }
   }
 }
 
