@@ -2,6 +2,8 @@
 
 $gutterWidth: 2rem;
 $curve: $gutterWidth;
+$edgeColor: utilities.$black;
+$screenColor: utilities.$white;
 
 .arcade {
   display: grid;
@@ -25,21 +27,19 @@ $curve: $gutterWidth;
   left: $gutterWidth;
   right: $gutterWidth;
   height: $gutterWidth;
-  background-color: utilities.$white;
+  background-color: $screenColor;
   @if $top {
     top: $gutterWidth;
     border-radius: $curve $curve 0 0;
-    // border-radius: $gutterWidth $gutterWidth 0 0;
   } @else {
     bottom: $gutterWidth;
     border-radius: 0 0 $curve $curve;
-    // border-radius: 0 0 $gutterWidth $gutterWidth;
   }
 }
 
 .arcade__screen {
   grid-area: screen;
-  background-color: utilities.$black;
+  background-color: $edgeColor;
   color: utilities.$flyoverBlue;
   padding: $gutterWidth * 2 $gutterWidth; // works with borders/blur
   position: relative; // support psuedos
@@ -52,7 +52,7 @@ $curve: $gutterWidth;
 }
 
 .arcade__screenContent {
-  background-color: utilities.$white;
+  background-color: $screenColor;
   padding: 0 $gutterWidth * 2; // works with borders/blur
   overflow-y: auto;
   height: 100%;
@@ -66,11 +66,11 @@ $curve: $gutterWidth;
   right: 0;
   &_top {
     top: 0;
-    background-image: linear-gradient(to bottom, utilities.$white, transparent);
+    background-image: linear-gradient(to bottom, $screenColor, transparent);
   }
   &_bottom {
     bottom: 0;
-    background-image: linear-gradient(to top, utilities.$white, transparent);
+    background-image: linear-gradient(to top, $screenColor, transparent);
   }
 }
 
