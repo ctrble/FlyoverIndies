@@ -1,5 +1,8 @@
 @use 'src/scss/utilities.scss';
 
+$gutterWidth: 2rem;
+$curve: $gutterWidth;
+
 .arcade {
   display: grid;
   height: 100vh;
@@ -16,40 +19,58 @@
   }
 }
 
-.arcade__screen {
-  $gutterWidth: 2rem;
+@mixin screenEnd($top) {
+  content: '';
+  position: absolute;
+  left: $gutterWidth;
+  right: $gutterWidth;
+  height: $gutterWidth;
+  background-color: utilities.$white;
+  @if $top {
+    top: $gutterWidth;
+    border-radius: $curve $curve 0 0;
+    // border-radius: $gutterWidth $gutterWidth 0 0;
+  } @else {
+    bottom: $gutterWidth;
+    border-radius: 0 0 $curve $curve;
+    // border-radius: 0 0 $gutterWidth $gutterWidth;
+  }
+}
 
+.arcade__screen {
   grid-area: screen;
   background-color: utilities.$black;
   color: utilities.$flyoverBlue;
-  padding: $gutterWidth * 2 $gutterWidth;
-  position: relative;
+  padding: $gutterWidth * 2 $gutterWidth; // works with borders/blur
+  position: relative; // support psuedos
   &:before {
-    content: '';
-    position: absolute;
-    top: $gutterWidth;
-    left: $gutterWidth;
-    right: $gutterWidth;
-    height: $gutterWidth;
-    background-color: utilities.$white;
-    border-radius: $gutterWidth $gutterWidth 0 0;
+    @include screenEnd(true);
   }
   &:after {
-    content: '';
-    position: absolute;
-    bottom: $gutterWidth;
-    left: $gutterWidth;
-    right: $gutterWidth;
-    height: $gutterWidth;
-    background-color: utilities.$white;
-    border-radius: 0 0 $gutterWidth $gutterWidth;
+    @include screenEnd(false);
   }
-  .arcade__screenContent {
-    background-color: utilities.$white;
-    padding: 0rem $gutterWidth;
-    overflow-y: auto;
-    height: 100%;
-    position: relative;
+}
+
+.arcade__screenContent {
+  background-color: utilities.$white;
+  padding: 0 $gutterWidth * 2; // works with borders/blur
+  overflow-y: auto;
+  height: 100%;
+  position: relative; // support blurs
+}
+
+.arcade__screenBlur {
+  position: sticky;
+  height: $gutterWidth;
+  left: 0;
+  right: 0;
+  &_top {
+    top: 0;
+    background-image: linear-gradient(to bottom, utilities.$white, transparent);
+  }
+  &_bottom {
+    bottom: 0;
+    background-image: linear-gradient(to top, utilities.$white, transparent);
   }
 }
 
