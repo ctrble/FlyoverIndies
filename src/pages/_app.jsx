@@ -8,13 +8,17 @@ import 'src/scss/global.scss';
 
 /* eslint-disable react/prop-types, react/jsx-props-no-spreading */
 function FlyoverIndies({ Component, pageProps }) {
+  // const getLayout =
+  //   Component.getLayout || ((page) => <SiteLayout children={page} />);
+  const getLayout = Component.getLayout || ((page) => page);
+
   return (
     <>
       <Head>
         <link rel="icon" href="favicon.ico" />
       </Head>
       <DefaultSeo {...SEO} />
-      <Component {...pageProps} />
+      {getLayout(<Component {...pageProps} />)}
     </>
   );
 }
