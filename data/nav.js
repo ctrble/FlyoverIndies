@@ -1,32 +1,24 @@
 module.exports = {
   pages: [
-    // {
-    //   title: 'irl',
-    //   url: '/irl',
-    // },
-    // {
-    //   title: 'online',
-    //   url: '/online',
-    // },
     {
       title: 'home',
-      url: '/',
+      path: '/',
     },
     {
       title: 'join',
-      url: '/join',
+      path: '/join',
     },
     {
       title: 'about',
-      url: '/about',
+      path: '/about',
     },
-    {
-      title: 'help',
-      url: '/help',
-    },
+    // {
+    //   title: 'help',
+    //   path: '/help',
+    // },
     {
       title: 'friends',
-      url: '/friends',
+      path: '/friends',
     },
   ],
 };
