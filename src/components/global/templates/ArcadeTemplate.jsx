@@ -10,17 +10,15 @@ import Nav from 'src/components/Nav';
 // });
 
 const ArcadeTemplate = ({ children }) => (
-  <div style={{ border: '1px solid red' }}>
-    <Arcade>
-      <Arcade.Screen>{children}</Arcade.Screen>
-      <Arcade.Panel>
-        <p>this is some other stuff</p>
-      </Arcade.Panel>
-      <Arcade.Controls>
-        <Nav />
-      </Arcade.Controls>
-    </Arcade>
-  </div>
+  <Arcade>
+    <Arcade.Screen>{children}</Arcade.Screen>
+    <Arcade.Panel>
+      <p>this is some other stuff</p>
+    </Arcade.Panel>
+    <Arcade.Controls>
+      <Nav />
+    </Arcade.Controls>
+  </Arcade>
 );
 
 ArcadeTemplate.propTypes = {
