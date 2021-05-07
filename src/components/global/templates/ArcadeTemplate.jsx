@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Arcade from 'src/components/global/grid/Arcade';
+import Icon from 'src/components/global/Icon';
 import Nav from 'src/components/Nav';
 
 // import dynamic from 'next/dynamic';
@@ -9,11 +10,16 @@ import Nav from 'src/components/Nav';
 //   ssr: false,
 // });
 
-const ArcadeTemplate = ({ children }) => (
+const ArcadeTemplate = ({ children, panelContents }) => (
   <Arcade>
     <Arcade.Screen>{children}</Arcade.Screen>
     <Arcade.Panel>
-      <p>this is some other stuff</p>
+      {panelContents || (
+        <Icon
+          src="images/flyover-indies-logo-text.svg"
+          alt="Flyover Indies logo"
+        />
+      )}
     </Arcade.Panel>
     <Arcade.Controls>
       <Nav />
@@ -23,6 +29,11 @@ const ArcadeTemplate = ({ children }) => (
 
 ArcadeTemplate.propTypes = {
   children: PropTypes.node.isRequired,
+  panelContents: PropTypes.node,
+};
+
+ArcadeTemplate.defaultProps = {
+  panelContents: null,
 };
 
 export default ArcadeTemplate;

@@ -40,6 +40,10 @@ const Home = () => (
 );
 
 // eslint-disable-next-line react/display-name
-Home.getLayout = (page) => <ArcadeTemplate>{page}</ArcadeTemplate>;
+Home.getLayout = (page) => (
+  <ArcadeTemplate panelContents={<p>i'm trapped in the computer!</p>}>
+    {page}
+  </ArcadeTemplate>
+);
 
 export default Home;
