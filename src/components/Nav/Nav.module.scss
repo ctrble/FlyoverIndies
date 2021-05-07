@@ -1,0 +1,35 @@
+@use 'src/scss/utilities.scss';
+
+$linkColor: utilities.$white;
+$linkSpace: 1rem;
+$linkMovement: 1rem;
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  position: relative;
+  border-left: 5px solid $linkColor;
+}
+
+.nav__link {
+  text-transform: capitalize;
+  text-decoration: none;
+  color: $linkColor;
+  padding-left: $linkSpace;
+  padding-right: $linkMovement;
+  transition: padding 125ms ease-out;
+  &:hover {
+    padding-left: $linkSpace + $linkMovement;
+    padding-right: 0;
+    font-weight: bold;
+    // background-color: black;
+  }
+}
