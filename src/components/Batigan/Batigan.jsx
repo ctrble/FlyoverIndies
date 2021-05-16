@@ -27,15 +27,22 @@ const Batigan = () => {
 
   const batInitial = {
     display: 'none',
+    transformPerspective: '10em',
+  };
+  const textInitial = {
+    rotateX: 0,
+    rotateY: 0,
+    transformPerspective: '10em',
   };
   const batLength = 1.52;
-  const spinLength = 0.3;
+  const spinLength = styles.var_animationTiming * 5;
 
   async function sequence() {
     // spin text out, then hide
     await textAnimation.start({
-      // rotate: (317, 22, 1),
-      rotateY: 90,
+      // rotateY: 90,
+      rotateX: -90,
+      rotateY: 15,
       transition: {
         duration: spinLength,
       },
@@ -62,9 +69,20 @@ const Batigan = () => {
       transitionEnd: { display: 'none' },
     });
 
+    // secretly flip text
+    await textAnimation.start({
+      rotateX: 90,
+      rotateY: -15,
+      transition: {
+        duration: spinLength,
+      },
+    });
+
     // spin text in
     await textAnimation.start({
       display: 'block',
+      // rotateY: 0,
+      rotateX: 0,
       rotateY: 0,
       transition: {
         duration: spinLength,
@@ -77,6 +95,7 @@ const Batigan = () => {
       <motion.div
         onTap={sequence}
         animate={textAnimation}
+        initial={textInitial}
         className={styles.batigan__logo}
       >
         <Icon src={flyoverTextSrc} alt={flyoverTextAlt} />
