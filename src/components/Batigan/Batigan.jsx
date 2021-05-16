@@ -36,65 +36,73 @@ const Batigan = () => {
     rotateY: 0,
     transformPerspective: '10em',
   };
-  const batLength = styles.var_animationDuration - styles.var_animationTiming;
-  const spinLength = styles.var_animationTiming * 2;
+  const batLength = styles.var_animationDuration - styles.var_animationDelay;
+  const spinLength = styles.var_animationDelay * 2;
 
   async function sequence() {
-    // secretly flip bat
-    batAnimation.start({
-      rotateX: 90,
-      rotateY: -15,
-    });
-
     // spin text out, then hide
     await textAnimation.start({
-      // rotateY: 90,
-      rotateX: -90,
-      rotateY: 15,
+      rotateX: [0, -90],
+      rotateY: [0, 15],
+      opacity: [1, 0],
       transition: {
         duration: spinLength,
+        ease: 'anticipate',
+        opacity: {
+          ease: 'circIn',
+          duration: spinLength,
+        },
       },
       transitionEnd: { display: 'none' },
-    });
-
-    // secretly flip text
-    textAnimation.start({
-      rotateX: 90,
-      rotateY: -15,
     });
 
     // show bat, spinning in
     await batAnimation.start({
       display: 'block',
-      // rotateY: 0,
-      rotateX: 0,
-      rotateY: 0,
+      rotateX: [90, 0],
+      rotateY: [-15, 0],
+      opacity: [0, 1],
       transition: {
-        // from: 90,
         duration: spinLength,
+        opacity: {
+          ease: 'circIn',
+          duration: spinLength,
+        },
       },
     });
 
     // play gif, spin bat out
     await batAnimation.start({
-      // rotateY: 90,
-      rotateX: -90,
-      rotateY: 15,
+      rotateX: [0, -90],
+      rotateY: [0, 15],
+      opacity: [1, 0],
       transition: {
         delay: batLength,
         duration: spinLength,
+        ease: 'anticipate',
+        opacity: {
+          ease: 'circIn',
+          delay: batLength,
+          duration: spinLength,
+        },
       },
-      transitionEnd: { display: 'none' },
+      transitionEnd: {
+        display: 'none',
+      },
     });
 
     // spin text in
     await textAnimation.start({
       display: 'block',
-      // rotateY: 0,
-      rotateX: 0,
-      rotateY: 0,
+      rotateX: [90, 0],
+      rotateY: [-15, 0],
+      opacity: [0, 1],
       transition: {
         duration: spinLength,
+        opacity: {
+          ease: 'circIn',
+          duration: spinLength,
+        },
       },
     });
   }

@@ -1,10 +1,10 @@
 $animationDurationTime: 1.52;
-$animationDelayTime: 0.2;
+$animationDelayTime: 0.25;
 $animationDelay: #{$animationDelayTime}s;
 $animationDuration: #{$animationDurationTime}s;
 
 :export {
-  var_animationTiming: $animationDelayTime;
+  var_animationDelay: $animationDelayTime;
   var_animationDuration: $animationDurationTime;
 }
 
