@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { motion, useAnimation } from 'framer-motion';
 // import { Frame } from 'framer';
 // import ReactFreezeframe from 'react-freezeframe';
@@ -18,12 +18,9 @@ import styles from './Batigan.module.scss';
 const Batigan = () => {
   const flyoverTextSrc = 'images/flyover-indies-logo-text.svg';
   const flyoverTextAlt = 'Flyover Indies logo';
-  const batiganSpriteSrc = 'images/flitz-batigan-sprite.png';
-  const batiganSrc = 'images/flitz-batigan.gif';
-  const batiganAlt = 'Flitz Batigan the Flyover Indies mascot';
 
-  const textAnimation = useAnimation();
-  const batAnimation = useAnimation();
+  const batiganSpriteSrc = 'images/flitz-batigan-sprite.png';
+  const batiganAlt = 'Flitz Batigan the Flyover Indies mascot';
 
   const batInitial = {
     display: 'none',
@@ -36,54 +33,59 @@ const Batigan = () => {
     rotateY: 0,
     transformPerspective: '10em',
   };
-  const batLength = styles.var_animationDuration - styles.var_animationDelay;
-  const spinLength = styles.var_animationDelay * 2;
+
+  const textAnimation = useAnimation();
+  const batAnimation = useAnimation();
 
   async function sequence() {
-    // spin text out, then hide
+    const spinTime = styles.var_animationDelay * 2;
+    const batTime = styles.var_animationDuration;
+
+    // spin text out
     await textAnimation.start({
       rotateX: [0, -90],
       rotateY: [0, 15],
       opacity: [1, 0],
       transition: {
-        duration: spinLength,
+        duration: spinTime,
         ease: 'anticipate',
         opacity: {
           ease: 'circIn',
-          duration: spinLength,
+          duration: spinTime,
         },
       },
       transitionEnd: { display: 'none' },
     });
 
-    // show bat, spinning in
+    // spin bat in
     await batAnimation.start({
       display: 'block',
       rotateX: [90, 0],
       rotateY: [-15, 0],
       opacity: [0, 1],
       transition: {
-        duration: spinLength,
+        duration: spinTime,
+        ease: 'anticipate',
         opacity: {
-          ease: 'circIn',
-          duration: spinLength,
+          ease: 'circOut',
+          duration: spinTime,
         },
       },
     });
 
-    // play gif, spin bat out
+    // play sprite animation, then spin bat out
     await batAnimation.start({
       rotateX: [0, -90],
       rotateY: [0, 15],
       opacity: [1, 0],
       transition: {
-        delay: batLength,
-        duration: spinLength,
+        delay: batTime,
+        duration: spinTime,
         ease: 'anticipate',
         opacity: {
           ease: 'circIn',
-          delay: batLength,
-          duration: spinLength,
+          delay: batTime,
+          duration: spinTime,
         },
       },
       transitionEnd: {
@@ -98,10 +100,11 @@ const Batigan = () => {
       rotateY: [-15, 0],
       opacity: [0, 1],
       transition: {
-        duration: spinLength,
+        duration: spinTime,
+        ease: 'anticipate',
         opacity: {
-          ease: 'circIn',
-          duration: spinLength,
+          ease: 'circOut',
+          duration: spinTime,
         },
       },
     });
