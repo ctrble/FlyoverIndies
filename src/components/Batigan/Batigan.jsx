@@ -36,10 +36,16 @@ const Batigan = () => {
     rotateY: 0,
     transformPerspective: '10em',
   };
-  const batLength = styles.var_animationDuration;
+  const batLength = styles.var_animationDuration - styles.var_animationTiming;
   const spinLength = styles.var_animationTiming * 2;
 
   async function sequence() {
+    // secretly flip bat
+    batAnimation.start({
+      rotateX: 90,
+      rotateY: -15,
+    });
+
     // spin text out, then hide
     await textAnimation.start({
       // rotateY: 90,
@@ -51,8 +57,8 @@ const Batigan = () => {
       transitionEnd: { display: 'none' },
     });
 
-    // secretly flip bat
-    await batAnimation.start({
+    // secretly flip text
+    textAnimation.start({
       rotateX: 90,
       rotateY: -15,
     });
@@ -79,12 +85,6 @@ const Batigan = () => {
         duration: spinLength,
       },
       transitionEnd: { display: 'none' },
-    });
-
-    // secretly flip text
-    await textAnimation.start({
-      rotateX: 90,
-      rotateY: -15,
     });
 
     // spin text in
