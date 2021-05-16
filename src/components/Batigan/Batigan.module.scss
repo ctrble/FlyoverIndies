@@ -1,8 +1,11 @@
-$animationTiming: 0.2;
-$animationDelay: #{$animationTiming}s;
+$animationDurationTime: 1.52;
+$animationDelayTime: 0.2;
+$animationDelay: #{$animationDelayTime}s;
+$animationDuration: #{$animationDurationTime}s;
 
 :export {
-  var_animationTiming: $animationTiming;
+  var_animationTiming: $animationDelayTime;
+  var_animationDuration: $animationDurationTime;
 }
 
 .batigan {
@@ -46,16 +49,11 @@ $framePercent: (100 / $frameCount) * 1%;
   width: $spriteWidth;
   max-width: $spriteWidth;
 
-  // background-image: url('/images/flitz-batigan-sprite.png');
-  // background-position: 0px 0px;
-  // background-repeat: no-repeat;
-
   animation: flyAnimation;
   animation-timing-function: step-end;
   animation-iteration-count: 1;
-  animation-duration: 1.52s;
-  animation-delay: $animationDelay; // half of spinLength
-  // animation-delay: 0.15s; // half of spinLength
+  animation-duration: $animationDuration;
+  animation-delay: $animationDelay;
 }
 
 @keyframes flyAnimation {
