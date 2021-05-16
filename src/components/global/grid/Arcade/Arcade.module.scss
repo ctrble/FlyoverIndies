@@ -10,12 +10,12 @@ $screenColor: utilities.$white;
   height: 100vh;
   max-height: 100vh;
   @media (orientation: portrait) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50% 50%;
     grid-template-rows: minmax(65vh, 3fr) minmax(35vh, 1fr);
     grid-template-areas: 'screen screen' 'control panel';
   }
   @media (orientation: landscape) {
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: minmax(65vw, 3fr) minmax(35vw, 1fr);
     grid-template-rows: 1fr 1fr;
     grid-template-areas: 'screen panel' 'screen control';
   }
@@ -77,7 +77,6 @@ $screenColor: utilities.$white;
 .arcade__controls {
   grid-area: control;
   background-color: utilities.$flyoverBlue;
-  // background-color: utilities.$flyoverBlue;
   color: utilities.$white;
 }
 
@@ -85,4 +84,17 @@ $screenColor: utilities.$white;
   grid-area: panel;
   background-color: utilities.$white;
   color: utilities.$black;
+
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    top: 2rem;
+    left: 2rem;
+    right: 2rem;
+    bottom: 2rem;
+    border-radius: 2rem;
+    border: 2px solid utilities.$batigansMawOrange;
+  }
 }

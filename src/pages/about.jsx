@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NextSeo } from 'next-seo';
 import { v4 as uuidv4 } from 'uuid';
-import { AwesomeButton } from 'react-awesome-button';
+// import { AwesomeButton } from 'react-awesome-button';
 // import AwesomeButtonStyles from 'react-awesome-button/src/styles/styles.scss';
 
 import ArcadeTemplate from 'src/components/global/templates/ArcadeTemplate';
 // import Page from 'src/components/global/grid/Page';
+import Button from 'src/components/global/Button';
 import Markdown from 'src/components/global/Markdown';
 import ContactForm from 'src/components/forms/ContactForm';
 
@@ -25,14 +26,18 @@ const About = ({ about, codeOfConduct, joinUs }) => (
       joinUs.map(({ content, frontmatter }) => (
         <section key={uuidv4()}>
           <Markdown content={content} />
-          <AwesomeButton
+          <Button href={frontmatter.link} target="_blank">
+            {frontmatter.cta}
+          </Button>
+
+          {/* <AwesomeButton
             // cssModule={AwesomeButtonStyles}
             type="primary"
             href={frontmatter.link}
             target="_blank"
           >
             {frontmatter.cta}
-          </AwesomeButton>
+          </AwesomeButton> */}
         </section>
       ))}
     <hr />

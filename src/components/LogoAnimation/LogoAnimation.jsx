@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import { motion, useAnimation, useCycle } from 'framer-motion';
 
 import Icon from 'src/components/global/Icon';
 
@@ -23,6 +23,8 @@ const LogoAnimation = () => {
     rotateY: 0,
     transformPerspective: '10em',
   };
+
+  const [y, cycleY] = useCycle(0, 6, -6);
 
   const textAnimation = useAnimation();
   const batAnimation = useAnimation();

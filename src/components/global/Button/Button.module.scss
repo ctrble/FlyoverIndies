@@ -1,0 +1,25 @@
+@use 'src/scss/utilities.scss';
+
+.button {
+  display: inline-flex;
+  padding: 1rem 2rem;
+
+  font-weight: bold;
+  color: utilities.$white;
+
+  background-color: utilities.$effThisOrange;
+
+  border-radius: 4rem;
+  border: 2px solid utilities.$white;
+  outline: 2px solid utilities.$white;
+  outline-offset: -6px;
+  box-shadow: 0px 4px 0px 5px utilities.$effThisOrange;
+
+  // temp
+  margin-bottom: 3rem;
+
+  &:any-link {
+    text-decoration: none;
+    color: utilities.$white;
+  }
+}
