@@ -29,6 +29,7 @@ $animationDuration: #{$animationDurationTime}s;
 .logo__text {
   max-width: $textLogoSize;
   max-height: $textLogoSize;
+  cursor: pointer;
 }
 
 .logo__batigan {
