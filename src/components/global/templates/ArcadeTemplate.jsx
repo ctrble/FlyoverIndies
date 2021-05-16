@@ -1,24 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 
 import Arcade from 'src/components/global/grid/Arcade';
-import Icon from 'src/components/global/Icon';
+// import Batigan from 'src/components/Batigan';
+// import Icon from 'src/components/global/Icon';
 import Nav from 'src/components/Nav';
 
-// import dynamic from 'next/dynamic';
-// const CovidTracker = dynamic(() => import('src/components/CovidTracker'), {
-//   ssr: false,
-// });
+const Batigan = dynamic(() => import('src/components/Batigan'), {
+  ssr: false,
+});
 
 const ArcadeTemplate = ({ children, panelContents }) => (
   <Arcade>
     <Arcade.Screen>{children}</Arcade.Screen>
     <Arcade.Panel>
       {panelContents || (
-        <Icon
-          src="images/flyover-indies-logo-text.svg"
-          alt="Flyover Indies logo"
-        />
+        <Batigan />
+        // <Icon
+        //   src="images/flyover-indies-logo-text.svg"
+        //   alt="Flyover Indies logo"
+        // />
       )}
     </Arcade.Panel>
     <Arcade.Controls>

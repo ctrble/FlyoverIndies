@@ -1,0 +1,58 @@
+.batigan {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.batigan__logo {
+  max-width: 180px;
+  max-height: 180px;
+}
+
+$spriteWidth: 13110px / 3;
+$spriteHeight: 690px / 3;
+$frameCount: 19;
+$framePercent: (100 / $frameCount) * 1%;
+
+// wrapper
+.batigan__gif {
+  $gifSize: $spriteHeight;
+  // $gifSize: 180px;
+  width: $gifSize;
+  height: $gifSize;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.batigan__sprite {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  height: $spriteHeight;
+  width: $spriteWidth;
+  max-width: $spriteWidth;
+
+  // background-image: url('/images/flitz-batigan-sprite.png');
+  // background-position: 0px 0px;
+  // background-repeat: no-repeat;
+
+  animation: flyAnimation;
+  animation-timing-function: step-end;
+  animation-iteration-count: 1;
+  animation-duration: 1.52s;
+  animation-delay: 0.15s; // half of spinLength
+}
+
+@keyframes flyAnimation {
+  @for $i from 0 through $frameCount - 1 {
+    #{$i * $framePercent} {
+      transform: translateX($spriteHeight * -$i);
+    }
+  }
+}
