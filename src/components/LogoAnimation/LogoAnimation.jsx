@@ -1,26 +1,16 @@
 import React from 'react';
 import { motion, useAnimation } from 'framer-motion';
-// import { Frame } from 'framer';
-// import ReactFreezeframe from 'react-freezeframe';
-// {/* <ReactFreezeframe
-//        options={{
-//          trigger: 'hover',
-//        }}
-//        src={batiganSrc}
-//        alt={batiganAlt}
-//      /> */}
 
 import Icon from 'src/components/global/Icon';
 
-import styles from './Batigan.module.scss';
+import styles from './LogoAnimation.module.scss';
 
-// https://www.benmarshall.me/how-to-pause-a-gif/
-const Batigan = () => {
+const LogoAnimation = () => {
   const flyoverTextSrc = 'images/flyover-indies-logo-text.svg';
   const flyoverTextAlt = 'Flyover Indies logo';
 
   const batiganSpriteSrc = 'images/flitz-batigan-sprite.png';
-  const batiganAlt = 'Flitz Batigan the Flyover Indies mascot';
+  const batiganAlt = 'Flitz Batigan, Flyover Indies mascot';
 
   const batInitial = {
     display: 'none',
@@ -111,12 +101,12 @@ const Batigan = () => {
   }
 
   return (
-    <div className={styles.batigan}>
+    <div className={styles.logo}>
       <motion.div
         onTap={sequence}
         animate={textAnimation}
         initial={textInitial}
-        className={styles.batigan__logo}
+        className={styles.logo__text}
       >
         <Icon src={flyoverTextSrc} alt={flyoverTextAlt} />
       </motion.div>
@@ -125,10 +115,10 @@ const Batigan = () => {
         onTap={sequence}
         animate={batAnimation}
         initial={batInitial}
-        className={styles.batigan__gif}
+        className={styles.logo__batigan}
       >
         <img
-          className={styles.batigan__sprite}
+          className={styles.logo__sprite}
           src={batiganSpriteSrc}
           alt={batiganAlt}
         />
@@ -137,4 +127,4 @@ const Batigan = () => {
   );
 };
 
-export default Batigan;
+export default LogoAnimation;

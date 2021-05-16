@@ -1,3 +1,10 @@
+$textLogoSize: 180px;
+$spriteWidth: 13110px / 3;
+$spriteHeight: 690px / 3;
+
+$frameCount: 19;
+$framePercent: (100 / $frameCount) * 1%;
+
 $animationDurationTime: 1.52;
 $animationDelayTime: 0.25;
 $animationDelay: #{$animationDelayTime}s;
@@ -8,7 +15,7 @@ $animationDuration: #{$animationDurationTime}s;
   var_animationDuration: $animationDurationTime;
 }
 
-.batigan {
+.logo {
   width: 100%;
   height: 100%;
   display: flex;
@@ -19,28 +26,19 @@ $animationDuration: #{$animationDurationTime}s;
   overflow: hidden;
 }
 
-.batigan__logo {
-  max-width: 180px;
-  max-height: 180px;
+.logo__text {
+  max-width: $textLogoSize;
+  max-height: $textLogoSize;
 }
 
-$spriteWidth: 13110px / 3;
-$spriteHeight: 690px / 3;
-$frameCount: 19;
-$framePercent: (100 / $frameCount) * 1%;
-
-// wrapper
-.batigan__gif {
-  $gifSize: $spriteHeight;
-  // $gifSize: 180px;
-  width: $gifSize;
-  height: $gifSize;
-
+.logo__batigan {
   position: relative;
   overflow: hidden;
+  width: $spriteHeight;
+  height: $spriteHeight;
 }
 
-.batigan__sprite {
+.logo__sprite {
   position: absolute;
   top: 0;
   left: 0;

@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 
 import Arcade from 'src/components/global/grid/Arcade';
-// import Batigan from 'src/components/Batigan';
 // import Icon from 'src/components/global/Icon';
 import Nav from 'src/components/Nav';
 
-const Batigan = dynamic(() => import('src/components/Batigan'), {
+const LogoAnimation = dynamic(() => import('src/components/LogoAnimation'), {
   ssr: false,
 });
 
@@ -16,7 +15,7 @@ const ArcadeTemplate = ({ children, panelContents }) => (
     <Arcade.Screen>{children}</Arcade.Screen>
     <Arcade.Panel>
       {panelContents || (
-        <Batigan />
+        <LogoAnimation />
         // <Icon
         //   src="images/flyover-indies-logo-text.svg"
         //   alt="Flyover Indies logo"

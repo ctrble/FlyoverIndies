@@ -4058,11 +4058,6 @@ react-dom@17.0.1:
     object-assign "^4.1.1"
     scheduler "^0.20.1"
 
-react-freezeframe@^5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/react-freezeframe/-/react-freezeframe-5.0.2.tgz#e1f00dcd1d89827f6de960318552a969feb867e6"
-  integrity sha512-UOabWMDpklR6Kx/nXw89NzD4IqUdM/wkrMUTOpP7otT/9qfvQOnWsIIqXj9QHt4LwJFYKGBRUJqNh+o/V6Yhow==
-
 react-from-dom@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/react-from-dom/-/react-from-dom-0.5.1.tgz#5ab82944209059aded60dc26abf43f8989126fa2"
