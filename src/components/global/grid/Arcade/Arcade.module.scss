@@ -77,11 +77,12 @@ $screenColor: utilities.$white;
 .arcade__controls {
   grid-area: control;
   background-color: utilities.$flyoverBlue;
+  // background-color: utilities.$flyoverBlue;
   color: utilities.$white;
 }
 
 .arcade__panel {
   grid-area: panel;
-  background-color: utilities.$black;
-  color: utilities.$white;
+  background-color: utilities.$white;
+  color: utilities.$black;
 }

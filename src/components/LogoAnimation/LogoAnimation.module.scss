@@ -1,3 +1,6 @@
+@use 'src/scss/utilities.scss';
+
+$textLogoColor: utilities.$flyoverBlue;
 $textLogoSize: 180px;
 $spriteWidth: 13110px / 3;
 $spriteHeight: 690px / 3;
@@ -30,6 +33,10 @@ $animationDuration: #{$animationDurationTime}s;
   max-width: $textLogoSize;
   max-height: $textLogoSize;
   cursor: pointer;
+}
+
+.logo__svg {
+  color: $textLogoColor;
 }
 
 .logo__batigan {

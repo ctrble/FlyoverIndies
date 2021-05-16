@@ -108,7 +108,11 @@ const LogoAnimation = () => {
         initial={textInitial}
         className={styles.logo__text}
       >
-        <Icon src={flyoverTextSrc} alt={flyoverTextAlt} />
+        <Icon
+          className={styles.logo__svg}
+          src={flyoverTextSrc}
+          alt={flyoverTextAlt}
+        />
       </motion.div>
 
       <motion.div

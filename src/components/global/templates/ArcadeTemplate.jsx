@@ -13,15 +13,7 @@ const LogoAnimation = dynamic(() => import('src/components/LogoAnimation'), {
 const ArcadeTemplate = ({ children, panelContents }) => (
   <Arcade>
     <Arcade.Screen>{children}</Arcade.Screen>
-    <Arcade.Panel>
-      {panelContents || (
-        <LogoAnimation />
-        // <Icon
-        //   src="images/flyover-indies-logo-text.svg"
-        //   alt="Flyover Indies logo"
-        // />
-      )}
-    </Arcade.Panel>
+    <Arcade.Panel>{panelContents || <LogoAnimation />}</Arcade.Panel>
     <Arcade.Controls>
       <Nav />
     </Arcade.Controls>
