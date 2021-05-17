@@ -31,4 +31,12 @@ $linkMovement: 1rem;
     padding-right: 0;
     font-weight: bold;
   }
+  &_isActive {
+    position: relative;
+    cursor: default;
+    &:after {
+      content: '<';
+      padding-left: 1rem;
+    }
+  }
 }

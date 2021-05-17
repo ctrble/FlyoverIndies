@@ -39,15 +39,19 @@ $animationDuration: #{$animationDurationTime}s;
 .logo__svg {
   color: $textLogoColor;
   transition: color ease-in-out 0.25s;
+  svg {
+    transition: all ease-in-out 0.25s;
+    filter: drop-shadow(0px 2px 0px utilities.$transparent);
+  }
   &:hover {
     cursor: pointer;
     transition: color ease-in-out 0.25s;
     color: utilities.$batigansMawOrange;
+    svg {
+      transition: all ease-in-out 0.25s;
+      filter: drop-shadow(0px 2px 0px utilities.$flyoverBlue);
+    }
   }
-  // svg {
-  //   filter: drop-shadow(1px 1px 0px utilities.$batigansMawOrange)
-  //     drop-shadow(-1px -1px 0px utilities.$flyoverBlue);
-  // }
 }
 
 .logo__batigan {
