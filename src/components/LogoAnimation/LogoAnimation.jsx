@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, useAnimation, useCycle } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 
 import Icon from 'src/components/global/Icon';
 
@@ -24,17 +24,22 @@ const LogoAnimation = () => {
     transformPerspective: '10em',
   };
 
-  const [y, cycleY] = useCycle(0, 6, -6);
-
   const textAnimation = useAnimation();
   const batAnimation = useAnimation();
 
-  async function sequence() {
-    const spinTime = styles.var_animationDelay * 2;
-    const batTime = styles.var_animationDuration;
+  const spinTime = styles.var_animationDelay * 2;
+  const batTime = styles.var_animationDuration;
 
-    // spin text out
-    await textAnimation.start({
+  const textVariants = {
+    hover: {
+      y: -5,
+      transition: {
+        duration: 1,
+        repeat: Infinity,
+        repeatType: 'reverse',
+      },
+    },
+    spinOut: {
       rotateX: [0, -90],
       rotateY: [0, 15],
       opacity: [1, 0],
@@ -47,10 +52,8 @@ const LogoAnimation = () => {
         },
       },
       transitionEnd: { display: 'none' },
-    });
-
-    // spin bat in
-    await batAnimation.start({
+    },
+    spinIn: {
       display: 'block',
       rotateX: [90, 0],
       rotateY: [-15, 0],
@@ -63,10 +66,25 @@ const LogoAnimation = () => {
           duration: spinTime,
         },
       },
-    });
+    },
+  };
 
-    // play sprite animation, then spin bat out
-    await batAnimation.start({
+  const batVariants = {
+    spinIn: {
+      display: 'block',
+      rotateX: [90, 0],
+      rotateY: [-15, 0],
+      opacity: [0, 1],
+      transition: {
+        duration: spinTime,
+        ease: 'anticipate',
+        opacity: {
+          ease: 'circOut',
+          duration: spinTime,
+        },
+      },
+    },
+    spinOut: {
       rotateX: [0, -90],
       rotateY: [0, 15],
       opacity: [1, 0],
@@ -83,31 +101,24 @@ const LogoAnimation = () => {
       transitionEnd: {
         display: 'none',
       },
-    });
+    },
+  };
 
-    // spin text in
-    await textAnimation.start({
-      display: 'block',
-      rotateX: [90, 0],
-      rotateY: [-15, 0],
-      opacity: [0, 1],
-      transition: {
-        duration: spinTime,
-        ease: 'anticipate',
-        opacity: {
-          ease: 'circOut',
-          duration: spinTime,
-        },
-      },
-    });
+  async function textToBatSpin() {
+    await textAnimation.start(textVariants.spinOut);
+    await batAnimation.start(batVariants.spinIn);
+    await batAnimation.start(batVariants.spinOut);
+    await textAnimation.start(textVariants.spinIn);
   }
 
   return (
     <div className={styles.logo}>
       <motion.div
-        onTap={sequence}
+        whileHover={textVariants.hover}
+        onTap={textToBatSpin}
         animate={textAnimation}
         initial={textInitial}
+        variants={textVariants}
         className={styles.logo__text}
       >
         <Icon
@@ -118,7 +129,7 @@ const LogoAnimation = () => {
       </motion.div>
 
       <motion.div
-        onTap={sequence}
+        onTap={textToBatSpin}
         animate={batAnimation}
         initial={batInitial}
         className={styles.logo__batigan}

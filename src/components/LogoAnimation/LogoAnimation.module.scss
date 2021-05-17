@@ -44,6 +44,10 @@ $animationDuration: #{$animationDurationTime}s;
     transition: color ease-in-out 0.25s;
     color: utilities.$batigansMawOrange;
   }
+  // svg {
+  //   filter: drop-shadow(1px 1px 0px utilities.$batigansMawOrange)
+  //     drop-shadow(-1px -1px 0px utilities.$flyoverBlue);
+  // }
 }
 
 .logo__batigan {

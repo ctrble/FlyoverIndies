@@ -66,11 +66,19 @@ $screenColor: utilities.$white;
   right: 0;
   &_top {
     top: 0;
-    background-image: linear-gradient(to bottom, $screenColor, transparent);
+    background-image: linear-gradient(
+      to bottom,
+      $screenColor,
+      utilities.$transparent
+    );
   }
   &_bottom {
     bottom: 0;
-    background-image: linear-gradient(to top, $screenColor, transparent);
+    background-image: linear-gradient(
+      to top,
+      $screenColor,
+      utilities.$transparent
+    );
   }
 }
 
