@@ -6,7 +6,6 @@ import { v4 as uuidv4 } from 'uuid';
 // import AwesomeButtonStyles from 'react-awesome-button/src/styles/styles.scss';
 
 import ArcadeTemplate from 'src/components/global/templates/ArcadeTemplate';
-// import Page from 'src/components/global/grid/Page';
 import Button from 'src/components/global/Button';
 import Markdown from 'src/components/global/Markdown';
 import ContactForm from 'src/components/forms/ContactForm';
