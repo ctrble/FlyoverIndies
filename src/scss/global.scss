@@ -29,10 +29,13 @@ h4,
 h5,
 h6 {
   font-family: utilities.$headingFont;
+  font-size: utilities.$headingSize;
   line-height: 1.5;
+  letter-spacing: 2px;
   margin-bottom: 2rem;
 }
 
 p {
+  font-size: utilities.$bodySize;
   margin-bottom: 2rem;
 }

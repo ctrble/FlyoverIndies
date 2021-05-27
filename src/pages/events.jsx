@@ -9,7 +9,7 @@ const EventCalendar = dynamic(() => import('src/components/EventCalendar'), {
 
 const Join = () => (
   <>
-    <h1>Join us</h1>
+    <h1>Events</h1>
     <EventCalendar duration={{ weeks: 2 }} />
   </>
 );

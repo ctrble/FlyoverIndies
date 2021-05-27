@@ -26,6 +26,7 @@ const LogoAnimation = () => {
 
   const textAnimation = useAnimation();
   const batAnimation = useAnimation();
+  const asideAnimation = useAnimation();
 
   const spinTime = styles.var_animationDelay * 2;
   const batTime = styles.var_animationDuration;
@@ -104,11 +105,24 @@ const LogoAnimation = () => {
     },
   };
 
+  const asideVariants = {
+    fadeIn: {
+      opacity: 1,
+      transition: spinTime,
+    },
+    fadeOut: {
+      opacity: 0,
+      transition: spinTime,
+    },
+  };
+
   async function textToBatSpin() {
+    asideAnimation.start(asideVariants.fadeOut);
     await textAnimation.start(textVariants.spinOut);
     await batAnimation.start(batVariants.spinIn);
     await batAnimation.start(batVariants.spinOut);
     await textAnimation.start(textVariants.spinIn);
+    asideAnimation.start(asideVariants.fadeIn);
   }
 
   return (
@@ -127,7 +141,15 @@ const LogoAnimation = () => {
           alt={flyoverTextAlt}
         />
       </motion.div>
-
+      <motion.div
+        animate={asideAnimation}
+        variants={asideVariants}
+        className={styles.logo__aside}
+      >
+        KCMO + KCK
+        <br />
+        Indie Game Developer Community
+      </motion.div>
       <motion.div
         onTap={textToBatSpin}
         animate={batAnimation}

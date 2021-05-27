@@ -1,8 +1,14 @@
 @use 'sass:color';
-@use 'src/scss/utilities.scss';
+@use 'src/scss/utilities';
 
-.button {
-  $buttonRoundness: 4rem;
+@mixin button3d(
+  $primaryColor: utilities.$batigansMawOrange,
+  $secondaryColor: utilities.$effThisOrange,
+  $topLeftRadius: 4rem,
+  $topRightRadius: 4rem,
+  $bottomLeftRadius: 4rem,
+  $bottomRightRadius: 4rem
+) {
   $innerStripeWidth: 2px;
   $innerStripeOffset: -6px;
   $innerStripeChange: 0px;
@@ -10,28 +16,42 @@
   $buttonShadowLength: 6px;
   $pressAmount: 4px;
   $sideShadowStyle: 0px 4px 2px 0px
-    color.scale(utilities.$effThisOrange, $blackness: 15%);
+    color.scale($secondaryColor, $blackness: 15%);
+  $sideStyle: $sideShadowStyle, 0px $buttonHeight 0px 0px $secondaryColor;
+  $sideStyleHover: $sideShadowStyle,
+    0px $buttonHeight - $pressAmount 0px 0px $secondaryColor;
   $bottomShadowColor: rgba(utilities.$black, 0.25);
   $easingFunction: cubic-bezier(0.87, 0, 0.13, 1);
   $easingTime: 0.15s;
 
-  // basics
-  position: relative;
-  display: inline-flex;
-  padding: 1rem 2rem;
-  border-radius: $buttonRoundness;
-  font-family: utilities.$headingFont;
-  font-weight: bold;
-  color: utilities.$white;
-
   // inside button
-  background-color: utilities.$batigansMawOrange;
-  outline: $innerStripeWidth solid utilities.$effThisOrange;
+  background-color: $primaryColor;
+  outline: $innerStripeWidth solid $secondaryColor;
   outline-offset: $innerStripeOffset;
+  border-top-left-radius: $topLeftRadius;
+  border-top-right-radius: $topRightRadius;
+  border-bottom-left-radius: $bottomLeftRadius;
+  border-bottom-right-radius: $bottomRightRadius;
 
   // bottom side
-  box-shadow: $sideShadowStyle,
-    0px $buttonHeight 0px 0px utilities.$effThisOrange;
+  box-shadow: $sideStyle;
+
+  // funky state overrides
+  &:focus {
+    outline: $innerStripeWidth solid $secondaryColor !important;
+    outline-offset: $innerStripeOffset;
+    box-shadow: $sideStyle;
+  }
+  &:active {
+    background-color: $primaryColor;
+  }
+  &:active:focus {
+    box-shadow: $sideStyle;
+  }
+  &:active:focus:hover {
+    // bottom side
+    box-shadow: $sideStyleHover;
+  }
 
   // transition
   transform: translate3d(0, 0, 0);
@@ -47,23 +67,21 @@
     bottom: -$buttonHeight;
     left: 0;
     right: 0;
-    border-radius: $buttonRoundness;
+    border-top-left-radius: $topLeftRadius;
+    border-top-right-radius: $topRightRadius;
+    border-bottom-left-radius: $bottomLeftRadius;
+    border-bottom-right-radius: $bottomRightRadius;
     box-shadow: 0px $buttonShadowLength 0px 0px $bottomShadowColor;
   }
 
   &:hover {
+    background-color: $primaryColor;
+
     // transition
     transform: translate3d(0, $pressAmount, 0);
-    // background-color: utilities.$batigansMawOrange;
-
-    // inside button
-    // outline: $innerStripeWidth + $innerStripeChange solid
-    //   utilities.$effThisOrange;
-    // outline-offset: $innerStripeOffset - $innerStripeChange;
 
     // bottom side
-    box-shadow: $sideShadowStyle,
-      0px $buttonHeight - $pressAmount 0px 0px utilities.$effThisOrange;
+    box-shadow: $sideStyleHover;
 
     // shadow
     &:after {
@@ -72,9 +90,18 @@
         $bottomShadowColor;
     }
   }
+}
 
-  // temp
-  margin-bottom: 3rem;
+.button {
+  // basics
+  position: relative;
+  display: inline-flex;
+  padding: 1rem 2rem;
+  font-family: utilities.$headingFont;
+  font-weight: bold;
+  color: utilities.$white;
+
+  @include button3d();
 
   &:any-link {
     text-decoration: none;

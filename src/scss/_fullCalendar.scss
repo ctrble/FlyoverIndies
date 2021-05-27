@@ -1,25 +1,26 @@
-@use 'src/scss/utilities';
+@import 'src/scss/utilities';
+@import 'src/components/global/Button/Button.module';
 
 // https://github.com/fullcalendar/fullcalendar/tree/master/packages
 
 :root {
   --fc-small-font-size: 0.85em;
-  --fc-page-bg-color: #fff;
+  --fc-page-bg-color: #e3e3e3;
   --fc-neutral-bg-color: rgba(208, 208, 208, 0.3);
   --fc-neutral-text-color: #808080;
   --fc-border-color: #ddd;
 
-  --fc-button-text-color: #fff;
-  --fc-button-bg-color: #0078fc;
-  --fc-button-border-color: #2c3e50;
-  --fc-button-hover-bg-color: #1e2b37;
-  --fc-button-hover-border-color: #1a252f;
-  --fc-button-active-bg-color: #1a252f;
-  --fc-button-active-border-color: #151e27;
+  --fc-button-text-color: #e3e3e3;
+  --fc-button-bg-color: #fc7858;
+  --fc-button-border-color: transparent;
+  --fc-button-hover-bg-color: #fc7858;
+  --fc-button-hover-border-color: transparent;
+  --fc-button-active-bg-color: #fc7858;
+  --fc-button-active-border-color: transparent;
 
   --fc-event-bg-color: #3788d8;
   --fc-event-border-color: #3788d8;
-  --fc-event-text-color: #fff;
+  --fc-event-text-color: #e3e3e3;
   --fc-event-selected-overlay-color: rgba(0, 0, 0, 0.25);
 
   --fc-event-resizer-thickness: 8px;
@@ -37,4 +38,30 @@
 
   --fc-list-event-dot-width: 10px;
   --fc-list-event-hover-bg-color: #f5f5f5;
+}
+
+.fc-button-group > .fc-button:not(:first-child) {
+  @include button3d(
+    $topLeftRadius: 0 !important,
+    $topRightRadius: 4rem !important,
+    $bottomLeftRadius: 0 !important,
+    $bottomRightRadius: 4rem !important
+  );
+}
+.fc-button-group > .fc-button:not(:last-child) {
+  @include button3d(
+    $topLeftRadius: 4rem !important,
+    $topRightRadius: 0 !important,
+    $bottomLeftRadius: 4rem !important,
+    $bottomRightRadius: 0 !important
+  );
+}
+
+.fc-button {
+  @include button3d(
+    $topLeftRadius: 4rem !important,
+    $topRightRadius: 4rem !important,
+    $bottomLeftRadius: 4rem !important,
+    $bottomRightRadius: 4rem !important
+  );
 }

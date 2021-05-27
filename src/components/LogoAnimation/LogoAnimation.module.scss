@@ -36,6 +36,23 @@ $animationDuration: #{$animationDurationTime}s;
   max-height: $textLogoSize;
 }
 
+.logo__aside {
+  position: absolute;
+  top: 2rem;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+  padding-top: 130px;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  text-align: center;
+  color: utilities.$flyoverBlue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
 .logo__svg {
   color: $textLogoColor;
   transition: color ease-in-out 0.25s;

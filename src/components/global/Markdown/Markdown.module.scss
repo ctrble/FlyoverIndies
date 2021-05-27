@@ -1,0 +1,6 @@
+@use 'src/scss/utilities.scss';
+
+.markdown {
+  max-width: 70ch;
+  font-size: utilities.$bodySize;
+}

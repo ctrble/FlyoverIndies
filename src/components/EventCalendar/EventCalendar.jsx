@@ -47,6 +47,8 @@ const EventCalendar = ({ duration }) => {
         googleCalendarApiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY}
         eventContent={renderEventContent}
         height="100%"
+        contentHeight="auto"
+        stickyHeaderDates={false}
         events={{
           googleCalendarId:
             '1o3frgsjo8jsfgreuq8d8nq9j0@group.calendar.google.com',

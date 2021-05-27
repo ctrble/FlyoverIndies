@@ -5,8 +5,8 @@ module.exports = {
       path: '/',
     },
     {
-      title: 'join',
-      path: '/join',
+      title: 'Events',
+      path: '/events',
     },
     {
       title: 'about',

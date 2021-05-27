@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NextSeo } from 'next-seo';
 import { v4 as uuidv4 } from 'uuid';
-// import { AwesomeButton } from 'react-awesome-button';
-// import AwesomeButtonStyles from 'react-awesome-button/src/styles/styles.scss';
 
 import ArcadeTemplate from 'src/components/global/templates/ArcadeTemplate';
 import Button from 'src/components/global/Button';
@@ -28,15 +26,6 @@ const About = ({ about, codeOfConduct, joinUs }) => (
           <Button href={frontmatter.link} target="_blank">
             {frontmatter.cta}
           </Button>
-
-          {/* <AwesomeButton
-            // cssModule={AwesomeButtonStyles}
-            type="primary"
-            href={frontmatter.link}
-            target="_blank"
-          >
-            {frontmatter.cta}
-          </AwesomeButton> */}
         </section>
       ))}
     <hr />
