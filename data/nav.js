@@ -12,10 +12,10 @@ module.exports = {
       title: 'about',
       path: '/about',
     },
-    // {
-    //   title: 'help',
-    //   path: '/help',
-    // },
+    {
+      title: 'membership',
+      path: '/membership',
+    },
     {
       title: 'friends',
       path: '/friends',

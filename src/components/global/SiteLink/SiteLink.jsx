@@ -8,7 +8,13 @@ import is from 'is_js';
 const SiteLink = ({ children, className, href, ...props }) => {
   if (is.url(href)) {
     return (
-      <a className={classnames(className)} href={href} {...props}>
+      <a
+        className={classnames(className)}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        {...props}
+      >
         {children}
       </a>
     );

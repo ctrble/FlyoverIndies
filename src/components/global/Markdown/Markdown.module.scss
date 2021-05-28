@@ -1,6 +1,43 @@
 @use 'src/scss/utilities.scss';
 
+$markdownGap: 6rem;
+
 .markdown {
-  max-width: 70ch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   font-size: utilities.$bodySize;
+  max-width: 70ch;
+  margin: 0 auto;
+}
+
+.markdown__content {
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.markdown__cta {
+  display: flex;
+  justify-content: center;
+
+  // make space after the main content
+  .markdown__content + & {
+    margin-top: $markdownGap;
+  }
+
+  // make space if there's no divider or whatever
+  &:last-child {
+    margin-bottom: $markdownGap;
+  }
+}
+
+.markdown__divider {
+  border-top: none;
+  border-bottom: 1px dashed utilities.$flyoverBlue;
+  width: 100%;
+
+  // finish it all off
+  margin-top: $markdownGap;
+  margin-bottom: $markdownGap;
 }
