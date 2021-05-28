@@ -22,17 +22,14 @@ body {
   min-height: -webkit-fill-available;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: utilities.$headingFont;
-  font-size: utilities.$headingSize;
-  line-height: 1.5;
-  letter-spacing: 2px;
-  margin-bottom: 2rem;
+@each $heading, $size in utilities.$headingSizes {
+  #{$heading} {
+    font-family: utilities.$headingFont;
+    font-size: $size;
+    line-height: 1.5;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+  }
 }
 
 p {

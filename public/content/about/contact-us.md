@@ -4,6 +4,6 @@ description: Flyover Indies is an indie game development community in Kansas Cit
 date: 2021-05-27
 ---
 
-# Get in touch
+## Get in touch
 
 If you don't see a response, please be patient and check your junk folder (just in case). If you need to talk with us quickly, please reach out to us on our [Discord](https://discord.gg/8JdcrkR).
