@@ -1,0 +1,14 @@
+@use 'src/scss/utilities';
+
+$easingTime: 0.15s;
+$easingFunction: cubic-bezier(0.87, 0, 0.13, 1);
+
+.siteLink {
+  color: utilities.$effThisOrange;
+  text-decoration: none;
+  transition: border $easingTime $easingFunction;
+  border-bottom: 1px solid transparent;
+  &:hover {
+    border-bottom: 3px solid utilities.$batigansMawOrange;
+  }
+}

@@ -10,7 +10,12 @@ import styles from './Button.module.scss';
 const Button = ({ children, href, ...props }) => {
   if (href) {
     return (
-      <SiteLink className={styles.button} href={href} {...props}>
+      <SiteLink
+        className={styles.button}
+        href={href}
+        variant="button"
+        {...props}
+      >
         {children}
       </SiteLink>
     );

@@ -20,23 +20,33 @@ $linkMovement: 1rem;
 }
 
 .nav__link {
-  text-transform: capitalize;
-  text-decoration: none;
-  color: $linkColor;
   padding-left: $linkSpace;
   padding-right: $linkMovement;
-  transition: padding 125ms ease-out;
+
   &:hover {
     padding-left: $linkSpace + $linkMovement;
     padding-right: 0;
     font-weight: bold;
   }
+
   &_isActive {
     position: relative;
     cursor: default;
+
     &:after {
       content: '<';
       padding-left: 1rem;
+    }
+  }
+
+  &:any-link {
+    transition: padding 125ms ease-out;
+    text-transform: capitalize;
+    text-decoration: none;
+    color: $linkColor;
+    border-bottom: none;
+    &:hover {
+      border-bottom: none;
     }
   }
 }

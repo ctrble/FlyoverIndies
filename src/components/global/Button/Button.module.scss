@@ -21,6 +21,7 @@
   $sideStyleHover: $sideShadowStyle,
     0px $buttonHeight - $pressAmount 0px 0px $secondaryColor;
   $bottomShadowColor: rgba(utilities.$black, 0.25);
+
   $easingFunction: cubic-bezier(0.87, 0, 0.13, 1);
   $easingTime: 0.15s;
 
@@ -40,6 +41,14 @@
   &:focus {
     outline: $innerStripeWidth solid $secondaryColor !important;
     outline-offset: $innerStripeOffset;
+    box-shadow: $sideStyle;
+  }
+  &:focus {
+    outline: $innerStripeWidth solid $secondaryColor !important;
+    outline-offset: $innerStripeOffset;
+    box-shadow: $sideStyle;
+
+    // bottom side
     box-shadow: $sideStyle;
   }
   &:active {
