@@ -11,6 +11,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@formspree/react": "^2.2.3",
     "@fullcalendar/common": "^5.5.1",
     "@fullcalendar/google-calendar": "^5.5.0",
     "@fullcalendar/interaction": "^5.6.0",

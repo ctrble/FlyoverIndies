@@ -109,8 +109,16 @@
   font-family: utilities.$headingFont;
   font-weight: bold;
   color: utilities.$white;
+  border: none;
 
   @include button3d();
+
+  &:hover:not(:disabled) {
+    cursor: pointer;
+  }
+  &:disabled {
+    opacity: 0.65;
+  }
 
   &:any-link {
     text-decoration: none;

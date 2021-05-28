@@ -1,42 +1,56 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-// TODO: build the real form
-import React from 'react';
+import React, { useState } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 
-const ContactForm = () => (
-  <div className="content">
-    <form
-      action="https://formspree.io/contact@flyoverindies.party"
-      method="POST"
-    >
-      <label>
-        Name
-        <input type="text" placeholder="Your name" name="name" />
+import Button from 'src/components/global/Button';
+
+const ContactForm = () => {
+  const [messageContent, setMessageContent] = useState('');
+  // https://formspree.io/forms/xleabbda/integration
+  const [state, handleSubmit] = useForm('xleabbda', {
+    data: { _subject: 'New form submission' },
+  });
+
+  if (state.succeeded) {
+    return (
+      <p>
+        Thanks for messaging us! We&apos;ll get back to you ASAP, check your
+        spam if you don&apos;t see a response.
+      </p>
+    );
+  }
+
+  const handleInput = (event) => {
+    setMessageContent(event.target.value);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      {messageContent}
+      <label htmlFor="email">
+        Email Address
+        <input id="email" type="email" name="email" placeholder="your email" />
       </label>
+      <ValidationError prefix="Email" field="email" errors={state.errors} />
 
-      <label>
-        Email
-        <input type="email" placeholder="Your email" name="_replyto" />
-      </label>
-
-      <label>
-        Subject
-        <input type="text" placeholder="Hello!" name="_subject" />
-      </label>
-
-      <label>
+      <label htmlFor="message">
         Message
         <textarea
+          onChange={handleInput}
+          id="message"
+          name="message"
           placeholder="Ask a question, send us feedback, show off your game, or just say hi!"
-          name="_message"
         />
       </label>
+      <ValidationError prefix="Message" field="message" errors={state.errors} />
 
-      <input type="hidden" name="_next" value="/" />
-      <input type="text" name="_gotcha" style={{ display: 'none' }} />
-
-      <button type="submit">Submit</button>
+      <Button
+        type="submit"
+        disabled={messageContent === '' || state.submitting}
+      >
+        Submit
+      </Button>
     </form>
-  </div>
-);
+  );
+};
 
 export default ContactForm;
