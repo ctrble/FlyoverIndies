@@ -9,33 +9,36 @@ import ContactForm from 'src/components/forms/ContactForm';
 
 import { fileContent } from 'src/lib/getContent';
 
-const About = ({ aboutContent }) => (
-  <>
-    <NextSeo
-      title={aboutContent[0].frontmatter.title}
-      description={aboutContent[0].frontmatter.description}
-    />
+const About = ({ aboutContent, contactIndex }) => {
+  const isBetweenSections = (index) => index !== aboutContent.length - 1;
+  const isContactSection = (index) => index === contactIndex;
+  return (
+    <>
+      <NextSeo
+        title={aboutContent[0].frontmatter.title}
+        description={aboutContent[0].frontmatter.description}
+      />
 
-    {aboutContent &&
-      aboutContent.length > 0 &&
-      aboutContent.map(({ content, frontmatter }, index) => (
-        <section key={uuidv4()}>
-          <Markdown
-            content={content}
-            frontmatter={frontmatter}
-            showDivider={index !== aboutContent.length - 1}
-          />
-        </section>
-      ))}
+      {aboutContent &&
+        aboutContent.length > 0 &&
+        aboutContent.map(({ content, frontmatter }, index) => (
+          <section key={uuidv4()}>
+            <Markdown
+              content={content}
+              frontmatter={frontmatter}
+              showDivider={isBetweenSections(index)}
+            />
 
-    <div>
-      <ContactForm />
-    </div>
-  </>
-);
+            {isContactSection(index) && <ContactForm />}
+          </section>
+        ))}
+    </>
+  );
+};
 
 About.propTypes = {
   aboutContent: PropTypes.arrayOf(PropTypes.object).isRequired,
+  contactIndex: PropTypes.number.isRequired,
 };
 
 // eslint-disable-next-line react/display-name
@@ -47,12 +50,12 @@ export async function getStaticProps() {
   const contact = fileContent('about', 'contact-us.md');
 
   const aboutContent = [about, codeOfConduct, contact];
+  const contactIndex = 2;
 
   return {
     props: {
       aboutContent,
-      // about,
-      // codeOfConduct,
+      contactIndex,
     },
   };
 }

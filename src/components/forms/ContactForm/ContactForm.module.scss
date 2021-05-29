@@ -1,0 +1,29 @@
+@use 'src/scss/utilities.scss';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 3rem auto;
+  @include utilities.readabilityWidth();
+}
+
+.form__field {
+  flex: 1 1 100%;
+  margin-bottom: 2rem;
+}
+
+.form__input {
+  width: 100%;
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem;
+  line-height: 1;
+  font-size: utilities.$bodySize - 0.2rem;
+  &:focus {
+    outline: 1px solid utilities.$slightFlyoverBlue;
+  }
+}
+
+.form__submit {
+  align-self: flex-start;
+}

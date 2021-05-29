@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Source+Code+Pro:wght@300&display=swap');
 
-$headingFont: 'Fredoka One';
 $bodyFont: 'Source Code Pro';
+$headingFont: 'Fredoka One';
 
+$bodySize: 1.4rem;
 $headingSizes: (
   'h1': 2.8rem,
   'h2': 2.2rem,
@@ -12,7 +13,7 @@ $headingSizes: (
   'h6': 2.4rem,
 );
 
-$bodySize: 1.4rem;
+$maxTextWidth: 70ch;
 
 // https://hexcolor.co/hex/0078fc
 $flyoverBlue: #0078fc;
@@ -37,3 +38,8 @@ $ordainedCobalt: #1e488f;
 $smearedCoralPink: #ff6163;
 $midlandBlueGreen: #137e6d;
 $uncloisteredVeryPaleGreen: #cffdbc;
+
+@mixin readabilityWidth($fontSize: $bodySize) {
+  max-width: $maxTextWidth;
+  font-size: $fontSize;
+}

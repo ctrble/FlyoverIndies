@@ -5,10 +5,8 @@ $markdownGap: 6rem;
 .markdown {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  font-size: utilities.$bodySize;
-  max-width: 70ch;
   margin: 0 auto;
+  @include utilities.readabilityWidth();
 }
 
 .markdown__content {
