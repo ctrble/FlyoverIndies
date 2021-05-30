@@ -13,4 +13,4 @@ You're in luck! There are more great game development communities in the Kansas 
 
 If you're looking for more game dev communities in the Midwest, we're fans of these awesome organizations, too:
 
-- [Run Jump Dev](http://runjumpdev.org/?ref=flyoverindies)
+- [RunJumpDev](http://runjumpdev.org/?ref=flyoverindies)
