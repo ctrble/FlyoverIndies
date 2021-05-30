@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
+import is from 'is_js';
 
 import Button from 'src/components/global/Button';
 
 import styles from './ContactForm.module.scss';
 
 const ContactForm = () => {
+  const [emailContent, setEmailContent] = useState('');
   const [messageContent, setMessageContent] = useState('');
+
   // https://formspree.io/forms/xleabbda/integration
   const [state, handleSubmit] = useForm('xleabbda', {
     data: { _subject: 'New form submission' },
@@ -21,7 +24,11 @@ const ContactForm = () => {
     );
   }
 
-  const handleInput = (event) => {
+  const handleEmailInput = (event) => {
+    setEmailContent(event.target.value);
+  };
+
+  const handleMessageInput = (event) => {
     setMessageContent(event.target.value);
   };
 
@@ -35,6 +42,7 @@ const ContactForm = () => {
           type="email"
           name="email"
           placeholder="your email"
+          onChange={handleEmailInput}
         />
       </label>
       <ValidationError prefix="Email" field="email" errors={state.errors} />
@@ -46,7 +54,7 @@ const ContactForm = () => {
           id="message"
           name="message"
           placeholder="Ask a question, send us feedback, show off your game, or just say hi!"
-          onChange={handleInput}
+          onChange={handleMessageInput}
         />
       </label>
       <ValidationError prefix="Message" field="message" errors={state.errors} />
@@ -54,7 +62,11 @@ const ContactForm = () => {
       <div className={styles.form__submit}>
         <Button
           type="submit"
-          disabled={messageContent === '' || state.submitting}
+          disabled={
+            is.not.email(emailContent) ||
+            is.empty(messageContent) ||
+            state.submitting
+          }
         >
           Submit
         </Button>
