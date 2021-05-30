@@ -41,7 +41,7 @@ const ContactForm = () => {
           id="email"
           type="email"
           name="email"
-          placeholder="your email"
+          placeholder="Your email"
           onChange={handleEmailInput}
         />
       </label>
