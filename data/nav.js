@@ -5,12 +5,8 @@ module.exports = {
       path: '/',
     },
     {
-      title: 'Events',
+      title: 'events',
       path: '/events',
-    },
-    {
-      title: 'about',
-      path: '/about',
     },
     {
       title: 'membership',
@@ -19,6 +15,14 @@ module.exports = {
     {
       title: 'friends',
       path: '/friends',
+    },
+    {
+      title: 'store',
+      path: '/store',
+    },
+    {
+      title: 'about',
+      path: '/about',
     },
   ],
 };
