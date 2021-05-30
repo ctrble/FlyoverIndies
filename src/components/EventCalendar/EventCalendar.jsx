@@ -19,16 +19,16 @@ const EventCalendar = ({ duration }) => {
         title,
         extendedProps: { description, location },
       },
-      timeText,
+      isToday,
     } = eventInfo;
 
     return (
       <EventContent
         url={url}
-        timeText={timeText}
         title={title}
         description={description}
         location={location}
+        isToday={isToday}
       />
     );
   };
@@ -43,6 +43,7 @@ const EventCalendar = ({ duration }) => {
   return (
     <div className={styles.calendar}>
       <FullCalendar
+        timeZone="CST"
         plugins={[googleCalendarPlugin, listPlugin]}
         googleCalendarApiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY}
         eventContent={renderEventContent}

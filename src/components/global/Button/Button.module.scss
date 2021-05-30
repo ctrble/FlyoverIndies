@@ -108,7 +108,7 @@
   padding: 1rem 2rem;
   font-family: utilities.$headingFont;
   font-weight: bold;
-  color: utilities.$white;
+  color: utilities.$brightWhite;
   border: none;
 
   @include button3d();
@@ -122,6 +122,6 @@
 
   &:any-link {
     text-decoration: none;
-    color: utilities.$white;
+    color: utilities.$brightWhite;
   }
 }

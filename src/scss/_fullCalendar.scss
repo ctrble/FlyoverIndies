@@ -1,4 +1,5 @@
-@import 'src/scss/utilities';
+@use 'sass:map';
+@use 'src/scss/utilities';
 @import 'src/components/global/Button/Button.module';
 
 // https://github.com/fullcalendar/fullcalendar/tree/master/packages
@@ -7,10 +8,10 @@
   --fc-small-font-size: 0.85em;
   --fc-page-bg-color: #e3e3e3;
   --fc-neutral-bg-color: rgba(208, 208, 208, 0.3);
-  --fc-neutral-text-color: #808080;
-  --fc-border-color: #ddd;
+  --fc-neutral-text-color: #0078fc;
+  --fc-border-color: #0078fc;
 
-  --fc-button-text-color: #e3e3e3;
+  --fc-button-text-color: #ffffff;
   --fc-button-bg-color: #fc7858;
   --fc-button-border-color: transparent;
   --fc-button-hover-bg-color: #fc7858;
@@ -18,8 +19,8 @@
   --fc-button-active-bg-color: #fc7858;
   --fc-button-active-border-color: transparent;
 
-  --fc-event-bg-color: #3788d8;
-  --fc-event-border-color: #3788d8;
+  --fc-event-bg-color: #0078fc;
+  --fc-event-border-color: #0078fc;
   --fc-event-text-color: #e3e3e3;
   --fc-event-selected-overlay-color: rgba(0, 0, 0, 0.25);
 
@@ -31,15 +32,16 @@
   --fc-bg-event-color: rgb(143, 223, 130);
   --fc-bg-event-opacity: 0.3;
   --fc-highlight-color: rgba(188, 232, 241, 0.3);
-  --fc-today-bg-color: rgba(255, 220, 40, 0.15);
-  --fc-now-indicator-color: red;
+  --fc-today-bg-color: #f7541e;
+  --fc-now-indicator-color: #f7541e;
 
   --fc-daygrid-event-dot-width: 8px;
 
   --fc-list-event-dot-width: 10px;
-  --fc-list-event-hover-bg-color: #f5f5f5;
+  --fc-list-event-hover-bg-color: #e3e3e3;
 }
 
+// button overrides
 .fc-button-group > .fc-button:not(:first-child) {
   @include button3d(
     $topLeftRadius: 0 !important,
@@ -64,4 +66,44 @@
     $bottomLeftRadius: 4rem !important,
     $bottomRightRadius: 4rem !important
   );
+}
+
+// list overrides
+.fc-list {
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.fc-list-event-graphic {
+  display: none;
+}
+
+tr.fc-list-event.fc-event-forced-url:hover {
+  & *:any-link {
+    text-decoration: none !important;
+  }
+}
+
+.fc-list-day {
+  font-family: utilities.$headingFont;
+  font-size: map-get(utilities.$headingSizes, 'h3');
+  color: utilities.$brightWhite;
+  background-color: utilities.$flyoverBlue;
+  .fc-cell-shaded {
+    background-color: utilities.$flyoverBlue !important;
+  }
+}
+
+// today's event
+.fc-day-today {
+  .fc-cell-shaded {
+    background-color: utilities.$batigansMawOrange !important;
+  }
+  .fc-list-day-text {
+    font-weight: 900;
+  }
+  .fc-list-day-text:after {
+    content: ' - today!';
+    text-transform: uppercase;
+  }
 }
