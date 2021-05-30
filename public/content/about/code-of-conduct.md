@@ -21,4 +21,4 @@ In addition, Flyover Indies respects and abides by the policies of any venue whi
 
 ### Reporting
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting us by using the contact form on https://flyoverindies.party/ or emailing us directly at contact [at] flyoverindies [dot] party. All complaints will be reviewed and will result in a response that is deemed necessary and appropriate to the circumstances, which may include expulsion from our community. We will maintain confidentiality with regard to the reporter of an incident.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting us by using the contact form below or emailing us directly at contact [at] flyoverindies [dot] party. All complaints will be reviewed and will result in a response that is deemed necessary and appropriate to the circumstances, which may include expulsion from our community. We will maintain confidentiality with regard to the reporter of an incident.
