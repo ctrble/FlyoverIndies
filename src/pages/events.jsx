@@ -31,7 +31,10 @@ const Events = ({ eventsContent }) => (
 );
 
 Events.propTypes = {
-  eventsContent: PropTypes.arrayOf(PropTypes.object).isRequired,
+  eventsContent: PropTypes.shape({
+    frontmatter: PropTypes.objectOf(PropTypes.string).isRequired,
+    content: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 // eslint-disable-next-line react/display-name
