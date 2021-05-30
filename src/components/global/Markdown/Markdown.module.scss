@@ -38,4 +38,9 @@ $markdownGap: 6rem;
   // finish it all off
   margin-top: $markdownGap;
   margin-bottom: $markdownGap;
+
+  &_small {
+    margin-top: $markdownGap / 2;
+    margin-bottom: $markdownGap / 2;
+  }
 }

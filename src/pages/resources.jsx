@@ -41,12 +41,9 @@ Resources.getLayout = (page) => <ArcadeTemplate>{page}</ArcadeTemplate>;
 
 export async function getStaticProps() {
   const intro = fileContent('resources', 'intro.md');
-  const gameEngines = fileContent('resources', 'game-engines.md');
-  const music = fileContent('resources', 'music.md');
-  const art = fileContent('resources', 'art.md');
-  const misc = fileContent('resources', 'misc.md');
+  const resources = fileContent('resources', 'resources.md');
 
-  const resourcesContent = [intro, gameEngines, music, art, misc];
+  const resourcesContent = [intro, resources];
 
   return {
     props: {

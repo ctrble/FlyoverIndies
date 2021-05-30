@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import ReactMarkdown from 'react-markdown';
 
 import Button from 'src/components/global/Button';
@@ -17,6 +18,14 @@ const Markdown = ({ content, frontmatter, showDivider }) => (
           <SiteLink href={href} {...props}>
             {children}
           </SiteLink>
+        ),
+        hr: () => (
+          <hr
+            className={classnames(
+              styles.markdown__divider,
+              styles.markdown__divider_small
+            )}
+          />
         ),
       }}
       /* eslint-enable react/display-name, react/jsx-props-no-spreading, react/prop-types */
