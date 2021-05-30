@@ -1,36 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NextSeo } from 'next-seo';
+import { v4 as uuidv4 } from 'uuid';
 
 import ArcadeTemplate from 'src/components/global/templates/ArcadeTemplate';
 import Markdown from 'src/components/global/Markdown';
 
 import { fileContent } from 'src/lib/getContent';
 
-const Store = ({ storeContent }) => (
-  <>
-    <NextSeo
-      title={storeContent.frontmatter.title}
-      description={storeContent.frontmatter.description}
-    />
-
-    <section>
-      <Markdown
-        content={storeContent.content}
-        frontmatter={storeContent.frontmatter}
+const Store = ({ storeContent }) => {
+  const isBetweenSections = (index) => index !== storeContent.length - 1;
+  return (
+    <>
+      <NextSeo
+        title={storeContent[0].frontmatter.title}
+        description={storeContent[0].frontmatter.description}
       />
-    </section>
-  </>
-);
+
+      {storeContent &&
+        storeContent.length > 0 &&
+        storeContent.map(({ content, frontmatter }, index) => (
+          <section key={uuidv4()}>
+            <Markdown
+              content={content}
+              frontmatter={frontmatter}
+              showDivider={isBetweenSections(index)}
+            />
+          </section>
+        ))}
+    </>
+  );
+};
 
 // eslint-disable-next-line react/display-name
 Store.getLayout = (page) => <ArcadeTemplate>{page}</ArcadeTemplate>;
 
 Store.propTypes = {
-  storeContent: PropTypes.shape({
-    frontmatter: PropTypes.objectOf(PropTypes.string).isRequired,
-    content: PropTypes.string.isRequired,
-  }).isRequired,
+  storeContent: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 // eslint-disable-next-line react/display-name
@@ -38,8 +44,9 @@ Store.getLayout = (page) => <ArcadeTemplate>{page}</ArcadeTemplate>;
 
 export async function getStaticProps() {
   const intro = fileContent('store', 'store.md');
+  const celebrationTee = fileContent('store', 'celebration-tee.md');
 
-  const storeContent = intro;
+  const storeContent = [intro, celebrationTee];
 
   return {
     props: {
