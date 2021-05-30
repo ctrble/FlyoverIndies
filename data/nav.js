@@ -13,6 +13,10 @@ module.exports = {
       path: '/membership',
     },
     {
+      title: 'resources',
+      path: '/resources',
+    },
+    {
       title: 'friends',
       path: '/friends',
     },
