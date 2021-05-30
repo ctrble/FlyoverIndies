@@ -9,9 +9,9 @@ import ContactForm from 'src/components/forms/ContactForm';
 
 import { fileContent } from 'src/lib/getContent';
 
-const About = ({ aboutContent, contactIndex }) => {
+const About = ({ aboutContent }) => {
   const isBetweenSections = (index) => index !== aboutContent.length - 1;
-  const isContactSection = (index) => index === contactIndex;
+  const isContactSection = (index) => index === aboutContent.length - 1;
   return (
     <>
       <NextSeo
@@ -38,7 +38,6 @@ const About = ({ aboutContent, contactIndex }) => {
 
 About.propTypes = {
   aboutContent: PropTypes.arrayOf(PropTypes.object).isRequired,
-  contactIndex: PropTypes.number.isRequired,
 };
 
 // eslint-disable-next-line react/display-name
@@ -47,15 +46,14 @@ About.getLayout = (page) => <ArcadeTemplate>{page}</ArcadeTemplate>;
 export async function getStaticProps() {
   const about = fileContent('about', 'about-us.md');
   const codeOfConduct = fileContent('about', 'code-of-conduct.md');
+  const press = fileContent('about', 'press.md');
   const contact = fileContent('about', 'contact-us.md');
 
-  const aboutContent = [about, codeOfConduct, contact];
-  const contactIndex = 2;
+  const aboutContent = [about, codeOfConduct, press, contact];
 
   return {
     props: {
       aboutContent,
-      contactIndex,
     },
   };
 }
