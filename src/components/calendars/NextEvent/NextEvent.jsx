@@ -23,7 +23,7 @@ const NextEvent = () => {
   const getFirstEvent = (content) => content.slice(0, 1);
 
   return (
-    <div className={styles.calendar}>
+    <div className={styles.nextEvent}>
       <FullCalendar
         duration={{ months: 1 }}
         timeZone={timeZone}

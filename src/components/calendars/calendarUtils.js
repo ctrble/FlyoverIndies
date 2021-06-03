@@ -10,6 +10,7 @@ const titleFormat = {
   day: 'numeric',
 };
 
+// const listDayFormat = false;
 const listDayFormat = {
   weekday: 'long',
   month: 'short',

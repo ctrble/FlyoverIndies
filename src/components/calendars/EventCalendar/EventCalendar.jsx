@@ -21,7 +21,7 @@ import '@fullcalendar/common/main.css';
 import '@fullcalendar/list/main.css';
 
 const EventCalendar = ({ duration }) => (
-  <div className={styles.calendar}>
+  <div className={styles.eventCalendar}>
     <FullCalendar
       duration={duration}
       timeZone={timeZone}

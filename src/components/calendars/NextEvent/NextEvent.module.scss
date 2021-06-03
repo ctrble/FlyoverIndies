@@ -2,13 +2,9 @@
 
 // see _fullCalendar.scss for all the overrides -_-
 
-.calendar {
+.nextEvent {
   display: flex;
   flex-direction: column;
   margin: 3rem auto;
   @include utilities.readabilityWidth();
-
-  &__title {
-    font-weight: 900;
-  }
 }
