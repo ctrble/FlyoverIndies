@@ -33,8 +33,9 @@
   box-shadow: $sideStyle;
 
   // funky state overrides
+  &:disabled,
   &:focus {
-    box-shadow: $sideStyle;
+    box-shadow: $sideStyle !important;
   }
   &:focus {
     outline: none;
