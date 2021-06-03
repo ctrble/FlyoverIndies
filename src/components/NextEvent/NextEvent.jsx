@@ -6,12 +6,12 @@ import googleCalendarPlugin from '@fullcalendar/google-calendar';
 
 import EventContent from './EventContent';
 
-import styles from './EventCalendar.module.scss';
+import styles from './NextEvent.module.scss';
 
 import '@fullcalendar/common/main.css';
 import '@fullcalendar/list/main.css';
 
-const EventCalendar = ({ duration }) => {
+const NextEvent = ({ duration }) => {
   const renderEventContent = (eventInfo) => {
     const {
       event: {
@@ -33,6 +33,8 @@ const EventCalendar = ({ duration }) => {
     );
   };
 
+  const getFirstEvent = (content) => content.slice(0, 1);
+
   const handleEventClick = (info) => {
     info.jsEvent.preventDefault();
     if (info.event.url) {
@@ -50,11 +52,13 @@ const EventCalendar = ({ duration }) => {
         events={{
           googleCalendarId:
             '1o3frgsjo8jsfgreuq8d8nq9j0@group.calendar.google.com',
+          success: getFirstEvent,
         }}
         eventClick={handleEventClick}
         eventContent={renderEventContent}
         height="100%"
         contentHeight="auto"
+        headerToolbar={false}
         stickyHeaderDates={false}
         initialView="list"
         titleFormat={{
@@ -73,12 +77,12 @@ const EventCalendar = ({ duration }) => {
   );
 };
 
-EventCalendar.propTypes = {
+NextEvent.propTypes = {
   duration: PropTypes.objectOf(PropTypes.number),
 };
 
-EventCalendar.defaultProps = {
+NextEvent.defaultProps = {
   duration: { weeks: 2 },
 };
 
-export default EventCalendar;
+export default NextEvent;
