@@ -4,13 +4,13 @@ import dynamic from 'next/dynamic';
 import ArcadeTemplate from 'src/components/global/templates/ArcadeTemplate';
 import Icon from 'src/components/global/Icon';
 
-const NextEvent = dynamic(() => import('src/components/NextEvent'), {
+const NextEvent = dynamic(() => import('src/components/calendars/NextEvent'), {
   ssr: false,
 });
 
 const Home = () => (
   <>
-    <NextEvent duration={{ days: 1 }} />
+    <NextEvent />
     <Icon src="images/flyover-indies-logo-text.svg" alt="Flyover Indies logo" />
   </>
 );

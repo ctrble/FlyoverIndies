@@ -8,9 +8,12 @@ import Markdown from 'src/components/global/Markdown';
 
 import { fileContent } from 'src/lib/getContent';
 
-const EventCalendar = dynamic(() => import('src/components/EventCalendar'), {
-  ssr: false,
-});
+const EventCalendar = dynamic(
+  () => import('src/components/calendars/EventCalendar'),
+  {
+    ssr: false,
+  }
+);
 
 const Events = ({ eventsContent }) => (
   <>
