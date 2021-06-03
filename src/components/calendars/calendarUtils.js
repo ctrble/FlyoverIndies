@@ -1,3 +1,5 @@
+import { isFuture, isBefore, parseISO } from 'date-fns';
+
 const googleCalendarApiKey = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
 
 const googleCalendarId = '1o3frgsjo8jsfgreuq8d8nq9j0@group.calendar.google.com';
@@ -26,6 +28,16 @@ const handleEventClick = (info) => {
   }
 };
 
+const upcomingEvents = (eventsArray) =>
+  eventsArray
+    .filter((event) => isFuture(parseISO(event.start)))
+    .sort((eventA, eventB) => {
+      const aIsFirst = isBefore(parseISO(eventA.start), parseISO(eventB.start));
+      return aIsFirst ? -1 : 1;
+    });
+
+const firstEvent = (eventsArray) => upcomingEvents(eventsArray).slice(0, 1);
+
 export {
   googleCalendarApiKey,
   googleCalendarId,
@@ -33,4 +45,6 @@ export {
   titleFormat,
   listDayFormat,
   handleEventClick,
+  upcomingEvents,
+  firstEvent,
 };

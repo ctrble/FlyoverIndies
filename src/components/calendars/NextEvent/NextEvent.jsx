@@ -10,6 +10,7 @@ import {
   titleFormat,
   listDayFormat,
   handleEventClick,
+  firstEvent,
 } from '../calendarUtils';
 
 import { renderEventContent } from '../EventContent';
@@ -19,33 +20,29 @@ import styles from './NextEvent.module.scss';
 import '@fullcalendar/common/main.css';
 import '@fullcalendar/list/main.css';
 
-const NextEvent = () => {
-  const getFirstEvent = (content) => content.slice(0, 1);
-
-  return (
-    <div className={styles.nextEvent}>
-      <FullCalendar
-        duration={{ months: 1 }}
-        timeZone={timeZone}
-        plugins={[googleCalendarPlugin, listPlugin]}
-        googleCalendarApiKey={googleCalendarApiKey}
-        events={{
-          googleCalendarId,
-          success: getFirstEvent,
-        }}
-        eventClick={handleEventClick}
-        eventContent={renderEventContent}
-        height="100%"
-        contentHeight="auto"
-        headerToolbar={false}
-        stickyHeaderDates={false}
-        initialView="list"
-        titleFormat={titleFormat}
-        listDaySideFormat={false}
-        listDayFormat={listDayFormat}
-      />
-    </div>
-  );
-};
+const NextEvent = () => (
+  <div className={styles.nextEvent}>
+    <FullCalendar
+      duration={{ months: 1 }}
+      timeZone={timeZone}
+      plugins={[googleCalendarPlugin, listPlugin]}
+      googleCalendarApiKey={googleCalendarApiKey}
+      events={{
+        googleCalendarId,
+        success: firstEvent,
+      }}
+      eventClick={handleEventClick}
+      eventContent={renderEventContent}
+      height="100%"
+      contentHeight="auto"
+      headerToolbar={false}
+      stickyHeaderDates={false}
+      initialView="list"
+      titleFormat={titleFormat}
+      listDaySideFormat={false}
+      listDayFormat={listDayFormat}
+    />
+  </div>
+);
 
 export default NextEvent;

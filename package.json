@@ -20,6 +20,7 @@
     "babel-plugin-transform-import-ignore": "^1.1.0",
     "babel-plugin-transform-require-ignore": "^0.1.1",
     "classnames": "^2.2.6",
+    "date-fns": "^2.22.1",
     "framer-motion": "^4.1.13",
     "freezeframe": "^5.0.2",
     "gray-matter": "^4.0.2",
