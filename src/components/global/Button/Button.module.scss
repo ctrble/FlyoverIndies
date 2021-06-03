@@ -9,9 +9,6 @@
   $bottomLeftRadius: 4rem,
   $bottomRightRadius: 4rem
 ) {
-  $innerStripeWidth: 2px;
-  $innerStripeOffset: -6px;
-  $innerStripeChange: 0px;
   $buttonHeight: 8px;
   $buttonShadowLength: 6px;
   $pressAmount: 4px;
@@ -27,8 +24,6 @@
 
   // inside button
   background-color: $primaryColor;
-  outline: $innerStripeWidth solid $secondaryColor;
-  outline-offset: $innerStripeOffset;
   border-top-left-radius: $topLeftRadius;
   border-top-right-radius: $topRightRadius;
   border-bottom-left-radius: $bottomLeftRadius;
@@ -39,13 +34,10 @@
 
   // funky state overrides
   &:focus {
-    outline: $innerStripeWidth solid $secondaryColor !important;
-    outline-offset: $innerStripeOffset;
     box-shadow: $sideStyle;
   }
   &:focus {
-    outline: $innerStripeWidth solid $secondaryColor !important;
-    outline-offset: $innerStripeOffset;
+    outline: none;
     box-shadow: $sideStyle;
 
     // bottom side

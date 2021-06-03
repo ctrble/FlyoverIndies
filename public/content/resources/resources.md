@@ -19,6 +19,8 @@ date: 2021-05-30
 - [LMMS](https://lmms.io/)
 - [OpenMPT](https://openmpt.org/)
 - [Audacity](https://www.audacityteam.org/)
+- [Musescore](https://musescore.org/)
+- [Reaper](https://www.reaper.fm/index.php)
 
 ---
 
