@@ -32,10 +32,12 @@
   // bottom side
   box-shadow: $sideStyle;
 
-  // funky state overrides
-  &:disabled,
-  &:focus {
-    box-shadow: $sideStyle !important;
+  // funky state overrides cause third party styles are a thing
+  &:disabled:focus:not(:hover) {
+    box-shadow: $sideStyle;
+  }
+  &:disabled:focus:hover {
+    box-shadow: $sideStyleHover;
   }
   &:focus {
     outline: none;
