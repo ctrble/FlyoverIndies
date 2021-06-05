@@ -3,7 +3,10 @@
 // see _fullCalendar.scss for all the overrides -_-
 
 .eventContent {
-  &__title {
-    font-weight: 900;
-  }
+  display: block;
+  position: relative;
+}
+
+.eventContent__title {
+  font-weight: 900;
 }

@@ -48,7 +48,7 @@ EventCalendar.propTypes = {
 };
 
 EventCalendar.defaultProps = {
-  duration: { weeks: 2 },
+  duration: { days: 14 },
 };
 
 export default EventCalendar;

@@ -60,6 +60,7 @@
 }
 
 .fc-button {
+  font-family: utilities.$headingFont !important;
   @include button3d(
     $topLeftRadius: 4rem !important,
     $topRightRadius: 4rem !important,
@@ -100,7 +101,6 @@ tr.fc-list-event.fc-event-forced-url:hover {
     font-weight: 900;
   }
   .fc-list-day-text:after {
-    content: ' - today!';
-    text-transform: uppercase;
+    content: ' \a0 \a0 (today!)';
   }
 }

@@ -29,7 +29,7 @@ const Events = ({ eventsContent }) => (
       />
     </section>
 
-    <EventCalendar duration={{ weeks: 2 }} />
+    <EventCalendar duration={{ days: 14 }} />
   </>
 );
 

@@ -9,7 +9,7 @@ Also, actual link opening is handled in EventCalendar's eventClick
 see https://fullcalendar.io/docs/eventClick
 */
 
-const EventContent = ({ url, title, description, location, isToday }) => (
+const EventContent = ({ url, title, description, location }) => (
   <a
     className={styles.eventContent}
     href={url}
@@ -19,7 +19,6 @@ const EventContent = ({ url, title, description, location, isToday }) => (
     <span className={styles.eventContent__title}>{title}</span>
     <p>{description}</p>
     <i>{location}</i>
-    <span>{isToday}</span>
   </a>
 );
 
@@ -28,7 +27,6 @@ EventContent.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   location: PropTypes.string,
-  isToday: PropTypes.bool,
 };
 
 EventContent.defaultProps = {
@@ -36,7 +34,6 @@ EventContent.defaultProps = {
   title: '',
   description: '',
   location: '',
-  isToday: false,
 };
 
 export default EventContent;
