@@ -61,6 +61,7 @@
 
 .fc-button {
   font-family: utilities.$headingFont !important;
+  text-transform: capitalize !important;
   @include button3d(
     $topLeftRadius: 4rem !important,
     $topRightRadius: 4rem !important,
