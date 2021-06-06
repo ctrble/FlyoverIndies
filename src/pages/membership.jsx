@@ -8,21 +8,31 @@ import Markdown from 'src/components/global/Markdown';
 
 import { fileContent } from 'src/lib/getContent';
 
-const Membership = ({ membershipContent }) => (
+const Membership = ({ pageIntro, pageContent }) => (
   <>
     <NextSeo
-      title={membershipContent[0].frontmatter.title}
-      description={membershipContent[0].frontmatter.description}
+      title={pageIntro.frontmatter.title}
+      description={pageIntro.frontmatter.description}
     />
 
-    {membershipContent &&
-      membershipContent.length > 0 &&
-      membershipContent.map(({ content, frontmatter }, index) => (
+    {pageIntro && (
+      <section>
+        <Markdown
+          content={pageIntro.content}
+          frontmatter={pageIntro.frontmatter}
+          showDivider
+        />
+      </section>
+    )}
+
+    {pageContent &&
+      pageContent.length > 0 &&
+      pageContent.map(({ content, frontmatter }, index) => (
         <section key={uuidv4()}>
           <Markdown
             content={content}
             frontmatter={frontmatter}
-            showDivider={index !== membershipContent.length - 1}
+            showDivider={index !== pageContent.length - 1}
           />
         </section>
       ))}
@@ -30,22 +40,28 @@ const Membership = ({ membershipContent }) => (
 );
 
 Membership.propTypes = {
-  membershipContent: PropTypes.arrayOf(PropTypes.object).isRequired,
+  pageIntro: PropTypes.shape({
+    frontmatter: PropTypes.objectOf(PropTypes.string).isRequired,
+    content: PropTypes.string.isRequired,
+  }).isRequired,
+  pageContent: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 // eslint-disable-next-line react/display-name
 Membership.getLayout = (page) => <ArcadeTemplate>{page}</ArcadeTemplate>;
 
 export async function getStaticProps() {
-  const membership = fileContent('membership', 'membership.md');
-  const organizers = fileContent('membership', 'organizers.md');
-  const mentors = fileContent('membership', 'mentors.md');
+  const pageIntro = fileContent('static/membership', 'intro.md');
+  const membership = fileContent('static/membership', 'membership.md');
+  const organizers = fileContent('static/membership', 'organizers.md');
+  const mentors = fileContent('static/membership', 'mentors.md');
 
-  const membershipContent = [membership, organizers, mentors];
+  const pageContent = [membership, organizers, mentors];
 
   return {
     props: {
-      membershipContent,
+      pageIntro,
+      pageContent,
     },
   };
 }

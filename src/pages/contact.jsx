@@ -1,21 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NextSeo } from 'next-seo';
-import dynamic from 'next/dynamic';
 
 import ArcadeTemplate from 'src/components/global/templates/ArcadeTemplate';
 import Markdown from 'src/components/global/Markdown';
+import ContactForm from 'src/components/forms/ContactForm';
 
 import { fileContent } from 'src/lib/getContent';
 
-const EventCalendar = dynamic(
-  () => import('src/components/calendars/EventCalendar'),
-  {
-    ssr: false,
-  }
-);
-
-const Events = ({ pageIntro }) => (
+const Contact = ({ pageIntro }) => (
   <>
     <NextSeo
       title={pageIntro.frontmatter.title}
@@ -28,13 +21,13 @@ const Events = ({ pageIntro }) => (
           content={pageIntro.content}
           frontmatter={pageIntro.frontmatter}
         />
-        <EventCalendar duration={{ days: 14 }} />
+        <ContactForm />
       </section>
     )}
   </>
 );
 
-Events.propTypes = {
+Contact.propTypes = {
   pageIntro: PropTypes.shape({
     frontmatter: PropTypes.objectOf(PropTypes.string).isRequired,
     content: PropTypes.string.isRequired,
@@ -42,10 +35,10 @@ Events.propTypes = {
 };
 
 // eslint-disable-next-line react/display-name
-Events.getLayout = (page) => <ArcadeTemplate>{page}</ArcadeTemplate>;
+Contact.getLayout = (page) => <ArcadeTemplate>{page}</ArcadeTemplate>;
 
 export async function getStaticProps() {
-  const pageIntro = fileContent('static/events', 'intro.md');
+  const pageIntro = fileContent('static/contact', 'intro.md');
 
   return {
     props: {
@@ -54,4 +47,4 @@ export async function getStaticProps() {
   };
 }
 
-export default Events;
+export default Contact;
