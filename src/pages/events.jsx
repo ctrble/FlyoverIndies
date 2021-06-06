@@ -22,15 +22,15 @@ const Events = ({ pageIntro }) => (
       description={pageIntro.frontmatter.description}
     />
 
-    {pageIntro && (
-      <section>
-        <Markdown
-          content={pageIntro.content}
-          frontmatter={pageIntro.frontmatter}
-        />
-        <EventCalendar duration={{ days: 14 }} />
-      </section>
-    )}
+    <section>
+      <Markdown
+        content={pageIntro.content}
+        frontmatter={pageIntro.frontmatter}
+        showDivider
+      />
+    </section>
+
+    <EventCalendar duration={{ days: 14 }} />
   </>
 );
 

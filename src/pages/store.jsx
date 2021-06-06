@@ -8,49 +8,59 @@ import Markdown from 'src/components/global/Markdown';
 
 import { fileContent } from 'src/lib/getContent';
 
-const Store = ({ storeContent }) => {
-  const isBetweenSections = (index) => index !== storeContent.length - 1;
-  return (
-    <>
-      <NextSeo
-        title={storeContent[0].frontmatter.title}
-        description={storeContent[0].frontmatter.description}
-      />
+const Store = ({ pageIntro, pageContent }) => (
+  <>
+    <NextSeo
+      title={pageIntro.frontmatter.title}
+      description={pageIntro.frontmatter.description}
+    />
 
-      {storeContent &&
-        storeContent.length > 0 &&
-        storeContent.map(({ content, frontmatter }, index) => (
-          <section key={uuidv4()}>
-            <Markdown
-              content={content}
-              frontmatter={frontmatter}
-              showDivider={isBetweenSections(index)}
-            />
-          </section>
-        ))}
-    </>
-  );
-};
+    <section>
+      <Markdown
+        content={pageIntro.content}
+        frontmatter={pageIntro.frontmatter}
+        showDivider
+      />
+    </section>
+
+    {pageContent &&
+      pageContent.length > 0 &&
+      pageContent.map(({ content, frontmatter }, index) => (
+        <section key={uuidv4()}>
+          <Markdown
+            content={content}
+            frontmatter={frontmatter}
+            showDivider={index !== pageContent.length - 1}
+          />
+        </section>
+      ))}
+  </>
+);
 
 // eslint-disable-next-line react/display-name
 Store.getLayout = (page) => <ArcadeTemplate>{page}</ArcadeTemplate>;
 
 Store.propTypes = {
-  storeContent: PropTypes.arrayOf(PropTypes.object).isRequired,
+  pageIntro: PropTypes.shape({
+    frontmatter: PropTypes.objectOf(PropTypes.string).isRequired,
+    content: PropTypes.string.isRequired,
+  }).isRequired,
+  pageContent: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 // eslint-disable-next-line react/display-name
 Store.getLayout = (page) => <ArcadeTemplate>{page}</ArcadeTemplate>;
 
 export async function getStaticProps() {
-  const intro = fileContent('store', 'store.md');
-  const celebrationTee = fileContent('store', 'celebration-tee.md');
+  const pageIntro = fileContent('static/store', 'intro.md');
+  const celebrationTee = fileContent('static/store', 'celebration-tee.md');
 
-  const storeContent = [intro, celebrationTee];
+  const pageContent = [celebrationTee];
 
   return {
     props: {
-      storeContent,
+      pageIntro,
+      pageContent,
     },
   };
 }

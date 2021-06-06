@@ -6,7 +6,7 @@ ctaText: Become a Member
 ctaLink: https://discord.gg/8JdcrkR
 ---
 
-# Membership
+# Members
 
 Flyover Indies is primarily comprised of Members, it's free to become one and as easy as joining our Discord! We welcome anyone of any experience or skill level who has an interest in game development or a field adjacent to game development, like design, writing, art, or music.
 

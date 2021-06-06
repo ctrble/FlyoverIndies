@@ -7,27 +7,24 @@ import Markdown from 'src/components/global/Markdown';
 
 import { fileContent } from 'src/lib/getContent';
 
-const Friends = ({ friendsContent }) => (
+const Friends = ({ pageContent }) => (
   <>
     <NextSeo
-      title={friendsContent.frontmatter.title}
-      description={friendsContent.frontmatter.description}
+      title={pageContent.frontmatter.title}
+      description={pageContent.frontmatter.description}
     />
 
     <section>
       <Markdown
-        content={friendsContent.content}
-        frontmatter={friendsContent.frontmatter}
+        content={pageContent.content}
+        frontmatter={pageContent.frontmatter}
       />
     </section>
   </>
 );
 
-// eslint-disable-next-line react/display-name
-Friends.getLayout = (page) => <ArcadeTemplate>{page}</ArcadeTemplate>;
-
 Friends.propTypes = {
-  friendsContent: PropTypes.shape({
+  pageContent: PropTypes.shape({
     frontmatter: PropTypes.objectOf(PropTypes.string).isRequired,
     content: PropTypes.string.isRequired,
   }).isRequired,
@@ -37,13 +34,11 @@ Friends.propTypes = {
 Friends.getLayout = (page) => <ArcadeTemplate>{page}</ArcadeTemplate>;
 
 export async function getStaticProps() {
-  const intro = fileContent('friends', 'friends-list.md');
-
-  const friendsContent = intro;
+  const pageContent = fileContent('dynamic/friends', 'page.md');
 
   return {
     props: {
-      friendsContent,
+      pageContent,
     },
   };
 }

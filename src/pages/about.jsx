@@ -1,59 +1,44 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NextSeo } from 'next-seo';
-import { v4 as uuidv4 } from 'uuid';
 
 import ArcadeTemplate from 'src/components/global/templates/ArcadeTemplate';
 import Markdown from 'src/components/global/Markdown';
-import ContactForm from 'src/components/forms/ContactForm';
 
 import { fileContent } from 'src/lib/getContent';
 
-const About = ({ aboutContent }) => {
-  const isBetweenSections = (index) => index !== aboutContent.length - 1;
-  const isContactSection = (index) => index === aboutContent.length - 1;
-  return (
-    <>
-      <NextSeo
-        title={aboutContent[0].frontmatter.title}
-        description={aboutContent[0].frontmatter.description}
+const About = ({ pageContent }) => (
+  <>
+    <NextSeo
+      title={pageContent.frontmatter.title}
+      description={pageContent.frontmatter.description}
+    />
+
+    <section>
+      <Markdown
+        content={pageContent.content}
+        frontmatter={pageContent.frontmatter}
       />
-
-      {aboutContent &&
-        aboutContent.length > 0 &&
-        aboutContent.map(({ content, frontmatter }, index) => (
-          <section key={uuidv4()}>
-            <Markdown
-              content={content}
-              frontmatter={frontmatter}
-              showDivider={isBetweenSections(index)}
-            />
-
-            {isContactSection(index) && <ContactForm />}
-          </section>
-        ))}
-    </>
-  );
-};
+    </section>
+  </>
+);
 
 About.propTypes = {
-  aboutContent: PropTypes.arrayOf(PropTypes.object).isRequired,
+  pageContent: PropTypes.shape({
+    frontmatter: PropTypes.objectOf(PropTypes.string).isRequired,
+    content: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 // eslint-disable-next-line react/display-name
 About.getLayout = (page) => <ArcadeTemplate>{page}</ArcadeTemplate>;
 
 export async function getStaticProps() {
-  const about = fileContent('about', 'about-us.md');
-  const codeOfConduct = fileContent('about', 'code-of-conduct.md');
-  const press = fileContent('about', 'press.md');
-  const contact = fileContent('about', 'contact-us.md');
-
-  const aboutContent = [about, codeOfConduct, press, contact];
+  const pageContent = fileContent('dynamic/about', 'page.md');
 
   return {
     props: {
-      aboutContent,
+      pageContent,
     },
   };
 }

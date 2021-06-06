@@ -15,15 +15,15 @@ const Contact = ({ pageIntro }) => (
       description={pageIntro.frontmatter.description}
     />
 
-    {pageIntro && (
-      <section>
-        <Markdown
-          content={pageIntro.content}
-          frontmatter={pageIntro.frontmatter}
-        />
-        <ContactForm />
-      </section>
-    )}
+    <section>
+      <Markdown
+        content={pageIntro.content}
+        frontmatter={pageIntro.frontmatter}
+        showDivider
+      />
+    </section>
+
+    <ContactForm />
   </>
 );
 

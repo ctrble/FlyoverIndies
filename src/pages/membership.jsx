@@ -15,15 +15,13 @@ const Membership = ({ pageIntro, pageContent }) => (
       description={pageIntro.frontmatter.description}
     />
 
-    {pageIntro && (
-      <section>
-        <Markdown
-          content={pageIntro.content}
-          frontmatter={pageIntro.frontmatter}
-          showDivider
-        />
-      </section>
-    )}
+    <section>
+      <Markdown
+        content={pageIntro.content}
+        frontmatter={pageIntro.frontmatter}
+        showDivider
+      />
+    </section>
 
     {pageContent &&
       pageContent.length > 0 &&
@@ -52,7 +50,7 @@ Membership.getLayout = (page) => <ArcadeTemplate>{page}</ArcadeTemplate>;
 
 export async function getStaticProps() {
   const pageIntro = fileContent('static/membership', 'intro.md');
-  const membership = fileContent('static/membership', 'membership.md');
+  const membership = fileContent('static/membership', 'members.md');
   const organizers = fileContent('static/membership', 'organizers.md');
   const mentors = fileContent('static/membership', 'mentors.md');
 
