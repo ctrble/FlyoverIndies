@@ -17,16 +17,20 @@ module.exports = {
       path: '/resources',
     },
     {
-      title: 'friends',
-      path: '/friends',
-    },
-    {
       title: 'store',
       path: '/store',
     },
     {
+      title: 'friends',
+      path: '/friends',
+    },
+    {
       title: 'about',
       path: '/about',
+    },
+    {
+      title: 'contact',
+      path: '/contact',
     },
   ],
 };

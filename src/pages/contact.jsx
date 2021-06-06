@@ -19,7 +19,6 @@ const Contact = ({ pageIntro }) => (
       <Markdown
         content={pageIntro.content}
         frontmatter={pageIntro.frontmatter}
-        showDivider
       />
     </section>
 
