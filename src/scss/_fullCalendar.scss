@@ -70,6 +70,27 @@
   );
 }
 
+// toolbar overrides
+.fc-toolbar {
+  @media (orientation: portrait) {
+    flex-wrap: wrap;
+    .fc-toolbar-chunk {
+      flex: 1 1 100%;
+    }
+  }
+}
+
+.fc-list-event {
+  @media (orientation: portrait) {
+    display: flex;
+    flex-wrap: wrap;
+    td {
+      border-bottom: none !important;
+      flex: 1 1 100%;
+    }
+  }
+}
+
 // list overrides
 .fc-list {
   border-radius: 2rem;
