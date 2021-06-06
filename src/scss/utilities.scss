@@ -42,6 +42,10 @@ $smearedCoralPink: #ff6163;
 $midlandBlueGreen: #137e6d;
 $uncloisteredVeryPaleGreen: #cffdbc;
 
+$zindexes: (
+  'overlayAll': 100,
+);
+
 @mixin readabilityWidth($fontSize: $bodySize) {
   max-width: $maxTextWidth;
   font-size: $fontSize;

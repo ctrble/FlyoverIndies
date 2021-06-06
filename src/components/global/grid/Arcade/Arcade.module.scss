@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use 'src/scss/utilities.scss';
 
 $gutterWidth: 2rem;
@@ -62,6 +63,7 @@ $screenColor: utilities.$white;
 .arcade__screenBlur {
   position: sticky;
   height: $gutterWidth;
+  z-index: map-get(utilities.$zindexes, 'overlayAll');
   left: 0;
   right: 0;
   &_top {
