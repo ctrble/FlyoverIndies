@@ -5,9 +5,9 @@ import { NextSeo } from 'next-seo';
 import ArcadeTemplate from 'src/components/global/templates/ArcadeTemplate';
 import Markdown from 'src/components/global/Markdown';
 
-import { fileContent } from 'src/lib/getContent';
+import { fileContent, directorySlugs } from 'src/lib/getContent';
 
-const About = ({ pageContent }) => (
+const Page = ({ pageContent }) => (
   <>
     <NextSeo
       title={pageContent.frontmatter.title}
@@ -23,7 +23,7 @@ const About = ({ pageContent }) => (
   </>
 );
 
-About.propTypes = {
+Page.propTypes = {
   pageContent: PropTypes.shape({
     frontmatter: PropTypes.objectOf(PropTypes.string).isRequired,
     content: PropTypes.string.isRequired,
@@ -31,10 +31,24 @@ About.propTypes = {
 };
 
 // eslint-disable-next-line react/display-name
-About.getLayout = (page) => <ArcadeTemplate>{page}</ArcadeTemplate>;
+Page.getLayout = (page) => <ArcadeTemplate>{page}</ArcadeTemplate>;
 
-export async function getStaticProps() {
-  const pageContent = fileContent('dynamic/about', 'page.md');
+export async function getStaticPaths() {
+  const pageSlugs = directorySlugs('dynamic');
+  const paths = pageSlugs.map((page) => ({
+    params: {
+      page,
+    },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params: { page } }) {
+  const pageContent = fileContent('dynamic', `${page}.md`);
 
   return {
     props: {
@@ -43,4 +57,4 @@ export async function getStaticProps() {
   };
 }
 
-export default About;
+export default Page;
