@@ -23,7 +23,7 @@ import '@fullcalendar/list/main.css';
 const NextEvent = () => (
   <div className={styles.nextEvent}>
     <FullCalendar
-      duration={{ months: 1 }}
+      duration={{ days: 30 }}
       timeZone={timeZone}
       plugins={[googleCalendarPlugin, listPlugin]}
       googleCalendarApiKey={googleCalendarApiKey}

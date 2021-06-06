@@ -30,9 +30,9 @@ const handleEventClick = (info) => {
 
 const upcomingEvents = (eventsArray) =>
   eventsArray
-    .filter((event) => isFuture(parseISO(event.start)))
+    .filter((event) => isFuture(parseISO(event.end)))
     .sort((eventA, eventB) => {
-      const aIsFirst = isBefore(parseISO(eventA.start), parseISO(eventB.start));
+      const aIsFirst = isBefore(parseISO(eventA.end), parseISO(eventB.end));
       return aIsFirst ? -1 : 1;
     });
 

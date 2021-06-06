@@ -26,7 +26,6 @@ const Events = ({ pageIntro }) => (
       <Markdown
         content={pageIntro.content}
         frontmatter={pageIntro.frontmatter}
-        showDivider
       />
     </section>
 
