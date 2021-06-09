@@ -1,52 +1,90 @@
 @use 'src/scss/utilities.scss';
 
-$linkColor: utilities.$white;
+$linkColorLandscape: utilities.$uncloisteredVeryPaleGreen;
+$linkColorPortrait: utilities.$midlandBlueGreen;
 $linkSpace: 1rem;
 $linkMovement: 1rem;
+
+:export {
+  var_burgerColor: utilities.$uncloisteredVeryPaleGreen;
+}
 
 .nav {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
+  @media (orientation: landscape) {
+    background: utilities.$midlandBlueGreen;
+  }
+  @media (orientation: portrait) {
+    background: utilities.$midlandBlueGreen;
+  }
 }
 
 .nav__list {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   align-content: center;
-  position: relative;
-  border-left: 5px solid $linkColor;
+
+  // special mobile styles
+  @media (orientation: portrait) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 65vh;
+    z-index: map-get(utilities.$zindexes, 'overlayAll');
+    background: utilities.$uncloisteredVeryPaleGreen;
+    justify-content: center;
+  }
+}
+
+.nav__item {
+  @media (orientation: landscape) {
+    border-left: $linkSpace solid $linkColorLandscape;
+  }
+  @media (orientation: portrait) {
+    border-left: $linkSpace solid $linkColorPortrait;
+  }
 }
 
 .nav__link {
   padding-left: $linkSpace;
   padding-right: $linkMovement;
+  transition: padding 125ms ease-out;
 
+  &:focus:any-link,
   &:hover {
     padding-left: $linkSpace + $linkMovement;
     padding-right: 0;
     font-weight: bold;
   }
 
+  &:any-link {
+    text-transform: capitalize;
+    text-decoration: none;
+    border-bottom: none;
+
+    @media (orientation: landscape) {
+      color: $linkColorLandscape;
+    }
+    @media (orientation: portrait) {
+      color: $linkColorPortrait;
+    }
+
+    &:hover {
+      border-bottom: none;
+    }
+  }
+
   &_isActive {
-    position: relative;
     cursor: default;
 
     &:after {
       content: '<';
-      padding-left: 1rem;
-    }
-  }
-
-  &:any-link {
-    transition: padding 125ms ease-out;
-    text-transform: capitalize;
-    text-decoration: none;
-    color: $linkColor;
-    border-bottom: none;
-    &:hover {
-      border-bottom: none;
+      padding-left: $linkSpace;
     }
   }
 }

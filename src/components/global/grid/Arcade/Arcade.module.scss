@@ -6,17 +6,23 @@ $curve: $gutterWidth;
 $edgeColor: utilities.$black;
 $screenColor: utilities.$white;
 
+$portraitScreenHeight: utilities.$portraitContentHeight;
+$portraitScreenWidth: calc(100vh - #{$portraitScreenHeight});
+
+$landscapeScreenWidth: utilities.$landscapeContentWidth;
+$landscapeScreenHeight: calc(100vw - #{$landscapeScreenWidth});
+
 .arcade {
   display: grid;
   height: 100vh;
   max-height: 100vh;
   @media (orientation: portrait) {
     grid-template-columns: 50% 50%;
-    grid-template-rows: minmax(65vh, 3fr) minmax(35vh, 1fr);
+    grid-template-rows: $portraitScreenHeight $portraitScreenWidth;
     grid-template-areas: 'screen screen' 'control panel';
   }
   @media (orientation: landscape) {
-    grid-template-columns: minmax(65vw, 3fr) minmax(35vw, 1fr);
+    grid-template-columns: $landscapeScreenWidth $landscapeScreenHeight;
     grid-template-rows: 1fr 1fr;
     grid-template-areas: 'screen panel' 'screen control';
   }
@@ -63,7 +69,7 @@ $screenColor: utilities.$white;
 .arcade__screenBlur {
   position: sticky;
   height: $gutterWidth;
-  z-index: map-get(utilities.$zindexes, 'overlayAll');
+  z-index: map-get(utilities.$zindexes, 'overlayContent');
   left: 0;
   right: 0;
   &_top {
