@@ -2,6 +2,7 @@
 
 $linkColorLandscape: utilities.$uncloisteredVeryPaleGreen;
 $linkColorPortrait: utilities.$midlandBlueGreen;
+$backgroundColorPortrait: utilities.$uncloisteredVeryPaleGreen;
 $linkSpace: 1rem;
 $linkMovement: 1rem;
 
@@ -13,7 +14,9 @@ $linkMovement: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   height: 100%;
+  padding: 1rem;
   @media (orientation: landscape) {
     background: utilities.$midlandBlueGreen;
   }
@@ -23,34 +26,32 @@ $linkMovement: 1rem;
 }
 
 .nav__list {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-content: center;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 
-  // special mobile styles
+  // special mobile styles to fit like a panel in the arcade screen
   @media (orientation: portrait) {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
-    height: 65vh;
+    height: utilities.$portraitContentHeight;
     z-index: map-get(utilities.$zindexes, 'overlayAll');
-    background: utilities.$uncloisteredVeryPaleGreen;
+    background: $backgroundColorPortrait;
     justify-content: center;
   }
 }
 
 .nav__item {
-  @media (orientation: landscape) {
-    border-left: $linkSpace solid $linkColorLandscape;
-  }
-  @media (orientation: portrait) {
-    border-left: $linkSpace solid $linkColorPortrait;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav__link {
+  font-size: 1.8rem;
   padding-left: $linkSpace;
   padding-right: $linkMovement;
   transition: padding 125ms ease-out;
