@@ -53,6 +53,7 @@ const ContactForm = () => {
           className={styles.form__input}
           id="message"
           name="message"
+          rows="5"
           placeholder="Ask a question, send us feedback, show off your game, or just say hi!"
           onChange={handleMessageInput}
         />
