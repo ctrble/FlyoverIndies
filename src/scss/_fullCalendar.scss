@@ -78,10 +78,24 @@
       flex: 1 1 100%;
     }
   }
+  @media (hover: none) {
+    flex-wrap: wrap;
+    .fc-toolbar-chunk {
+      flex: 1 1 100%;
+    }
+  }
 }
 
 .fc-list-event {
   @media (orientation: portrait) {
+    display: flex;
+    flex-wrap: wrap;
+    td {
+      border-bottom: none !important;
+      flex: 1 1 100%;
+    }
+  }
+  @media (hover: none) {
     display: flex;
     flex-wrap: wrap;
     td {

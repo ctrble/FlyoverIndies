@@ -28,10 +28,10 @@ $slightPink: #fc93c6;
 $brightBlue: #78ffff;
 $slightBlue: #d6f5f5;
 $brightWhite: #ffffff;
-$white: #e3e3e3;
+$white: rgba(#e3e3e3, 1);
 $black: #292929;
 $deepBlack: #000000;
-$transparent: rgba(255, 255, 255, 0);
+$transparent: rgba($white, 0);
 
 // maybe?
 $hebdomadalSandYellow: #fce166;

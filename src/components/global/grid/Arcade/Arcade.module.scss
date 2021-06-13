@@ -79,6 +79,12 @@ $landscapeScreenHeight: calc(100vw - #{$landscapeScreenWidth});
       $screenColor,
       utilities.$transparent
     );
+    // -webkit-linear-gradient(to bottom, $screenColor, utilities.$transparent);
+    // background-image: linear-gradient(
+    //   to bottom,
+    //   $screenColor,
+    //   utilities.$transparent
+    // );
   }
   &_bottom {
     bottom: 0;
