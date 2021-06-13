@@ -6,7 +6,7 @@ date: 2021-05-30
 
 # Game Making Resources
 
-Looking for tools to get started with making games? We've got you covered with this directory of our favorite resources. We prefer to list tools that our members use for themselves and are familiar with, and are free (or at least affordable). If we're missing something or a link needs to be updated, please let us know in our [Discord](https://discord.gg/8JdcrkR) or [use our contact form](/about).
+Looking for tools to get started with making games? We've got you covered with this directory of our favorite resources. We prefer to list tools that our members use for themselves and are familiar with so that we can provide specific and useful help to those starting out (just ask in the [Discord](https://discord.gg/8JdcrkR)!). We also try to list (and use) resources that are free (or at least affordable). If we're missing something or a link needs to be updated, please let us know in our [Discord](https://discord.gg/8JdcrkR) or [use our contact form](/about).
 
 ---
 
