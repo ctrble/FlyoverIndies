@@ -1,6 +1,8 @@
 @use 'src/scss/utilities.scss';
 
 $textLogoColor: utilities.$flyoverBlue;
+$textLogoSizeLandscape: 220px;
+$textLogoSizePortrait: 170px;
 $textLogoSize: 130px;
 $spriteWidth: 13110px / 3;
 $spriteHeight: 690px / 3;
@@ -30,10 +32,24 @@ $animationDuration: #{$animationDurationTime}s;
 }
 
 .logo__text {
-  width: $textLogoSize;
-  height: $textLogoSize;
-  max-width: $textLogoSize;
-  max-height: $textLogoSize;
+  @media (orientation: landscape) {
+    width: $textLogoSizeLandscape;
+    height: $textLogoSizeLandscape;
+    max-width: $textLogoSizeLandscape;
+    max-height: $textLogoSizeLandscape;
+  }
+  @media (orientation: portrait) {
+    width: $textLogoSizePortrait;
+    height: $textLogoSizePortrait;
+    max-width: $textLogoSizePortrait;
+    max-height: $textLogoSizePortrait;
+  }
+  @media (hover: none) {
+    width: $textLogoSize;
+    height: $textLogoSize;
+    max-width: $textLogoSize;
+    max-height: $textLogoSize;
+  }
 }
 
 .logo__aside {
@@ -42,17 +58,25 @@ $animationDuration: #{$animationDurationTime}s;
   bottom: 2rem;
   left: 2rem;
   right: 2rem;
-  padding-top: 130px;
-  font-size: 1.2rem;
-  line-height: 1.2;
-  text-align: center;
-  color: utilities.$flyoverBlue;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  color: utilities.$flyoverBlue;
   pointer-events: none;
+  @media (orientation: landscape) {
+    padding-top: 180px;
+    line-height: 1.4;
+    font-size: 1.4rem;
+  }
+  @media (orientation: portrait) {
+    padding-top: 150px;
+    line-height: 1.2;
+    font-size: 1.2rem;
+  }
   @media (hover: none) {
     padding-top: 110px;
+    line-height: 1;
     font-size: 1rem;
   }
 }
