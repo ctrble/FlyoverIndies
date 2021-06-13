@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { useRouter } from 'next/router';
@@ -9,7 +9,7 @@ const ArcadeScreen = ({ children }) => {
   const router = useRouter();
   const contentRef = useRef(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const handleRouteChange = () => {
       // Scroll to top inside the content, Nextjs does this on page transition but our content is in this other section
       if (contentRef.current) {
