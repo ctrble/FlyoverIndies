@@ -100,17 +100,4 @@ $landscapeScreenHeight: calc(100vw - #{$landscapeScreenWidth});
   grid-area: panel;
   background-color: utilities.$white;
   color: utilities.$black;
-
-  position: relative;
-  &:after {
-    content: '';
-    position: absolute;
-    pointer-events: none;
-    top: 2rem;
-    left: 2rem;
-    right: 2rem;
-    bottom: 2rem;
-    border-radius: 2rem;
-    border: 2px solid utilities.$batigansMawOrange;
-  }
 }

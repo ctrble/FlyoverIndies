@@ -32,6 +32,16 @@ $linkMovement: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 
   // special mobile styles to fit like a panel in the arcade screen
+  @media (hover: none) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: utilities.$landscapeContentWidth;
+    height: 100vh;
+    z-index: map-get(utilities.$zindexes, 'overlayAll');
+    background: $backgroundColorPortrait;
+    justify-content: center;
+  }
   @media (orientation: portrait) {
     position: fixed;
     top: 0;
@@ -72,6 +82,9 @@ $linkMovement: 1rem;
       color: $linkColorLandscape;
     }
     @media (orientation: portrait) {
+      color: $linkColorPortrait;
+    }
+    @media (hover: none) {
       color: $linkColorPortrait;
     }
 

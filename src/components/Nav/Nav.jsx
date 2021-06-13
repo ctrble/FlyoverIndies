@@ -17,6 +17,10 @@ const Nav = () => {
   const isPortrait = useMediaQuery({
     query: '(orientation: portrait)',
   });
+  const isTouch = useMediaQuery({
+    query: '(hover: none)',
+  });
+  const showBurger = isPortrait || isTouch;
 
   useEffect(() => {
     const handleRouteChange = () => setOpen(false);
@@ -34,7 +38,7 @@ const Nav = () => {
 
   return (
     <nav className={styles.nav}>
-      {isPortrait && (
+      {showBurger && (
         <Hamburger
           toggled={isOpen}
           toggle={setOpen}
@@ -44,7 +48,7 @@ const Nav = () => {
           color={styles.var_burgerColor}
         />
       )}
-      {(isOpen || !isPortrait) && (
+      {(isOpen || !showBurger) && (
         <ul className={styles.nav__list}>
           {navData.pages.map((item) => (
             <li className={styles.nav__item} key={uuidv4()}>
