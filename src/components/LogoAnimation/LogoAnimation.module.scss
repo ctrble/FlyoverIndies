@@ -1,14 +1,15 @@
+@use "sass:math";
 @use 'src/scss/utilities.scss';
 
 $textLogoColor: utilities.$flyoverBlue;
 $textLogoSizeLandscape: 220px;
 $textLogoSizePortrait: 170px;
 $textLogoSize: 130px;
-$spriteWidth: 13110px / 3;
-$spriteHeight: 690px / 3;
+$spriteWidth: math.div(13110px, 3);
+$spriteHeight: math.div(690px, 3);
 
 $frameCount: 19;
-$framePercent: (100 / $frameCount) * 1%;
+$framePercent: (math.div(100, $frameCount)) * 1%;
 
 $animationDurationTime: 1.52;
 $animationDelayTime: 0.25;

@@ -1,4 +1,5 @@
 @use 'sass:color';
+@use 'sass:math';
 @use 'src/scss/utilities';
 
 @mixin button3d(
@@ -67,7 +68,7 @@
     transition: all $easingTime $easingFunction;
     content: '';
     position: absolute;
-    top: $buttonHeight / 2;
+    top: math.div($buttonHeight, 2);
     bottom: -$buttonHeight;
     left: 0;
     right: 0;

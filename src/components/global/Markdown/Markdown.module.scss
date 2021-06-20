@@ -1,3 +1,4 @@
+@use 'sass:math';
 @use 'src/scss/utilities.scss';
 
 $markdownGap: 6rem;
@@ -40,7 +41,7 @@ $markdownGap: 6rem;
   margin-bottom: $markdownGap;
 
   &_small {
-    margin-top: $markdownGap / 2;
-    margin-bottom: $markdownGap / 2;
+    margin-top: math.div($markdownGap, 2);
+    margin-bottom: math.div($markdownGap, 2);
   }
 }
