@@ -4,9 +4,34 @@ import classnames from 'classnames';
 import ReactMarkdown from 'react-markdown';
 
 import Button from 'src/components/global/Button';
+import LazyImage from 'src/components/global/LazyImage';
 import SiteLink from 'src/components/global/SiteLink';
 
 import styles from './Markdown.module.scss';
+
+const ParagraphOrImage = (props) => {
+  // disable linters cause this is a dirty hack
+  /* eslint-disable react/destructuring-assignment, react/prop-types, react/jsx-props-no-spreading */
+  const element = props.children[0];
+
+  if (element.type === 'img') {
+    console.log(props);
+  }
+
+  // workaround: https://github.com/rexxars/react-markdown/issues/184#issuecomment-522491275
+  // images get nested in p tags, which the lazy loader then wraps in a div
+
+  return element.type === 'img' ? (
+    <LazyImage
+      key={element.key}
+      src={element.props.src}
+      alt={element.props.alt}
+    />
+  ) : (
+    <p {...props} />
+  );
+  /* eslint-enable react/destructuring-assignment, react/prop-types, react/jsx-props-no-spreading */
+};
 
 const Markdown = ({ content, frontmatter, showDivider }) => (
   <div className={styles.markdown}>
@@ -27,6 +52,7 @@ const Markdown = ({ content, frontmatter, showDivider }) => (
             )}
           />
         ),
+        p: ({ node, ...props }) => <ParagraphOrImage {...props} />,
       }}
       /* eslint-enable react/display-name, react/jsx-props-no-spreading, react/prop-types */
     >

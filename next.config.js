@@ -8,6 +8,6 @@ const withTM = require('next-transpile-modules')([
   '@fullcalendar/react',
 ]);
 
-module.exports = withTM({
-  // any other general next.js settings
-});
+module.exports = {
+  ...withTM(),
+};
