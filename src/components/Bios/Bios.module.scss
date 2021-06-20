@@ -3,7 +3,6 @@
 .bios {
   margin: 0 auto;
   @include utilities.readabilityWidth();
-  border: 1px solid red;
 }
 
 .bios__list {
@@ -13,7 +12,9 @@
 }
 
 .bios__person {
-  border: 1px solid green;
+  border: 1px solid utilities.$slightFlyoverBlue;
+  border-radius: 1rem;
+  padding: 1rem;
 
   img {
     max-width: 50%;
