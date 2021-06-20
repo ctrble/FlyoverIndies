@@ -13,7 +13,7 @@ function FlyoverIndies({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <link rel="icon" href="favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <DefaultSeo {...SEO} />
       {getLayout(<Component {...pageProps} />)}

@@ -1,0 +1,21 @@
+@use 'src/scss/utilities.scss';
+
+.bios {
+  margin: 0 auto;
+  @include utilities.readabilityWidth();
+  border: 1px solid red;
+}
+
+.bios__list {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.bios__person {
+  border: 1px solid green;
+
+  img {
+    max-width: 50%;
+  }
+}

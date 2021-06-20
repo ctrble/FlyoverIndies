@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 
 import Arcade from 'src/components/global/grid/Arcade';
-// import Icon from 'src/components/global/Icon';
 import Nav from 'src/components/Nav';
 
 const LogoAnimation = dynamic(() => import('src/components/LogoAnimation'), {

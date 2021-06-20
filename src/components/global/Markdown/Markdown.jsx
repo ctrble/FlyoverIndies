@@ -14,13 +14,8 @@ const ParagraphOrImage = (props) => {
   /* eslint-disable react/destructuring-assignment, react/prop-types, react/jsx-props-no-spreading */
   const element = props.children[0];
 
-  if (element.type === 'img') {
-    console.log(props);
-  }
-
   // workaround: https://github.com/rexxars/react-markdown/issues/184#issuecomment-522491275
   // images get nested in p tags, which the lazy loader then wraps in a div
-
   return element.type === 'img' ? (
     <LazyImage
       key={element.key}
@@ -59,7 +54,7 @@ const Markdown = ({ content, frontmatter, showDivider }) => (
       {content}
     </ReactMarkdown>
 
-    {frontmatter.ctaText && frontmatter.ctaLink && (
+    {frontmatter && frontmatter.ctaText && frontmatter.ctaLink && (
       <div className={styles.markdown__cta}>
         <Button href={frontmatter.ctaLink}>{frontmatter.ctaText}</Button>
       </div>
@@ -82,13 +77,14 @@ Markdown.propTypes = {
 };
 
 Markdown.defaultProps = {
-  frontmatter: PropTypes.shape({
-    title: null,
-    description: null,
-    date: null,
-    ctaText: null,
-    ctaLink: null,
-  }),
+  frontmatter: null,
+  // frontmatter: PropTypes.shape({
+  //   title: null,
+  //   description: null,
+  //   date: null,
+  //   ctaText: null,
+  //   ctaLink: null,
+  // }),
   showDivider: false,
 };
 

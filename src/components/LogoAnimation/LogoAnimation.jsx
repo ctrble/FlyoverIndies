@@ -6,10 +6,10 @@ import Icon from 'src/components/global/Icon';
 import styles from './LogoAnimation.module.scss';
 
 const LogoAnimation = () => {
-  const flyoverTextSrc = 'images/flyover-indies-logo-text.svg';
+  const flyoverTextSrc = '/images/flyover-indies-logo-text.svg';
   const flyoverTextAlt = 'Flyover Indies logo';
 
-  const batiganSpriteSrc = 'images/flitz-batigan-sprite.png';
+  const batiganSpriteSrc = '/images/flitz-batigan-sprite.png';
   const batiganAlt = 'Flitz Batigan, Flyover Indies mascot';
 
   const batInitial = {
