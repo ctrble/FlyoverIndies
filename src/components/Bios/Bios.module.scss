@@ -15,8 +15,70 @@
   border: 1px solid utilities.$slightFlyoverBlue;
   border-radius: 1rem;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: utilities.$midlandBlueGreen;
+  color: utilities.$brightWhite;
+}
 
-  img {
-    max-width: 50%;
+.bios__image {
+  margin-bottom: 1rem;
+}
+
+.bios__whoWrapper {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid utilities.$white;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+
+  & :last-child {
+    margin-left: 0.5rem;
+  }
+}
+
+.bios__name {
+  flex: 0 1 auto;
+  font-size: 1.8rem;
+  margin-bottom: 0;
+}
+
+.bios__pronouns {
+  flex: 0 1 auto;
+  border: 1px solid rgba(utilities.$white, 0.5);
+  border-radius: 0.5rem;
+  background-color: utilities.$black;
+  color: utilities.$brightWhite;
+  align-self: flex-start;
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: 0.5rem;
+}
+
+.bios__position {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.bios__websiteWrapper {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  // normally would put this on the bottom of the previous element,
+  // but the website is optional
+  padding-top: 1rem;
+  border-top: 1px dashed utilities.$white;
+  margin-top: 1rem;
+
+  & :last-child {
+    margin-left: 0.5rem;
+  }
+}
+
+.bios__website {
+  a {
+    color: utilities.$white;
   }
 }

@@ -4,8 +4,10 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
-const LazyImage = ({ src, alt }) => (
-  <LazyLoadImage src={src} alt={alt} effect="opacity" />
+// Spreading for convenience
+/* eslint-disable react/jsx-props-no-spreading */
+const LazyImage = ({ src, alt, ...props }) => (
+  <LazyLoadImage src={src} alt={alt} effect="opacity" {...props} />
 );
 
 LazyImage.propTypes = {

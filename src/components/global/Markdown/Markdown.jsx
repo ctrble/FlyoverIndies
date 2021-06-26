@@ -14,8 +14,12 @@ const ParagraphOrImage = (props) => {
   /* eslint-disable react/destructuring-assignment, react/prop-types, react/jsx-props-no-spreading */
   const element = props.children[0];
 
+  /**
+   * The react-markdown package nests images in paragraphs, which is not valid
+   * html. This instead strips out the p tags and sends the image to LazyImage
+   * to take it from there.
+   */
   // workaround: https://github.com/rexxars/react-markdown/issues/184#issuecomment-522491275
-  // images get nested in p tags, which the lazy loader then wraps in a div
   return element.type === 'img' ? (
     <LazyImage
       key={element.key}
