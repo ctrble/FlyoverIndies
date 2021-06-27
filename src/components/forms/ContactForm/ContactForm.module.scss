@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use 'src/scss/utilities.scss';
 
 .form {
@@ -19,8 +20,10 @@
   padding: 1rem;
   line-height: 1;
   font-size: utilities.$bodySize - 0.2rem;
+  border: 1px solid utilities.$transparent;
   &:focus {
-    outline: 1px solid utilities.$slightFlyoverBlue;
+    outline: none;
+    border-color: color.adjust(utilities.$flyoverBlue, $lightness: 15%);
   }
 }
 
