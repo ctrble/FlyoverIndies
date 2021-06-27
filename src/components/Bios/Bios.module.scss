@@ -1,5 +1,17 @@
 @use 'src/scss/utilities.scss';
 
+$red: utilities.$calibredFadedRed;
+$orange: utilities.$batigansMawOrange;
+$yellow: utilities.$groundLightGold;
+$green: utilities.$midlandBlueGreen;
+$teal: utilities.$runcinateLightTeal;
+$blue: utilities.$flyoverBlue;
+$purple: utilities.$hunkyMutedPurple;
+$pink: utilities.$bangingPastelPink;
+
+$light: utilities.$brightWhite;
+$dark: utilities.$black;
+
 .bios {
   margin: 0 auto;
   @include utilities.readabilityWidth();
@@ -12,13 +24,47 @@
 }
 
 .bios__person {
-  border: 1px solid utilities.$slightFlyoverBlue;
+  outline: 2px solid;
   border-radius: 1rem;
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  background-color: utilities.$midlandBlueGreen;
-  color: utilities.$brightWhite;
+  color: $light;
+  &_red {
+    outline-color: rgba($red, 0.5);
+    background-color: $red;
+  }
+  &_orange {
+    outline-color: rgba($orange, 0.5);
+    background-color: $orange;
+  }
+  &_yellow {
+    outline-color: rgba($yellow, 0.5);
+    background-color: $yellow;
+    color: $dark;
+  }
+  &_green {
+    outline-color: rgba($green, 0.5);
+    background-color: $green;
+  }
+  &_teal {
+    outline-color: rgba($teal, 0.5);
+    background-color: $teal;
+    color: $dark;
+  }
+  &_blue {
+    outline-color: rgba($blue, 0.5);
+    background-color: $blue;
+  }
+  &_purple {
+    outline-color: rgba($purple, 0.5);
+    background-color: $purple;
+  }
+  &_pink {
+    outline-color: rgba($pink, 0.5);
+    background-color: $pink;
+    color: $dark;
+  }
 }
 
 .bios__image {
@@ -29,9 +75,15 @@
   display: inline-flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid utilities.$white;
   padding-bottom: 0.5rem;
   margin-bottom: 0.5rem;
+  border-bottom: 1px solid $light;
+
+  .bios__person_yellow &,
+  .bios__person_teal &,
+  .bios__person_pink & {
+    border-bottom: 1px solid $dark;
+  }
 
   & :last-child {
     margin-left: 0.5rem;
@@ -46,14 +98,22 @@
 
 .bios__pronouns {
   flex: 0 1 auto;
-  border: 1px solid rgba(utilities.$white, 0.5);
   border-radius: 0.5rem;
-  background-color: utilities.$black;
-  color: utilities.$brightWhite;
   align-self: flex-start;
   font-size: 1.2rem;
   line-height: 1;
   padding: 0.5rem;
+  color: $light;
+  border: 1px solid rgba($light, 0.5);
+  background-color: $dark;
+
+  .bios__person_yellow &,
+  .bios__person_teal &,
+  .bios__person_pink & {
+    color: $dark;
+    border: 1px solid rgba($dark, 0.5);
+    background-color: $light;
+  }
 }
 
 .bios__position {
@@ -69,16 +129,37 @@
   // normally would put this on the bottom of the previous element,
   // but the website is optional
   padding-top: 1rem;
-  border-top: 1px dashed utilities.$white;
+  border-top: 1px dashed $light;
   margin-top: 1rem;
 
   & :last-child {
     margin-left: 0.5rem;
   }
+
+  a:hover {
+    border-color: $light;
+  }
+
+  .bios__person_yellow &,
+  .bios__person_teal &,
+  .bios__person_pink & {
+    border-top: 1px dashed $dark;
+
+    a:hover {
+      border-color: $dark;
+    }
+  }
 }
 
 .bios__website {
   a {
-    color: utilities.$white;
+    color: $light;
+  }
+  .bios__person_yellow &,
+  .bios__person_teal &,
+  .bios__person_pink & {
+    a {
+      color: $dark;
+    }
   }
 }

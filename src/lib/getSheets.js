@@ -17,7 +17,7 @@ const getSheets = async () => {
     const sheets = google.sheets({ version: 'v4', auth: jwt });
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: process.env.SPREADSHEET_ID,
-      range: 'A2:F99',
+      range: 'People!A2:G99',
     });
 
     const rows = response.data.values;
@@ -25,12 +25,20 @@ const getSheets = async () => {
     // map rows to keys that can be more easily parsed later
     if (rows.length) {
       return rows.map((row) => ({
+        // a
         name: row[0],
+        // b
         pronouns: row[1],
-        imagePath: row[2] || null,
-        position: row[3],
-        about: row[4],
-        website: row[5] || null,
+        // c
+        position: row[2],
+        // d
+        about: row[3],
+        // e
+        colorTheme: row[4],
+        // f
+        imagePath: row[5] || null,
+        // g
+        website: row[6] || null,
       }));
     }
   } catch (err) {
