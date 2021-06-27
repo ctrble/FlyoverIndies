@@ -1,6 +1,6 @@
 ---
 title: Contact Us
-description: Flyover Indies is an indie game development community in Kansas City in Midwest region. Join us for events and to connect with game developers in the area.
+description: Get in touch with Flyover Indies by sending us a message.
 date: 2021-05-27
 ---
 

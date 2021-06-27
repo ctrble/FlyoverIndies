@@ -1,6 +1,6 @@
 ---
 title: Game Making Resources
-description: Flyover Indies is an indie game development community in Kansas City in Midwest region. Join us for events and to connect with game developers in the area.
+description: Our collection of recommended game making tools, all selections are affordable and used by our community.
 date: 2021-05-30
 ---
 

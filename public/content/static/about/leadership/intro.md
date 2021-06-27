@@ -1,6 +1,6 @@
 ---
 title: Leadership
-description: Flyover Indies is an indie game development community in Kansas City in Midwest region. Join us for events and to connect with game developers in the area.
+description: Interested in who helps out in making Flyover Indies a reality? Here's our list of current Organizers and Mentors.
 date: 2021-03-07
 ---
 

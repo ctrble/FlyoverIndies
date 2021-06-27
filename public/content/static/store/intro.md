@@ -1,6 +1,6 @@
 ---
 title: Merch
-description: Flyover Indies is an indie game development community in Kansas City in Midwest region. Join us for events and to connect with game developers in the area.
+description: Check out our online store to help support the Flyover Indies community!
 date: 2021-05-30
 ctaText: Go shopping!
 ctaLink: https://flyoverindies.threadless.com/

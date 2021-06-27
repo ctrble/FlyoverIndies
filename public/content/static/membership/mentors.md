@@ -1,6 +1,6 @@
 ---
 title: Mentors
-description: Flyover Indies is an indie game development community in Kansas City in Midwest region. Join us for events and to connect with game developers in the area.
+description: Flyover Indies is an indie game development community in the Kansas City region. Join us for events and to connect with game developers in the area.
 date: 2021-03-07
 ctaText: Apply to be a Mentor
 ctaLink: https://forms.gle/AdTjKBfj29oUKCdr8
