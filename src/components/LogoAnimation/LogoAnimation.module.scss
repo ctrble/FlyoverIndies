@@ -1,0 +1,132 @@
+@use "sass:math";
+@use 'src/scss/utilities.scss';
+
+$textLogoColor: utilities.$flyoverBlue;
+$textLogoSizeLandscape: 220px;
+$textLogoSizePortrait: 170px;
+$textLogoSize: 130px;
+$spriteWidth: math.div(13110px, 3);
+$spriteHeight: math.div(690px, 3);
+
+$frameCount: 19;
+$framePercent: (math.div(100, $frameCount)) * 1%;
+
+$animationDurationTime: 1.52;
+$animationDelayTime: 0.25;
+$animationDelay: #{$animationDelayTime}s;
+$animationDuration: #{$animationDurationTime}s;
+
+:export {
+  var_animationDelay: $animationDelayTime;
+  var_animationDuration: $animationDurationTime;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.logo__text {
+  @media (orientation: landscape) {
+    width: $textLogoSizeLandscape;
+    height: $textLogoSizeLandscape;
+    max-width: $textLogoSizeLandscape;
+    max-height: $textLogoSizeLandscape;
+  }
+  @media (orientation: portrait) {
+    width: $textLogoSizePortrait;
+    height: $textLogoSizePortrait;
+    max-width: $textLogoSizePortrait;
+    max-height: $textLogoSizePortrait;
+  }
+  @media (hover: none) {
+    width: $textLogoSize;
+    height: $textLogoSize;
+    max-width: $textLogoSize;
+    max-height: $textLogoSize;
+  }
+}
+
+.logo__aside {
+  position: absolute;
+  top: 2rem;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: utilities.$flyoverBlue;
+  pointer-events: none;
+  @media (orientation: landscape) {
+    padding-top: 180px;
+    line-height: 1.4;
+    font-size: 1.4rem;
+  }
+  @media (orientation: portrait) {
+    padding-top: 150px;
+    line-height: 1.2;
+    font-size: 1.2rem;
+  }
+  @media (hover: none) {
+    padding-top: 110px;
+    line-height: 1;
+    font-size: 1rem;
+  }
+}
+
+.logo__svg {
+  color: $textLogoColor;
+  transition: color ease-in-out 0.25s;
+  svg {
+    transition: all ease-in-out 0.25s;
+    filter: drop-shadow(0px 2px 0px utilities.$transparent);
+  }
+  &:hover {
+    cursor: pointer;
+    transition: color ease-in-out 0.25s;
+    color: utilities.$batigansMawOrange;
+    svg {
+      transition: all ease-in-out 0.25s;
+      filter: drop-shadow(0px 2px 0px utilities.$flyoverBlue);
+    }
+  }
+}
+
+.logo__batigan {
+  position: relative;
+  overflow: hidden;
+  width: $spriteHeight;
+  height: $spriteHeight;
+}
+
+.logo__sprite {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  height: $spriteHeight;
+  width: $spriteWidth;
+  max-width: $spriteWidth;
+
+  animation: flyAnimation;
+  animation-timing-function: step-end;
+  animation-iteration-count: 1;
+  animation-duration: $animationDuration;
+  animation-delay: $animationDelay;
+}
+
+@keyframes flyAnimation {
+  @for $i from 0 through $frameCount - 1 {
+    #{$i * $framePercent} {
+      transform: translateX($spriteHeight * -$i);
+    }
+  }
+}

@@ -1,67 +1,86 @@
 import React from 'react';
-import Head from 'next/head';
+import PropTypes from 'prop-types';
+import { NextSeo } from 'next-seo';
+import dynamic from 'next/dynamic';
 
-import styles from '../scss/Home.module.scss';
+import ArcadeTemplate from 'src/components/global/templates/ArcadeTemplate';
+import Markdown from 'src/components/global/Markdown';
+import SocialLinks from 'src/components/SocialLinks';
 
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+import { fileContent } from 'src/lib/getContent';
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+const NextEvent = dynamic(() => import('src/components/calendars/NextEvent'), {
+  ssr: false,
+});
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+const Home = ({ pageIntro, eventsContent, onlineContent }) => (
+  <>
+    <NextSeo
+      title={pageIntro.frontmatter.title}
+      description={pageIntro.frontmatter.description}
+    />
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+    <section>
+      <Markdown
+        content={pageIntro.content}
+        frontmatter={pageIntro.frontmatter}
+        showDivider
+      />
+    </section>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+    <section>
+      <Markdown
+        content={onlineContent.content}
+        frontmatter={onlineContent.frontmatter}
+      />
+      <SocialLinks />
+    </section>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+    <section>
+      <Markdown
+        content={eventsContent.content}
+        frontmatter={eventsContent.frontmatter}
+      />
+      <NextEvent />
+    </section>
+  </>
+);
 
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+// eslint-disable-next-line react/display-name
+Home.getLayout = (page) => <ArcadeTemplate>{page}</ArcadeTemplate>;
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  );
+Home.propTypes = {
+  pageIntro: PropTypes.shape({
+    frontmatter: PropTypes.objectOf(PropTypes.string).isRequired,
+    content: PropTypes.string.isRequired,
+  }).isRequired,
+  eventsContent: PropTypes.shape({
+    frontmatter: PropTypes.objectOf(PropTypes.string).isRequired,
+    content: PropTypes.string.isRequired,
+  }).isRequired,
+  onlineContent: PropTypes.shape({
+    frontmatter: PropTypes.objectOf(PropTypes.string).isRequired,
+    content: PropTypes.string.isRequired,
+  }).isRequired,
+  // pageContent: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+
+export async function getStaticProps() {
+  const pageIntro = fileContent('static/home', 'intro.md');
+  const eventsContent = fileContent('static/home', 'events.md');
+  const onlineContent = fileContent('static/home', 'online.md');
+  // const mentors = fileContent('static/home', 'mentors.md');
+
+  // const pageContent = [membership, organizers, mentors];
+
+  return {
+    props: {
+      pageIntro,
+      eventsContent,
+      onlineContent,
+      // pageContent,
+    },
+  };
 }
+
+export default Home;

@@ -1,0 +1,40 @@
+@use 'src/scss/utilities';
+
+.page {
+  display: flex;
+  align-content: stretch;
+  @media (orientation: portrait) {
+    flex-direction: column;
+  }
+  @media (orientation: landscape) {
+    flex-direction: row;
+  }
+}
+
+.page__left {
+  flex: 1 1 100%;
+  height: 100vh;
+  min-height: 100vh;
+  padding: 1rem;
+  @media (orientation: landscape) {
+    overflow-y: auto;
+  }
+
+  // theme
+  background-color: utilities.$flyoverBlue;
+  color: utilities.$white;
+}
+
+.page__right {
+  flex: 1 1 100%;
+  height: 100vh;
+  min-height: 100vh;
+  padding: 1rem;
+  @media (orientation: landscape) {
+    overflow-y: auto;
+  }
+
+  // theme
+  background-color: utilities.$white;
+  color: utilities.$flyoverBlue;
+}

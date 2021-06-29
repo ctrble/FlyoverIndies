@@ -1,0 +1,12 @@
+@use 'src/scss/utilities';
+
+// see _fullCalendar.scss for all the overrides -_-
+
+.eventContent {
+  display: block;
+  position: relative;
+}
+
+.eventContent__title {
+  font-weight: 900;
+}

@@ -1,0 +1,166 @@
+@use 'sass:color';
+@use 'src/scss/utilities.scss';
+
+$red: utilities.$calibredFadedRed;
+$orange: utilities.$batigansMawOrange;
+$yellow: utilities.$groundLightGold;
+$green: utilities.$midlandBlueGreen;
+$teal: utilities.$runcinateLightTeal;
+$blue: utilities.$flyoverBlue;
+$purple: utilities.$hunkyMutedPurple;
+$pink: utilities.$bangingPastelPink;
+
+$light: utilities.$brightWhite;
+$dark: utilities.$black;
+
+.bios {
+  margin: 0 auto;
+  @include utilities.readabilityWidth();
+}
+
+.bios__list {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.bios__person {
+  border: 4px solid;
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  color: $light;
+  &_red {
+    border-color: color.adjust($red, $lightness: 15%);
+    background-color: $red;
+  }
+  &_orange {
+    border-color: color.adjust($orange, $lightness: 15%);
+    background-color: $orange;
+  }
+  &_yellow {
+    border-color: color.adjust($yellow, $lightness: 15%);
+    background-color: $yellow;
+    color: $dark;
+  }
+  &_green {
+    border-color: color.adjust($green, $lightness: 15%);
+    background-color: $green;
+  }
+  &_teal {
+    border-color: color.adjust($teal, $lightness: 15%);
+    background-color: $teal;
+    color: $dark;
+  }
+  &_blue {
+    border-color: color.adjust($blue, $lightness: 15%);
+    background-color: $blue;
+  }
+  &_purple {
+    border-color: color.adjust($purple, $lightness: 15%);
+    background-color: $purple;
+  }
+  &_pink {
+    border-color: color.adjust($pink, $lightness: 15%);
+    background-color: $pink;
+    color: $dark;
+  }
+}
+
+.bios__image {
+  margin-bottom: 1rem;
+}
+
+.bios__whoWrapper {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid $light;
+
+  .bios__person_yellow &,
+  .bios__person_teal &,
+  .bios__person_pink & {
+    border-bottom: 1px solid $dark;
+  }
+
+  & :last-child {
+    margin-left: 0.5rem;
+  }
+}
+
+.bios__name {
+  flex: 0 1 auto;
+  font-size: 1.8rem;
+  margin-bottom: 0;
+}
+
+.bios__pronouns {
+  flex: 0 1 auto;
+  border-radius: 0.5rem;
+  align-self: flex-start;
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: 0.5rem;
+  color: $light;
+  border: 1px solid rgba($light, 0.5);
+  background-color: $dark;
+
+  .bios__person_yellow &,
+  .bios__person_teal &,
+  .bios__person_pink & {
+    color: $dark;
+    border: 1px solid rgba($dark, 0.5);
+    background-color: $light;
+  }
+}
+
+.bios__position {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.bios__websiteWrapper {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  // normally would put this on the bottom of the previous element,
+  // but the website is optional
+  padding-top: 1rem;
+  border-top: 1px dashed $light;
+  margin-top: 1rem;
+
+  & :last-child {
+    margin-left: 0.5rem;
+  }
+
+  a:hover {
+    border-color: $light;
+  }
+
+  .bios__person_yellow &,
+  .bios__person_teal &,
+  .bios__person_pink & {
+    border-top: 1px dashed $dark;
+
+    a:hover {
+      border-color: $dark;
+    }
+  }
+}
+
+.bios__website {
+  a {
+    color: $light;
+  }
+  .bios__person_yellow &,
+  .bios__person_teal &,
+  .bios__person_pink & {
+    a {
+      color: $dark;
+    }
+  }
+}

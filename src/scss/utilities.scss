@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;900&display=swap');
+
+$bodyFont: 'Source Code Pro';
+$headingFont: 'Fredoka One';
+
+$bodySize: 1.4rem;
+$headingSizes: (
+  'h1': 2.8rem,
+  'h2': 2.2rem,
+  'h3': 1.8rem,
+  'h4': 1.4rem,
+  'h5': 2.4rem,
+  'h6': 2.4rem,
+);
+
+$maxTextWidth: 70ch;
+$portraitContentHeight: 65vh;
+$landscapeContentWidth: 65vw;
+
+$flyoverBlue: #0078fc;
+$batigansMawOrange: #fc7858;
+$effThisOrange: #f7541e;
+$brightWhite: #ffffff;
+$white: rgba(#e3e3e3, 1);
+$black: #292929;
+$deepBlack: #000000;
+$transparent: rgba($white, 0);
+$groundLightGold: #fddc5c;
+$hunkyMutedPurple: #805b87;
+$calibredFadedRed: #d3494e;
+$runcinateLightTeal: #90e4c1;
+$bangingPastelPink: #ffbacd;
+$midlandBlueGreen: #056e5d;
+$uncloisteredVeryPaleGreen: #d7fdc6;
+
+$zindexes: (
+  'overlayContent': 90,
+  'overlayAll': 100,
+);
+
+@mixin readabilityWidth($fontSize: $bodySize) {
+  max-width: $maxTextWidth;
+  font-size: $fontSize;
+}

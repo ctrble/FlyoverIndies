@@ -1,0 +1,103 @@
+@use 'sass:map';
+@use 'src/scss/utilities.scss';
+
+$gutterWidth: 2rem;
+$curve: $gutterWidth;
+$edgeColor: utilities.$black;
+$screenColor: utilities.$white;
+
+$portraitScreenHeight: utilities.$portraitContentHeight;
+$portraitScreenWidth: calc(100vh - #{$portraitScreenHeight});
+
+$landscapeScreenWidth: utilities.$landscapeContentWidth;
+$landscapeScreenHeight: calc(100vw - #{$landscapeScreenWidth});
+
+.arcade {
+  display: grid;
+  height: 100vh;
+  max-height: 100vh;
+  @media (orientation: portrait) {
+    grid-template-columns: 50% 50%;
+    grid-template-rows: $portraitScreenHeight $portraitScreenWidth;
+    grid-template-areas: 'screen screen' 'control panel';
+  }
+  @media (orientation: landscape) {
+    grid-template-columns: $landscapeScreenWidth $landscapeScreenHeight;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 'screen panel' 'screen control';
+  }
+}
+
+@mixin screenEnd($top) {
+  content: '';
+  position: absolute;
+  left: $gutterWidth;
+  right: $gutterWidth;
+  height: $gutterWidth;
+  background-color: $screenColor;
+  @if $top {
+    top: $gutterWidth;
+    border-radius: $curve $curve 0 0;
+  } @else {
+    bottom: $gutterWidth;
+    border-radius: 0 0 $curve $curve;
+  }
+}
+
+.arcade__screen {
+  grid-area: screen;
+  background-color: $edgeColor;
+  color: utilities.$flyoverBlue;
+  padding: $gutterWidth * 2 $gutterWidth; // works with borders/blur
+  position: relative; // support psuedos
+  &:before {
+    @include screenEnd(true);
+  }
+  &:after {
+    @include screenEnd(false);
+  }
+}
+
+.arcade__screenContent {
+  background-color: $screenColor;
+  padding: 0 $gutterWidth * 2; // works with borders/blur
+  overflow-y: auto;
+  height: 100%;
+  position: relative; // support blurs
+}
+
+.arcade__screenBlur {
+  position: sticky;
+  height: $gutterWidth;
+  z-index: map-get(utilities.$zindexes, 'overlayContent');
+  left: 0;
+  right: 0;
+  &_top {
+    top: 0;
+    background-image: linear-gradient(
+      to bottom,
+      $screenColor,
+      utilities.$transparent
+    );
+  }
+  &_bottom {
+    bottom: 0;
+    background-image: linear-gradient(
+      to top,
+      $screenColor,
+      utilities.$transparent
+    );
+  }
+}
+
+.arcade__controls {
+  grid-area: control;
+  background-color: utilities.$flyoverBlue;
+  color: utilities.$white;
+}
+
+.arcade__panel {
+  grid-area: panel;
+  background-color: utilities.$white;
+  color: utilities.$black;
+}

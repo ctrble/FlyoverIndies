@@ -1,0 +1,10 @@
+@use 'src/scss/utilities';
+
+// see _fullCalendar.scss for all the overrides -_-
+
+.nextEvent {
+  display: flex;
+  flex-direction: column;
+  margin: 3rem auto;
+  @include utilities.readabilityWidth();
+}
