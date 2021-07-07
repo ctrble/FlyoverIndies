@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { DefaultSeo } from 'next-seo';
+import { SWRConfig } from 'swr';
 
 import SEO from 'next-seo.config';
 
@@ -12,11 +13,18 @@ function FlyoverIndies({ Component, pageProps }) {
 
   return (
     <>
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <DefaultSeo {...SEO} />
-      {getLayout(<Component {...pageProps} />)}
+      <SWRConfig
+        value={{
+          fetcher: (resource, init) =>
+            fetch(resource, init).then((res) => res.json()),
+        }}
+      >
+        <Head>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <DefaultSeo {...SEO} />
+        {getLayout(<Component {...pageProps} />)}
+      </SWRConfig>
     </>
   );
 }

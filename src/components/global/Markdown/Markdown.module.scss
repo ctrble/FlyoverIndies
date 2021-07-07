@@ -15,6 +15,10 @@ $markdownGap: 6rem;
   > :last-child {
     margin-bottom: 0;
   }
+
+  &_small > * {
+    font-size: 1.2rem;
+  }
 }
 
 .markdown__cta {

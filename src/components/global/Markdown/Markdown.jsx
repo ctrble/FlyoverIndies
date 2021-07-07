@@ -32,10 +32,13 @@ const ParagraphOrImage = (props) => {
   /* eslint-enable react/destructuring-assignment, react/prop-types, react/jsx-props-no-spreading */
 };
 
-const Markdown = ({ content, frontmatter, showDivider }) => (
+const Markdown = ({ content, frontmatter, showDivider, textSize }) => (
   <div className={styles.markdown}>
     <ReactMarkdown
-      className={styles.markdown__content}
+      className={classnames(
+        styles.markdown__content,
+        textSize && styles[`markdown__content_${textSize}`]
+      )}
       /* eslint-disable react/display-name, react/jsx-props-no-spreading, react/prop-types */
       components={{
         a: ({ node, children, href, ...props }) => (
@@ -78,18 +81,13 @@ Markdown.propTypes = {
     ctaLink: PropTypes.string,
   }),
   showDivider: PropTypes.bool,
+  textSize: PropTypes.oneOf(['small']),
 };
 
 Markdown.defaultProps = {
   frontmatter: null,
-  // frontmatter: PropTypes.shape({
-  //   title: null,
-  //   description: null,
-  //   date: null,
-  //   ctaText: null,
-  //   ctaLink: null,
-  // }),
   showDivider: false,
+  textSize: undefined,
 };
 
 export default Markdown;
