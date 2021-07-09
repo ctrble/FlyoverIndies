@@ -1,5 +1,5 @@
 ![Vercel](https://img.shields.io/github/deployments/ctrble/FlyoverIndies/production?label=vercel&logo=vercel&logoColor=white)
-![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app={vercel.com/ctrble/flyover-indies})
+![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app={flyover-indies})
 
 Welcome to the Flyover Indies website repo!
 
