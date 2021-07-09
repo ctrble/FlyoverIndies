@@ -11,7 +11,7 @@ import MarkdownLinkOnly from 'src/components/global/Markdown/MarkdownLinkOnly';
 import styles from './Bios.module.scss';
 
 const Bios = ({ people }) => {
-  const { data } = useSWR('/api/posts', { initialData: people });
+  const { data } = useSWR('/api/bios', { initialData: people });
 
   return (
     <div className={styles.bios}>
