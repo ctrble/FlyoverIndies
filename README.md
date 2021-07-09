@@ -3,33 +3,40 @@
 
 Welcome to the Flyover Indies website repo!
 
+## Technology Overview
+
+This site is built with Next.js, a server-side rendered React framework. It uses SCSS Modules for styling, and content is sourced from Markdown files and Google Sheets. The site is automatically deployed by Vercel.
+
+Take a look at the following resources to learn more:
+
+- [React documentation](https://reactjs.org/docs)
+- [Next.js documentation](https://nextjs.org/docs)
+- [SCSS Modules overview](https://medium.com/clover-platform-blog/modular-scss-and-why-you-need-it-6bb2d8c40fd8)
+- [Markdown cheat sheet](https://www.markdownguide.org/cheat-sheet/)
+- [Google Sheets as Next.js CMS](https://andreaskeller.name/blog/nextjs-google-sheets-cms)
+- [Vercel](https://vercel.com/)
+
 ## Getting Started
 
-First, run the development server:
+Download the repo:
 
 ```bash
-yarn dev
+git clone https://github.com/Andrews-McMeel-Universal/puzzle-society_ui.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Developing Locally
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+You will need:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- [NVM & Node](https://github.com/creationix/nvm)
+  - Install Node v15.7.0 or above, preferably the version listed in the `.nvmrc` file
+- [Yarn](https://yarnpkg.com/)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Basic commands, see `package.json` for all options:
 
-## Learn More
+- Install dependencies: `yarn install`
+- Start app for development: `yarn dev`
+- Start app for production: `yarn build && yarn start`
+- Open app in browser: `open http://localhost:3000/`
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+> If you need to use or test data from Google Sheets, contact [@ctrble](https://github.com/ctrble) to get set up with the environment variables.
