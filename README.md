@@ -116,3 +116,28 @@ You can add images to any of the `.md` files, which will be shown inline whereve
 Make sure any images you add are not gigantic. If needed, crop or resize it, and **always** try to compress them first using a tool like [Image Optim](https://imageoptim.com/mac) or [TinyPNG](https://tinypng.com/) (which also compresses `.jpeg`).
 
 ## Submitting Changes
+
+All changes need to be submitted via Pull Request.
+
+### Directly on GitHub
+
+If you only need to edit text, the easiest way to do that is by editing the file online:
+
+1. Navigate to the file and click the pencil icon towards the top-right (near "Raw" and "Blame") of the file contents to begin editing.
+2. Make your changes. You can preview them using the "Preview" tab towards the top-left of the file contents.
+
+> You can similarly use the "Add file" button to create or upload files into the current directory.
+
+Once you're finished, submit a pull request:
+
+1. At the bottom of the page, click the "Create a new branch for this commit and start a pull request" option and then click "Propose changes". You can edit the fields before proposing changes if you want, but you don't need to.
+2. Click "Create pull request". You can edit the title and/or description and preview your changes if you want.
+3. Code owners will be notified and handle it from there!
+
+### Advanced
+
+If you need to add files or make additional changes and are familiar with git, then create a branch, work locally and commit your changes, and follow up with a pull request. It's recommended to follow the Getting Started section and run the app locally to aid development and verify your work.
+
+### Pull Request Previews
+
+When a pull request is created, Vercel will create a preview build so you can test out your changes prior to them being merged in. This way you can check that everything works and looks the way you expect.
