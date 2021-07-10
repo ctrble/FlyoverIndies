@@ -26,39 +26,43 @@ const Bios = ({ people }) => {
             imagePath,
             website,
           }) => (
-            <li
-              className={classnames(
-                styles.bios__person,
-                styles[`bios__person_${colorTheme}`]
+            <>
+              {(position === 'Mentor' || position === 'Organizer') && (
+                <li
+                  className={classnames(
+                    styles.bios__person,
+                    styles[`bios__person_${colorTheme}`]
+                  )}
+                  key={name}
+                >
+                  {imagePath && (
+                    <LazyImage
+                      src={imagePath}
+                      alt={name}
+                      className={styles.bios__image}
+                    />
+                  )}
+
+                  <div className={styles.bios__whoWrapper}>
+                    <h2 className={styles.bios__name}>{name}</h2>
+                    <span className={styles.bios__pronouns}>{pronouns}</span>
+                  </div>
+
+                  <span className={styles.bios__position}>{position}</span>
+
+                  <Markdown content={about} textSize="small" />
+
+                  {website && (
+                    <div className={styles.bios__websiteWrapper}>
+                      <FiExternalLink title={`${name}'s offsite link`} />
+                      <span className={styles.bios__website}>
+                        <MarkdownLinkOnly content={website} />
+                      </span>
+                    </div>
+                  )}
+                </li>
               )}
-              key={name}
-            >
-              {imagePath && (
-                <LazyImage
-                  src={imagePath}
-                  alt={name}
-                  className={styles.bios__image}
-                />
-              )}
-
-              <div className={styles.bios__whoWrapper}>
-                <h2 className={styles.bios__name}>{name}</h2>
-                <span className={styles.bios__pronouns}>{pronouns}</span>
-              </div>
-
-              <span className={styles.bios__position}>{position}</span>
-
-              <Markdown content={about} textSize="small" />
-
-              {website && (
-                <div className={styles.bios__websiteWrapper}>
-                  <FiExternalLink title={`${name}'s offsite link`} />
-                  <span className={styles.bios__website}>
-                    <MarkdownLinkOnly content={website} />
-                  </span>
-                </div>
-              )}
-            </li>
+            </>
           )
         )}
       </ol>
