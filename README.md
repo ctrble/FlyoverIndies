@@ -140,4 +140,4 @@ If you need to add files or make additional changes and are familiar with git, t
 
 ### Pull Request Previews
 
-When a pull request is created, Vercel will create a preview build so you can test out your changes prior to them being merged in. This way you can check that everything works and looks the way you expect.
+When a pull request is created, Vercel will create a preview build and link to it in your pull request so you can test out your changes prior to them being merged in. This way you can check that everything works and looks the way you expect.
