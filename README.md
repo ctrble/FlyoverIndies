@@ -136,7 +136,7 @@ Once you're finished, submit a pull request:
 
 ### Advanced
 
-If you need to add files or make additional changes and are familiar with git, then create a branch, work locally and commit your changes, and follow up with a pull request. It's recommended to follow the Getting Started section and run the app locally to aid development and verify your work.
+If you need to add files or make additional changes and are familiar with git, then create a branch, work locally and commit your changes, and follow up with a pull request. Note that you cannot work directly on the `main` branch, you **must** create your own branch first. It's recommended to follow the Getting Started section and run the app locally to aid development and verify your work.
 
 ### Pull Request Previews
 
