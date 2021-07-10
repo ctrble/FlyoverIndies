@@ -84,7 +84,7 @@ Within each page directory is an `intro.md` file, which provides essential info 
 
 Every page on the site needs some basic info to provide, at minimum, a **title**, **description**, and **date**. Frontmatter is required at the beginning of all `.md` files. Here's what it looks like and what each possible entry means:
 
-```md
+```
 ---
 title: The title of the page, usually seen in the browser's tab
 description: The description for the page, often used in search results
@@ -95,6 +95,15 @@ ctaLink: A link for that fancy button, it can be an absolute URL (offsite) or a 
 ```
 
 ### Navigation Menu
+
+The site's main navigation menu is set up using `data/nav.js`. It's stored in an array, and will appear in whatever order it's defined in. Each entry should look like this:
+
+```js
+{
+  title: 'link name as shown in the nav (use all lowercase)',
+  path: '/slug',
+},
+```
 
 ### Images
 
