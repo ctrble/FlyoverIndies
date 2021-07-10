@@ -107,4 +107,12 @@ The site's main navigation menu is set up using `data/nav.js`. It's stored in an
 
 ### Images
 
+You can add images to any of the `.md` files, which will be shown inline wherever you place them. First, add the image file to `public/images/`, then use standard Markdown formatting to link the image within the `.md` file, like:
+
+```md
+![Image alt text](/images/image-name.jpg)
+```
+
+Make sure any images you add are not gigantic. If needed, crop or resize it, and **always** try to compress them first using a tool like [Image Optim](https://imageoptim.com/mac) or [TinyPNG](https://tinypng.com/) (which also compresses `.jpeg`).
+
 ## Submitting Changes
