@@ -1,7 +1,6 @@
 ---
 title: Game Making Resources
 description: Our collection of recommended game making tools, all selections are affordable and used by our community.
-date: 2021-05-30
 ---
 
 # Game Making Resources

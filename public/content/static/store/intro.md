@@ -1,7 +1,6 @@
 ---
 title: Merch
 description: Check out our online store to help support the Flyover Indies community!
-date: 2021-05-30
 ctaText: Go shopping!
 ctaLink: https://flyoverindies.threadless.com/
 ---

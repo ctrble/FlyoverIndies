@@ -1,7 +1,6 @@
 ---
 title: Events
 description: Flyover Indies hosts several regular free in-person and online events. Check our calendar to find out what's on the schedule!
-date: 2021-05-30
 ctaText: Join our Discord
 ctaLink: https://discord.gg/8JdcrkR
 ---

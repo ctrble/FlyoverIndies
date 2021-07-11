@@ -1,7 +1,6 @@
 ---
 title: About Us
 description: All about Flyover Indies! What and who we are, our Code of Conduct, and press links.
-date: 2021-03-07
 ctaText: Meet the leadership team
 ctaLink: /about/leadership
 ---

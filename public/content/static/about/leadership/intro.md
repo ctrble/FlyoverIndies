@@ -1,7 +1,6 @@
 ---
 title: Leadership
 description: Interested in who helps out in making Flyover Indies a reality? Here's our list of current Organizers and Mentors.
-date: 2021-03-07
 ---
 
 # Flyover Indies Organizers and Mentors

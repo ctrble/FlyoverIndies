@@ -1,7 +1,6 @@
 ---
 title: Contact Us
 description: Get in touch with Flyover Indies by sending us a message.
-date: 2021-05-27
 ---
 
 # Get in touch

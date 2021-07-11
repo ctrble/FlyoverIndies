@@ -76,7 +76,6 @@ Markdown.propTypes = {
   frontmatter: PropTypes.shape({
     title: PropTypes.string,
     description: PropTypes.string,
-    date: PropTypes.string,
     ctaText: PropTypes.string,
     ctaLink: PropTypes.string,
   }),

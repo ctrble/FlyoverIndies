@@ -4,12 +4,6 @@ import matter from 'gray-matter';
 
 const createSlugFromMd = (filename) => filename.replace('.md', '');
 
-const formattedDate = (date) => {
-  // get day in format: Month day, Year. e.g. April 19, 2020
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  return date.toLocaleDateString('en-US', options);
-};
-
 export const fileContent = (directory, file) => {
   const filePath = path.resolve(`./public/content/${directory}/${file}`);
 
@@ -21,7 +15,6 @@ export const fileContent = (directory, file) => {
     const { data, content } = matter(markdownWithMetadata);
     const frontmatter = {
       ...data,
-      date: formattedDate(data.date),
     };
 
     // use the filename as the slug and return the content
@@ -43,13 +36,7 @@ export const directoryContent = (directory, fullPath = '') => {
   // get files from content directory
   try {
     const files = fs.readdirSync(directoryPath, 'utf8');
-    // retrieve content from files
-    const fileContents = files
-      .map((file) => fileContent(directory, file))
-      .sort(
-        (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
-      );
-    return fileContents;
+    return files.map((file) => fileContent(directory, file));
   } catch (error) {
     return [];
   }
