@@ -107,15 +107,14 @@
 
   @include button3d();
 
-  &:hover:not(:disabled) {
-    cursor: pointer;
+  &:any-link {
+    text-decoration: none;
+    color: utilities.$brightWhite;
   }
   &:disabled {
     opacity: 0.65;
   }
-
-  &:any-link {
-    text-decoration: none;
-    color: utilities.$brightWhite;
+  &:hover:not(:disabled) {
+    cursor: pointer;
   }
 }
