@@ -50,10 +50,10 @@ $landscapeScreenHeight: calc(100vw - #{$landscapeScreenWidth});
   color: utilities.$flyoverBlue;
   padding: $gutterWidth * 2 $gutterWidth; // works with borders/blur
   position: relative; // support psuedos
-  &:before {
+  &::before {
     @include screenEnd(true);
   }
-  &:after {
+  &::after {
     @include screenEnd(false);
   }
 }

@@ -10,38 +10,43 @@
   --fc-neutral-bg-color: rgba(208, 208, 208, 0.3);
   --fc-neutral-text-color: #0078fc;
   --fc-border-color: #0078fc;
-
-  --fc-button-text-color: #ffffff;
+  --fc-button-text-color: #fff;
   --fc-button-bg-color: #fc7858;
   --fc-button-border-color: transparent;
   --fc-button-hover-bg-color: #fc7858;
   --fc-button-hover-border-color: transparent;
   --fc-button-active-bg-color: #fc7858;
   --fc-button-active-border-color: transparent;
-
   --fc-event-bg-color: #0078fc;
   --fc-event-border-color: #0078fc;
   --fc-event-text-color: #e3e3e3;
   --fc-event-selected-overlay-color: rgba(0, 0, 0, 0.25);
-
   --fc-event-resizer-thickness: 8px;
   --fc-event-resizer-dot-total-width: 8px;
   --fc-event-resizer-dot-border-width: 1px;
-
   --fc-non-business-color: rgba(215, 215, 215, 0.3);
   --fc-bg-event-color: rgb(143, 223, 130);
   --fc-bg-event-opacity: 0.3;
   --fc-highlight-color: rgba(188, 232, 241, 0.3);
   --fc-today-bg-color: #f7541e;
   --fc-now-indicator-color: #f7541e;
-
   --fc-daygrid-event-dot-width: 8px;
-
   --fc-list-event-dot-width: 10px;
   --fc-list-event-hover-bg-color: #e3e3e3;
 }
 
 // button overrides
+.fc-button {
+  font-family: utilities.$headingFont !important;
+  text-transform: capitalize !important;
+  @include button3d(
+    $topLeftRadius: 4rem !important,
+    $topRightRadius: 4rem !important,
+    $bottomLeftRadius: 4rem !important,
+    $bottomRightRadius: 4rem !important
+  );
+}
+
 .fc-button-group > .fc-button:not(:first-child) {
   @include button3d(
     $topLeftRadius: 0 !important,
@@ -56,17 +61,6 @@
     $topRightRadius: 0 !important,
     $bottomLeftRadius: 4rem !important,
     $bottomRightRadius: 0 !important
-  );
-}
-
-.fc-button {
-  font-family: utilities.$headingFont !important;
-  text-transform: capitalize !important;
-  @include button3d(
-    $topLeftRadius: 4rem !important,
-    $topRightRadius: 4rem !important,
-    $bottomLeftRadius: 4rem !important,
-    $bottomRightRadius: 4rem !important
   );
 }
 
@@ -136,7 +130,7 @@ tr.fc-list-event.fc-event-forced-url:hover {
   .fc-list-day-text {
     font-weight: 900;
   }
-  .fc-list-day-text:after {
+  .fc-list-day-text::after {
     content: ' \a0 \a0 (today!)';
   }
 }

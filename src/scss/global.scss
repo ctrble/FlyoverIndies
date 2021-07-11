@@ -3,8 +3,8 @@
 @import './fullCalendar';
 
 *,
-:after,
-:before {
+::after,
+::before {
   box-sizing: border-box;
 }
 
@@ -17,6 +17,7 @@ body {
   font-family: utilities.$bodyFont;
   font-size: 1.6rem;
   line-height: 2;
+
   /* mobile viewport bug fix */
   min-height: 100vh;
   min-height: -webkit-fill-available;

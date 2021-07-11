@@ -15,11 +15,10 @@
 
 .form__input {
   width: 100%;
-  border: none;
-  border-radius: 1rem;
   padding: 1rem;
   line-height: 1;
   font-size: utilities.$bodySize - 0.2rem;
+  border-radius: 1rem;
   border: 1px solid utilities.$transparent;
   &:focus {
     outline: none;
