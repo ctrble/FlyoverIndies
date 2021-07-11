@@ -130,7 +130,7 @@ tr.fc-list-event.fc-event-forced-url:hover {
   .fc-list-day-text {
     font-weight: 900;
   }
-  .fc-list-day-text::after {
+  .fc-list-day-text:after {
     content: ' \a0 \a0 (today!)';
   }
 }

@@ -13,11 +13,10 @@
   $buttonHeight: 8px;
   $buttonShadowLength: 6px;
   $pressAmount: 4px;
-  $sideShadowStyle: 0px 4px 2px 0px
-    color.scale($secondaryColor, $blackness: 15%);
-  $sideStyle: $sideShadowStyle, 0px $buttonHeight 0px 0px $secondaryColor;
+  $sideShadowStyle: 0 4px 2px 0 color.scale($secondaryColor, $blackness: 15%);
+  $sideStyle: $sideShadowStyle, 0 $buttonHeight 0 0 $secondaryColor;
   $sideStyleHover: $sideShadowStyle,
-    0px $buttonHeight - $pressAmount 0px 0px $secondaryColor;
+    0 $buttonHeight - $pressAmount 0 0 $secondaryColor;
   $bottomShadowColor: rgba(utilities.$black, 0.25);
 
   $easingFunction: cubic-bezier(0.87, 0, 0.13, 1);
@@ -76,7 +75,7 @@
     border-top-right-radius: $topRightRadius;
     border-bottom-left-radius: $bottomLeftRadius;
     border-bottom-right-radius: $bottomRightRadius;
-    box-shadow: 0px $buttonShadowLength 0px 0px $bottomShadowColor;
+    box-shadow: 0 $buttonShadowLength 0 0 $bottomShadowColor;
   }
 
   &:hover {
@@ -91,8 +90,7 @@
     // shadow
     &:after {
       transform: translate3d(0, -$pressAmount, 0);
-      box-shadow: 0px $buttonShadowLength - $pressAmount 0px 0px
-        $bottomShadowColor;
+      box-shadow: 0 $buttonShadowLength - $pressAmount 0 0 $bottomShadowColor;
     }
   }
 }

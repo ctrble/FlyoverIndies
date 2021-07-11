@@ -93,7 +93,7 @@ $linkMovement: 1rem;
   &_isActive {
     cursor: default;
 
-    &::after {
+    &:after {
       content: '<';
       padding-left: $linkSpace;
     }
