@@ -26,14 +26,13 @@ const Bios = ({ people }) => {
             imagePath,
             website,
           }) => (
-            <>
+            <React.Fragment key={name}>
               {(position === 'Mentor' || position === 'Organizer') && (
                 <li
                   className={classnames(
                     styles.bios__person,
                     styles[`bios__person_${colorTheme}`]
                   )}
-                  key={name}
                 >
                   {imagePath && (
                     <LazyImage
@@ -62,7 +61,7 @@ const Bios = ({ people }) => {
                   )}
                 </li>
               )}
-            </>
+            </React.Fragment>
           )
         )}
       </ol>
