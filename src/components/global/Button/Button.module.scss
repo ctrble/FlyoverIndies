@@ -22,6 +22,11 @@
   $easingFunction: cubic-bezier(0.87, 0, 0.13, 1);
   $easingTime: 0.15s;
 
+  // transition
+  transform: translate3d(0, 0, 0);
+  transition: transform $easingTime $easingFunction,
+    box-shadow $easingTime $easingFunction;
+
   // inside button
   background-color: $primaryColor;
   border-top-left-radius: $topLeftRadius;
@@ -31,36 +36,6 @@
 
   // bottom side
   box-shadow: $sideStyle;
-
-  // funky state overrides cause third party styles are a thing
-  &:disabled:focus:not(:hover) {
-    box-shadow: $sideStyle;
-  }
-  &:disabled:focus:hover {
-    box-shadow: $sideStyleHover;
-  }
-  &:focus {
-    outline: none;
-    box-shadow: $sideStyle;
-
-    // bottom side
-    box-shadow: $sideStyle;
-  }
-  &:active {
-    background-color: $primaryColor;
-  }
-  &:active:focus {
-    box-shadow: $sideStyle;
-  }
-  &:active:focus:hover {
-    // bottom side
-    box-shadow: $sideStyleHover;
-  }
-
-  // transition
-  transform: translate3d(0, 0, 0);
-  transition: transform $easingTime $easingFunction,
-    box-shadow $easingTime $easingFunction;
 
   // shadow
   &:after {
@@ -78,20 +53,35 @@
     box-shadow: 0 $buttonShadowLength 0 0 $bottomShadowColor;
   }
 
-  &:hover {
+  // funky state overrides cause third party styles are a thing
+  &:focus {
+    outline: none;
+    box-shadow: $sideStyle;
+    box-shadow: $sideStyle;
+  }
+  &:active {
     background-color: $primaryColor;
-
-    // transition
+  }
+  &:hover {
     transform: translate3d(0, $pressAmount, 0);
-
-    // bottom side
+    background-color: $primaryColor;
     box-shadow: $sideStyleHover;
-
-    // shadow
-    &:after {
-      transform: translate3d(0, -$pressAmount, 0);
-      box-shadow: 0 $buttonShadowLength - $pressAmount 0 0 $bottomShadowColor;
-    }
+  }
+  &:focus:active {
+    box-shadow: $sideStyle;
+  }
+  &:focus:active:hover {
+    box-shadow: $sideStyleHover;
+  }
+  &:hover:after {
+    transform: translate3d(0, -$pressAmount, 0);
+    box-shadow: 0 $buttonShadowLength - $pressAmount 0 0 $bottomShadowColor;
+  }
+  &:disabled:focus:hover {
+    box-shadow: $sideStyleHover;
+  }
+  &:disabled:focus:not(:hover) {
+    box-shadow: $sideStyle;
   }
 }
 
