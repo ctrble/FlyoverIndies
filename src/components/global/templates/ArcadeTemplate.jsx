@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 
 import Arcade from 'src/components/global/grid/Arcade';
-import Nav from 'src/components/Nav';
+
+const Nav = dynamic(() => import('src/components/Nav'), {
+  ssr: false,
+});
 
 const LogoAnimation = dynamic(() => import('src/components/LogoAnimation'), {
   ssr: false,
