@@ -13,15 +13,19 @@
   $buttonHeight: 8px;
   $buttonShadowLength: 6px;
   $pressAmount: 4px;
-  $sideShadowStyle: 0px 4px 2px 0px
-    color.scale($secondaryColor, $blackness: 15%);
-  $sideStyle: $sideShadowStyle, 0px $buttonHeight 0px 0px $secondaryColor;
+  $sideShadowStyle: 0 4px 2px 0 color.scale($secondaryColor, $blackness: 15%);
+  $sideStyle: $sideShadowStyle, 0 $buttonHeight 0 0 $secondaryColor;
   $sideStyleHover: $sideShadowStyle,
-    0px $buttonHeight - $pressAmount 0px 0px $secondaryColor;
+    0 $buttonHeight - $pressAmount 0 0 $secondaryColor;
   $bottomShadowColor: rgba(utilities.$black, 0.25);
 
   $easingFunction: cubic-bezier(0.87, 0, 0.13, 1);
   $easingTime: 0.15s;
+
+  // transition
+  transform: translate3d(0, 0, 0);
+  transition: transform $easingTime $easingFunction,
+    box-shadow $easingTime $easingFunction;
 
   // inside button
   background-color: $primaryColor;
@@ -32,36 +36,6 @@
 
   // bottom side
   box-shadow: $sideStyle;
-
-  // funky state overrides cause third party styles are a thing
-  &:disabled:focus:not(:hover) {
-    box-shadow: $sideStyle;
-  }
-  &:disabled:focus:hover {
-    box-shadow: $sideStyleHover;
-  }
-  &:focus {
-    outline: none;
-    box-shadow: $sideStyle;
-
-    // bottom side
-    box-shadow: $sideStyle;
-  }
-  &:active {
-    background-color: $primaryColor;
-  }
-  &:active:focus {
-    box-shadow: $sideStyle;
-  }
-  &:active:focus:hover {
-    // bottom side
-    box-shadow: $sideStyleHover;
-  }
-
-  // transition
-  transform: translate3d(0, 0, 0);
-  transition: transform $easingTime $easingFunction,
-    box-shadow $easingTime $easingFunction;
 
   // shadow
   &:after {
@@ -76,24 +50,38 @@
     border-top-right-radius: $topRightRadius;
     border-bottom-left-radius: $bottomLeftRadius;
     border-bottom-right-radius: $bottomRightRadius;
-    box-shadow: 0px $buttonShadowLength 0px 0px $bottomShadowColor;
+    box-shadow: 0 $buttonShadowLength 0 0 $bottomShadowColor;
   }
 
-  &:hover {
+  // funky state overrides cause third party styles are a thing
+  // see _fullCalendar.scss for more fun
+  &:focus {
+    outline: none;
+    box-shadow: $sideStyle;
+  }
+  &:active {
     background-color: $primaryColor;
-
-    // transition
+  }
+  &:hover {
     transform: translate3d(0, $pressAmount, 0);
-
-    // bottom side
+    background-color: $primaryColor;
     box-shadow: $sideStyleHover;
-
-    // shadow
-    &:after {
-      transform: translate3d(0, -$pressAmount, 0);
-      box-shadow: 0px $buttonShadowLength - $pressAmount 0px 0px
-        $bottomShadowColor;
-    }
+  }
+  &:hover:after {
+    transform: translate3d(0, -$pressAmount, 0);
+    box-shadow: 0 $buttonShadowLength - $pressAmount 0 0 $bottomShadowColor;
+  }
+  &:focus:active {
+    box-shadow: $sideStyle;
+  }
+  &:focus:active:hover {
+    box-shadow: $sideStyleHover;
+  }
+  &:disabled:focus:hover {
+    box-shadow: $sideStyleHover;
+  }
+  &:disabled:focus:not(:hover) {
+    box-shadow: $sideStyle;
   }
 }
 
@@ -109,15 +97,14 @@
 
   @include button3d();
 
-  &:hover:not(:disabled) {
-    cursor: pointer;
+  &:any-link {
+    text-decoration: none;
+    color: utilities.$brightWhite;
   }
   &:disabled {
     opacity: 0.65;
   }
-
-  &:any-link {
-    text-decoration: none;
-    color: utilities.$brightWhite;
+  &:hover:not(:disabled) {
+    cursor: pointer;
   }
 }

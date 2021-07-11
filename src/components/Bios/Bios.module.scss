@@ -128,7 +128,8 @@ $dark: utilities.$black;
   align-items: center;
 
   // normally would put this on the bottom of the previous element,
-  // but the website is optional
+  // but the website is optional and this separator only appears when
+  // there is a website
   padding-top: 1rem;
   border-top: 1px dashed $light;
   margin-top: 1rem;
@@ -137,18 +138,10 @@ $dark: utilities.$black;
     margin-left: 0.5rem;
   }
 
-  a:hover {
-    border-color: $light;
-  }
-
   .bios__person_yellow &,
   .bios__person_teal &,
   .bios__person_pink & {
     border-top: 1px dashed $dark;
-
-    a:hover {
-      border-color: $dark;
-    }
   }
 }
 
@@ -156,11 +149,15 @@ $dark: utilities.$black;
   a {
     color: $light;
   }
+  a:hover {
+    border-color: $light;
+  }
   .bios__person_yellow &,
   .bios__person_teal &,
   .bios__person_pink & {
     a {
       color: $dark;
+      border-color: $dark;
     }
   }
 }

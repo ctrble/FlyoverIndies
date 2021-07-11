@@ -87,7 +87,7 @@ $animationDuration: #{$animationDurationTime}s;
   transition: color ease-in-out 0.25s;
   svg {
     transition: all ease-in-out 0.25s;
-    filter: drop-shadow(0px 2px 0px utilities.$transparent);
+    filter: drop-shadow(0 2px 0 utilities.$transparent);
   }
   &:hover {
     cursor: pointer;
@@ -95,7 +95,7 @@ $animationDuration: #{$animationDurationTime}s;
     color: utilities.$batigansMawOrange;
     svg {
       transition: all ease-in-out 0.25s;
-      filter: drop-shadow(0px 2px 0px utilities.$flyoverBlue);
+      filter: drop-shadow(0 2px 0 utilities.$flyoverBlue);
     }
   }
 }
@@ -115,7 +115,6 @@ $animationDuration: #{$animationDurationTime}s;
   height: $spriteHeight;
   width: $spriteWidth;
   max-width: $spriteWidth;
-
   animation: flyAnimation;
   animation-timing-function: step-end;
   animation-iteration-count: 1;

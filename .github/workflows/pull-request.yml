@@ -1,0 +1,37 @@
+name: Pull Request
+
+on: pull_request
+
+jobs:
+  lint-and-format:
+    runs-on: ubuntu-latest
+    continue-on-error: false
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Read .nvmrc
+        run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
+        id: nvm
+
+      - name: Use Node.js (.nvmrc)
+        uses: actions/setup-node@v1
+        with:
+          node-version: '${{ steps.nvm.outputs.NVMRC }}'
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Lint javascript
+        run: yarn lint:js
+
+      - name: Lint scss
+        run: yarn lint:scss
+
+      - name: Format all
+        run: yarn format
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Apply prettier changes

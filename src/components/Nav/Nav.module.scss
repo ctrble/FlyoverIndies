@@ -66,13 +66,6 @@ $linkMovement: 1rem;
   padding-right: $linkMovement;
   transition: padding 125ms ease-out;
 
-  &:focus:any-link,
-  &:hover {
-    padding-left: $linkSpace + $linkMovement;
-    padding-right: 0;
-    font-weight: bold;
-  }
-
   &:any-link {
     text-transform: capitalize;
     text-decoration: none;
@@ -87,10 +80,14 @@ $linkMovement: 1rem;
     @media (hover: none) {
       color: $linkColorPortrait;
     }
+  }
 
-    &:hover {
-      border-bottom: none;
-    }
+  &:hover,
+  &:focus:any-link {
+    padding-left: $linkSpace + $linkMovement;
+    padding-right: 0;
+    font-weight: bold;
+    border-bottom: none;
   }
 
   &_isActive {
