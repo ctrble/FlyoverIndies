@@ -79,13 +79,12 @@ Within each page directory is an `intro.md` file, which provides essential info 
 
 ### Frontmatter
 
-Every page on the site needs some basic info to provide, at minimum, a **title**, **description**, and **date**. Frontmatter is required at the beginning of all `.md` files. Here's what it looks like and what each possible entry means:
+Every page on the site needs some basic info to provide, at minimum, a **title** and **description**. Frontmatter is required at the beginning of all `.md` files. Here's what it looks like and what each possible entry means:
 
 ```
 ---
-title: The title of the page, usually seen in the browser's tab
-description: The description for the page, often used in search results
-date: Updated/added date, formatted like YYYY-MM-DD
+title: (required) The title of the page, usually seen in the browser's tab
+description: (required) The description for the page, often used in search results
 ctaText: Text that's shown in a fancy button below the rest of this files contents
 ctaLink: A link for that fancy button, it can be an absolute URL (offsite) or a path (onsite)
 ---
