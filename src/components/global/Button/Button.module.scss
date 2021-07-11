@@ -54,9 +54,9 @@
   }
 
   // funky state overrides cause third party styles are a thing
+  // see _fullCalendar.scss for more fun
   &:focus {
     outline: none;
-    box-shadow: $sideStyle;
     box-shadow: $sideStyle;
   }
   &:active {
@@ -67,15 +67,15 @@
     background-color: $primaryColor;
     box-shadow: $sideStyleHover;
   }
+  &:hover:after {
+    transform: translate3d(0, -$pressAmount, 0);
+    box-shadow: 0 $buttonShadowLength - $pressAmount 0 0 $bottomShadowColor;
+  }
   &:focus:active {
     box-shadow: $sideStyle;
   }
   &:focus:active:hover {
     box-shadow: $sideStyleHover;
-  }
-  &:hover:after {
-    transform: translate3d(0, -$pressAmount, 0);
-    box-shadow: 0 $buttonShadowLength - $pressAmount 0 0 $bottomShadowColor;
   }
   &:disabled:focus:hover {
     box-shadow: $sideStyleHover;

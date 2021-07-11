@@ -36,101 +36,107 @@
 }
 
 // button overrides
-.fc-button {
-  font-family: utilities.$headingFont !important;
-  text-transform: capitalize !important;
-  @include button3d(
-    $topLeftRadius: 4rem !important,
-    $topRightRadius: 4rem !important,
-    $bottomLeftRadius: 4rem !important,
-    $bottomRightRadius: 4rem !important
-  );
-}
+.fc {
+  .fc-toolbar-chunk {
+    .fc-button,
+    .fc-button-primary {
+      font-family: utilities.$headingFont !important;
+      text-transform: capitalize !important;
+      @include button3d(
+        $topLeftRadius: 4rem !important,
+        $topRightRadius: 4rem !important,
+        $bottomLeftRadius: 4rem !important,
+        $bottomRightRadius: 4rem !important
+      );
+    }
 
-.fc-button-group > .fc-button:not(:first-child) {
-  @include button3d(
-    $topLeftRadius: 0 !important,
-    $topRightRadius: 4rem !important,
-    $bottomLeftRadius: 0 !important,
-    $bottomRightRadius: 4rem !important
-  );
-}
-.fc-button-group > .fc-button:not(:last-child) {
-  @include button3d(
-    $topLeftRadius: 4rem !important,
-    $topRightRadius: 0 !important,
-    $bottomLeftRadius: 4rem !important,
-    $bottomRightRadius: 0 !important
-  );
-}
+    .fc-button-group > .fc-button:not(:first-child) {
+      @include button3d(
+        $topLeftRadius: 0 !important,
+        $topRightRadius: 4rem !important,
+        $bottomLeftRadius: 0 !important,
+        $bottomRightRadius: 4rem !important
+      );
+    }
 
-// toolbar overrides
-.fc-toolbar {
-  @media (orientation: portrait) {
-    flex-wrap: wrap;
-    .fc-toolbar-chunk {
-      flex: 1 1 100%;
+    .fc-button-group > .fc-button:not(:last-child) {
+      @include button3d(
+        $topLeftRadius: 4rem !important,
+        $topRightRadius: 0 !important,
+        $bottomLeftRadius: 4rem !important,
+        $bottomRightRadius: 0 !important
+      );
     }
   }
-  @media (hover: none) {
-    flex-wrap: wrap;
-    .fc-toolbar-chunk {
-      flex: 1 1 100%;
+
+  // toolbar overrides
+  .fc-toolbar {
+    @media (orientation: portrait) {
+      flex-wrap: wrap;
+      .fc-toolbar-chunk {
+        flex: 1 1 100%;
+      }
+    }
+    @media (hover: none) {
+      flex-wrap: wrap;
+      .fc-toolbar-chunk {
+        flex: 1 1 100%;
+      }
     }
   }
-}
 
-.fc-list-event {
-  @media (orientation: portrait) {
-    display: flex;
-    flex-wrap: wrap;
-    td {
-      border-bottom: none !important;
-      flex: 1 1 100%;
+  .fc-list-event {
+    @media (orientation: portrait) {
+      display: flex;
+      flex-wrap: wrap;
+      td {
+        border-bottom: none !important;
+        flex: 1 1 100%;
+      }
+    }
+    @media (hover: none) {
+      display: flex;
+      flex-wrap: wrap;
+      td {
+        border-bottom: none !important;
+        flex: 1 1 100%;
+      }
     }
   }
-  @media (hover: none) {
-    display: flex;
-    flex-wrap: wrap;
-    td {
-      border-bottom: none !important;
-      flex: 1 1 100%;
+
+  // list overrides
+  .fc-list {
+    border-radius: 2rem;
+    overflow: hidden;
+  }
+
+  .fc-list-event-graphic {
+    display: none;
+  }
+
+  tr.fc-list-event.fc-event-forced-url:hover {
+    & *:any-link {
+      text-decoration: none !important;
     }
   }
-}
 
-// list overrides
-.fc-list {
-  border-radius: 2rem;
-  overflow: hidden;
-}
-
-.fc-list-event-graphic {
-  display: none;
-}
-
-tr.fc-list-event.fc-event-forced-url:hover {
-  & *:any-link {
-    text-decoration: none !important;
+  .fc-list-day {
+    font-family: utilities.$headingFont;
+    font-size: map-get(utilities.$headingSizes, 'h3');
+    color: utilities.$brightWhite;
+    background-color: utilities.$flyoverBlue;
+    .fc-cell-shaded {
+      background-color: utilities.$flyoverBlue !important;
+    }
   }
-}
 
-.fc-list-day {
-  font-family: utilities.$headingFont;
-  font-size: map-get(utilities.$headingSizes, 'h3');
-  color: utilities.$brightWhite;
-  background-color: utilities.$flyoverBlue;
-  .fc-cell-shaded {
-    background-color: utilities.$flyoverBlue !important;
-  }
-}
-
-// today's event
-.fc-day-today {
-  .fc-list-day-text {
-    font-weight: 900;
-  }
-  .fc-list-day-text:after {
-    content: ' \a0 \a0 (today!)';
+  // today's event
+  .fc-day-today {
+    .fc-list-day-text {
+      font-weight: 900;
+    }
+    .fc-list-day-text:after {
+      content: ' \a0 \a0 (today!)';
+    }
   }
 }
