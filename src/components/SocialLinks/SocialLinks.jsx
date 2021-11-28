@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  SiAnchor,
   SiTwitter,
   SiDiscord,
   SiInstagram,
@@ -41,6 +42,12 @@ const SocialLinks = () => (
       href="https://flyoverindies.bandcamp.com/releases"
     >
       <SiBandcamp title="Bandcamp" />
+    </SiteLink>
+    <SiteLink
+      className={styles.social__link}
+      href="https://anchor.fm/flyover-indies"
+    >
+      <SiAnchor title="Anchor" />
     </SiteLink>
     <SiteLink
       className={styles.social__link}
