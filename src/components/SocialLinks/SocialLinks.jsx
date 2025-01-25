@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   SiAnchor,
-  SiTwitter,
   SiDiscord,
   SiInstagram,
   SiItchDotIo,
@@ -16,12 +15,6 @@ import styles from './SocialLinks.module.scss';
 
 const SocialLinks = () => (
   <div className={styles.social}>
-    <SiteLink
-      className={styles.social__link}
-      href="https://twitter.com/FlyoverIndies"
-    >
-      <SiTwitter title="Twitter" />
-    </SiteLink>
     <SiteLink className={styles.social__link} href="https://discord.gg/8JdcrkR">
       <SiDiscord title="Discord" />
     </SiteLink>
