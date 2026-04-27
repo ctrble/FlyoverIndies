@@ -15,12 +15,6 @@ Take a look at the following resources to learn more:
 
 ## Getting Started
 
-First, download the repo:
-
-```bash
-git clone https://github.com/Andrews-McMeel-Universal/puzzle-society_ui.git
-```
-
 Make sure you have these installed:
 
 - [NVM & Node](https://github.com/creationix/nvm)
